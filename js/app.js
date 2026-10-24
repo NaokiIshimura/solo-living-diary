@@ -10,6 +10,7 @@ import {
   defaultSettings,
   endYear,
   endingOf,
+  handoffData,
   immediateCost,
   renewalFee,
   medianIncome,
@@ -23,9 +24,10 @@ import {
 import { LANGS, applyStatic, currentLang, loadLang, money, pageLang, t } from "./i18n.js";
 import { illustFor } from "./illust.js";
 import { canvasToBlob, drawShareCard } from "./share.js";
-import { clearAll, loadRecords, loadSave, loadSettings, recordResult, writeSave, writeSettings } from "./storage.js";
+import { clearAll, loadRecords, loadSave, loadSettings, recordAchievement, recordResult, writeSave, writeSettings } from "./storage.js";
 
 const PROFILE = "jp"; // v1 は日本プロファイルだけ
+const NEWLYWED_SITE = "https://newlywed-diary.nacn.app/";
 const SPEED_MS = { 1: 900, 2: 400 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -465,6 +467,7 @@ function showResult() {
       <p class="title-badge"><span class="label">${r("titleLabel")}</span>${t(`titles.${title}.name`)}${fresh.title ? newBadge() : ""}<span class="sub">${t(`titles.${title}.desc`)}</span></p>
       <p class="note">${lifeLines().join("<br>")}</p>
     </div>
+    ${continueHtml()}
     <section>
       <h3>${r(bankrupt ? "netWorthBankrupt" : "netWorthEnd")}</h3>
       <table>
@@ -493,9 +496,30 @@ function showResult() {
       <h3>${r("timeline")}</h3>
       <ol class="timeline">${state.history.map((h) => `<li><span class="age">${t("main.age", { n: h.age })}</span>${historyText(h)}</li>`).join("")}</ol>
     </section>`;
+  const link = $("#btn-continue-newlywed");
+  if (link) link.addEventListener("click", () => recordAchievement("continued"));
   renderShare(nw, ending, title);
   show("screen-result");
   save();
+}
+
+// 新婚日記へ続くリンク。引き継ぐデータは URL のクエリ d に base64url で入れる（設計書の「新婚日記への引き継ぎ」）
+// 結婚エンドでは大きく、ひとりエンドでは「もし結婚していたら？」として小さく出す。家計破綻エンドでは出さない
+function newlywedUrl() {
+  const json = JSON.stringify(handoffData(data, state));
+  const b64 = btoa(json).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  return `${NEWLYWED_SITE}${currentLang().code}/?from=solo&d=${b64}`;
+}
+
+function continueHtml() {
+  if (state.ended === "bankrupt") return "";
+  const r = (k) => t(`result.continue.${k}`);
+  const married = state.ended === "married";
+  const cls = married ? "button primary" : "button small";
+  return `<section class="continue">
+      <a id="btn-continue-newlywed" class="${cls}" href="${newlywedUrl()}" target="_blank" rel="noopener">${r(married ? "married" : "single")}</a>
+      <p class="hint">${r(married ? "marriedSub" : "singleSub")}</p>
+    </section>`;
 }
 
 function signedMoneyHtml(v) {

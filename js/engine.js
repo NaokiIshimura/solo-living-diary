@@ -2,7 +2,7 @@
 // 金額の単位はすべて万円。
 // 新婚日記のエンジンをもとに、一人暮らし用に作り直したもの。
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
 
 // ---- 乱数（シード付き。状態に乱数の内部値を持たせるので、途中保存しても同じ人生を再現できる） ----
 
@@ -92,8 +92,9 @@ export function createGame(data, settings, seed = newSeed()) {
       appliance: 0, invest: 0, car: 0, medical: 0, events: 0, interest: 0,
     },
     choices: { high: 0, mid: 0, low: 0, none: 0 }, // 称号用に、高い／普通／安い／やらないを選んだ回数を数える
+    picks: { social: [], hobby: [] }, // 称号用に、付き合いと趣味で選んだ段階を順に記録する
     // 実績用の記録
-    flags: { minSavings: settings.savings, maxWindfall: 0, jobUp: false, certified: false },
+    flags: { minSavings: settings.savings, maxWindfall: 0, jobUp: false, certified: false, konkatsu: false, agency: false },
     settings: { ...settings },
     history: [],
     ended: null, // married / single / bankrupt
@@ -333,6 +334,7 @@ export function choose(data, state, event, choice) {
         illnessBonus: picked.illnessBonus ?? 0,
         reviewAt: state.year + ev.reviewEvery,
       };
+      state.picks[event.id]?.push(state.recurring[event.id].tier);
       const tier = opt ? opt.tier : "skip";
       addHistory(state, event.review && before === state.recurring[event.id].tier ? `events.${event.id}.same` : `events.${event.id}.${tier}.diary`);
       break;
@@ -388,6 +390,8 @@ export function choose(data, state, event, choice) {
     case "konkatsu":
       state.konkatsuNextYear = state.year + ev.every;
       state.konkatsu = opt ? { tier: opt.tier, annual: opt.annual, meetBonus: opt.meetBonus } : null;
+      if (opt) state.flags.konkatsu = true;
+      if (opt?.tier === "high") state.flags.agency = true;
       addHistory(state, `events.konkatsu.${opt ? opt.tier : "skip"}.diary`);
       break;
 
@@ -562,11 +566,19 @@ function tierShare(state, tier) {
   return total ? (state.choices[tier] ?? 0) / total : 0;
 }
 
+// 全部が指定の段階で、回数が min 以上か
+const allOf = (list, tier, min = 2) => list.length >= min && list.every((x) => x === tier);
+
 // 称号の条件。data.titles（称号の id の並び）の順に調べて、最初に当てはまったものの id を返す
 const TITLE_RULES = {
+  oshi: (s) => allOf(s.picks.hobby, "high"),
+  selfInvest: (s) => s.invest.tiers.length >= 2 && !s.invest.tiers.includes("none"),
   showoff: (s) => tierShare(s, "high") >= 0.7,
   frugal: (s) => tierShare(s, "low") + tierShare(s, "none") >= 0.7,
   steady: (s) => tierShare(s, "mid") >= 0.7,
+  social: (s) => allOf(s.picks.social, "high"),
+  mover: (s) => s.moves >= 3,
+  carFree: (s) => s.carNever,
   balanced: () => true,
 };
 
@@ -575,13 +587,20 @@ export function titleOf(data, state) {
 }
 
 // 実績の条件。最後まで行った暮らし（破綻していない）だけで判定するものは finished を見る
+// 「物語は続く」（新婚日記へ続くボタンを押した）は画面の操作で記録するので、ここでは判定しない
 const finished = (s) => s.ended === "married" || s.ended === "single";
 const ACHIEVEMENT_RULES = {
   rankS: (s, nw, data) => finished(s) && rankOf(data, nw.total).rank === "S",
   bankrupt: (s) => s.ended === "bankrupt",
+  stayed: (s) => finished(s) && s.moves === 0,
+  wanderer: (s) => s.moves >= 5,
+  certified: (s) => s.flags.certified,
+  jobUp: (s) => s.flags.jobUp,
+  fate: (s) => s.ended === "married" && !s.flags.konkatsu,
+  agency: (s) => s.ended === "married" && s.flags.agency,
+  happy: (s, nw, data) => finished(s) && s.fulfillment >= data.happyFulfillment,
   noCardLoan: (s) => finished(s) && s.flags.minSavings >= 0,
   bigWindfall: (s, nw, data) => s.flags.maxWindfall >= data.bigWindfall,
-  jobUp: (s) => s.flags.jobUp,
 };
 
 export function achievementsOf(data, state) {
@@ -593,6 +612,23 @@ export function achievementsOf(data, state) {
 export function compareWithMid(data, state) {
   const mid = playToEnd(data, state.settings, state.seed, "mid");
   return mid.ended === "bankrupt" ? null : netWorth(mid).total;
+}
+
+// ---- 新婚日記への引き継ぎ ----
+
+// 新婚日記の開始設定に渡すデータ（設計書の「新婚日記への引き継ぎ」）。URL のクエリ d に base64url にして入れる
+// 車は新婚日記の state.car と同じ値をそのまま渡し、買った年は年齢で渡す
+export function handoffData(data, state) {
+  const c = state.car;
+  return {
+    v: 1,
+    gender: state.gender,
+    age: state.age,
+    savings: Math.round(state.savings),
+    income: Math.round(state.baseIncome * state.raise),
+    car: c ? { tier: c.tier, price: c.price, resale: c.resale, years: c.years, annual: c.annual, breakdownChance: c.breakdownChance, boughtAge: state.startAge + c.boughtYear } : null,
+    ending: endingOf(data, state),
+  };
 }
 
 // ---- 自動プレイ（バランス確認用） ----

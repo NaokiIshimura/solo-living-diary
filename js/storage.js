@@ -52,6 +52,15 @@ export function recordResult({ ending, title, achievements, netWorth }) {
   return fresh;
 }
 
+// 画面の操作で手に入る実績（「物語は続く」など）を記録する。はじめて手に入れたら true を返す
+export function recordAchievement(id) {
+  const r = loadRecords();
+  if (r.achievements[id]) return false;
+  r.achievements[id] = true;
+  write(KEYS.records, r);
+  return true;
+}
+
 // ---- 設定 ----
 
 const DEFAULT_SETTINGS = { yearSummary: true, speed: 1 };

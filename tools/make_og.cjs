@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // 各言語の OGP 画像（<言語>/og.png、1200×630）を作る。ポータル（nacn-app-portal）のサムネイルにもそのまま使える。
 //
-// 日記帳の紙（ゲームのシェア画像と同じ作り）に、タイトルと説明、ゲームのイラスト（部屋・旅行・車・本・グラフ）を並べる。
+// 日記帳の紙（ゲームのシェア画像と同じ作り）に、タイトルと説明、ゲームのイラスト（部屋・ごはん・乾杯・推し活・ハート）を並べる。
 // イラストは js/illust.js、色は css/style.css のライトモードの色。タイトルは言語データの meta.gameName、説明は title.lead。
 // フォントは Google Fonts から読む（日本語・英語・スペイン語は M PLUS Rounded 1c、繁體中文と韓国語は Noto Sans）。
 //
@@ -25,7 +25,7 @@ const FONT = {
 
 (async () => {
   const { illust } = await import(pathToFileURL(path.join(ROOT, 'js', 'illust.js')));
-  const icons = ['trip', 'car', 'books', 'chart'].map((name) => `<div class="icon">${illust(name)}</div>`).join('');
+  const icons = ['food', 'social', 'hobby', 'partner'].map((name) => `<div class="icon">${illust(name)}</div>`).join('');
   const browser = await chromium.launch();
   for (const code of LANGS) {
     const L = JSON.parse(fs.readFileSync(path.join(ROOT, 'i18n', `${code}.json`), 'utf8'));
