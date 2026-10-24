@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "title": "一人暮らし日記",
+    "description": "就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。",
+    "gameName": "一人暮らし日記",
+    "hashtag": "#一人暮らし日記",
+    "setInJapan": ""
+  },
+  "title": {
+    "lead": "実家を出た日から30代まで、<br>選択だけで駆け抜ける人生シミュレーション",
+    "start": "はじめる",
+    "continue": "続きから",
+    "gallery": "エンディング図鑑",
+    "settings": "設定"
+  },
+  "setup": {
+    "heading": "開始設定",
+    "gender": "性別",
+    "female": "女性",
+    "male": "男性",
+    "age": "一人暮らしを始める年齢（{min}〜{max}歳）",
+    "savings": "貯金（万円・{min}〜{max}）",
+    "income": "年収（万円）",
+    "incomeHint": "年収の初期値は、その年齢の中央値です。",
+    "random": "ランダム",
+    "submit": "この設定ではじめる",
+    "omakase": "全部おまかせではじめる",
+    "back": "タイトルへ戻る"
+  },
+  "main": {
+    "age": "{n}歳",
+    "pause": "一時停止",
+    "startLine": "貯金{savings:money}、年収{income:money}でスタート。",
+    "resumed": "続きから再開した。",
+    "yearEnd": "年末",
+    "yearEndMoney": "収入 {income:num}・支出 {expense:num}（{delta:signed}）→ {savings:money}",
+    "status": {
+      "age": "年齢",
+      "years": "一人暮らし",
+      "yearsN": "{n}年目",
+      "savings": "貯金",
+      "none": "なし",
+      "listSep": "・"
+    }
+  },
+  "summary": {
+    "head": "{age}歳の家計",
+    "unit": "{delta:signed}万円",
+    "income": "収入",
+    "items": {
+      "living": "生活費",
+      "housing": "家賃",
+      "food": "食費",
+      "interest": "利息"
+    }
+  },
+  "event": {
+    "tier": {
+      "high": "高い",
+      "mid": "普通",
+      "low": "安い"
+    },
+    "tierOption": "{tier}：{label}",
+    "back": "戻る",
+    "predicted": "→ 貯金 {money:money}",
+    "neverSub": "以降は提案されません",
+    "later": "今は買わない（3年後にまた考える）",
+    "jobOffer": {
+      "title": "転職の誘い",
+      "text": "転職の誘いがきた。年収は上がるかもしれないし、下がるかもしれない（±20%）。",
+      "accept": "転職する",
+      "acceptSub": "年収が −20%〜+20% のどこかに変わる",
+      "decline": "断る",
+      "declineSub": "年収はそのまま"
+    }
+  },
+  "result": {
+    "netWorthBankrupt": "破綻時の純資産",
+    "titleLabel": "称号",
+    "savings": "貯金",
+    "carValue": "車の評価額",
+    "netWorth": "純資産",
+    "compare": "同じ条件で「全部普通」を選んだ場合（{mid:money}）より {diff}",
+    "compareBankrupt": "同じ条件で「全部普通」を選ぶと破綻していました。",
+    "spending": "生涯支出の内訳",
+    "spendingItems": {
+      "living": "生活費",
+      "housing": "家賃",
+      "food": "食費",
+      "car": "車",
+      "other": "その他（医療・利息）"
+    },
+    "incomeNote": "収入は手取り {income:money}、臨時収入 {extra:money}。",
+    "achievements": "実績",
+    "noAchievements": "今回は実績なし。",
+    "timeline": "人生年表",
+    "lifeBankrupt": "{start}歳で一人暮らしを始める → {end}歳で破綻",
+    "share": "シェア",
+    "shareImage": "画像をシェア",
+    "saveImage": "画像を保存",
+    "post": "X（Twitter）に投稿",
+    "shareText": "一人暮らし日記で「{ending}」（{rank}）になった。称号は「{title}」。",
+    "rankWord": "{rank}ランク",
+    "bankruptWord": "破綻",
+    "again": "もう一度",
+    "toTitle": "タイトルへ",
+    "cardAlt": "結果の画像カード",
+    "new": "NEW",
+    "netWorthEnd": "終了時の純資産",
+    "lifeEnd": "{start}歳で一人暮らしを始める → {end}歳"
+  },
+  "gallery": {
+    "heading": "エンディング図鑑",
+    "plays": "遊んだ回数 {n}回",
+    "best": "・最高の純資産 {money:money}",
+    "endings": "エンディング",
+    "titles": "称号",
+    "achievements": "実績",
+    "locked": "？？？",
+    "back": "タイトルへ戻る"
+  },
+  "settings": {
+    "heading": "設定",
+    "language": "言語",
+    "yearSummary": "年末の収支を表示する",
+    "speed": "進行速度の初期値",
+    "clear": "データを消去する",
+    "clearHint": "途中保存・エンディング図鑑・実績・設定をすべて消します。",
+    "confirm": "途中保存・エンディング図鑑・実績・設定をすべて消します。よろしいですか？",
+    "back": "タイトルへ戻る"
+  },
+  "h": {
+    "started": "実家を出て、一人暮らしを始めた。",
+    "promotion": "昇進した。年収が{pct}%上がった。",
+    "illness": "体調をくずして入院した。医療費は{cost:money}。",
+    "bonusCut": "会社の業績が悪く、ボーナスが減った。今年の手取りは1割減る。",
+    "windfall": "臨時収入があった。{amount:money}が入った。",
+    "jobAccepted": "転職した。年収は{pct:signed}%になった。",
+    "jobDeclined": "転職の誘いは断った。",
+    "bankrupt": "家計が破綻した。",
+    "ended": "一人暮らしの日々に、ひと区切りがついた。"
+  },
+  "site": {
+    "htmlLang": "ja",
+    "hreflang": "ja",
+    "ogLocale": "ja_JP",
+    "langName": "日本語",
+    "titleSep": "｜",
+    "suggest": {
+      "text": "一人暮らし日記は日本語でも遊べます。",
+      "link": "日本語で遊ぶ",
+      "close": "閉じる"
+    },
+    "consent": {
+      "label": "Cookie の同意",
+      "text": "このサイトは、アクセスの集計のために Cookie を使います。同意しなくても、そのまま遊べます。",
+      "policy": "プライバシーポリシー",
+      "accept": "同意する",
+      "reject": "同意しない",
+      "settings": "Cookie の設定"
+    }
+  },
+  "nav": {
+    "label": "サイト内のページ",
+    "play": "ゲームで遊ぶ",
+    "howto": "遊び方",
+    "about": "運営者情報・お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "portal": "nacn.app のほかのゲーム"
+  },
+  "pages": {
+    "howto": {
+      "title": "遊び方",
+      "description": "一人暮らし日記の遊び方。最初の設定、1年の進み方、毎年のお金の計算、ランダムな出来事、終了時のランクと称号を説明します。"
+    },
+    "privacy": {
+      "title": "プライバシーポリシー",
+      "description": "一人暮らし日記で保存する情報（お使いのブラウザの中だけ）、結果のシェア、アクセス解析（Google アナリティクス）、Cookie の同意について説明します。"
+    }
+  }
+}

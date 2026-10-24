@@ -1,0 +1,94 @@
+{
+  "country": "jp",
+  "endAge": 35,
+  "startAge": {
+    "min": 22,
+    "max": 28
+  },
+  "startSavings": {
+    "min": 0,
+    "max": 300
+  },
+  "takeHomeRate": 0.78,
+  "medianIncomeByAge": {
+    "22": 252,
+    "25": 315,
+    "30": 368,
+    "35": 399,
+    "40": 420
+  },
+  "baseLiving": 45,
+  "livingGrowthPerYear": 0.0125,
+  "rent": 80,
+  "food": 45,
+  "cardLoanRate": 0.1,
+  "bankruptLine": -300,
+  "bigWindfall": 100,
+  "events": {},
+  "random": {
+    "chancePerYear": 0.3,
+    "events": {
+      "promotion": {
+        "weight": 20,
+        "rate": 0.1
+      },
+      "jobOffer": {
+        "weight": 10,
+        "range": 0.2
+      },
+      "illness": {
+        "weight": 20,
+        "cost": [
+          10,
+          50
+        ]
+      },
+      "bonusCut": {
+        "weight": 15,
+        "rate": 0.1
+      },
+      "windfall": {
+        "weight": 15,
+        "min": 10,
+        "max": 100
+      }
+    }
+  },
+  "ranks": [
+    {
+      "rank": "S",
+      "min": 600
+    },
+    {
+      "rank": "A",
+      "min": 400
+    },
+    {
+      "rank": "B",
+      "min": 200
+    },
+    {
+      "rank": "C",
+      "min": 0
+    },
+    {
+      "rank": "D",
+      "min": null
+    }
+  ],
+  "titles": [
+    "showoff",
+    "frugal",
+    "steady",
+    "balanced"
+  ],
+  "achievements": [
+    "rankS",
+    "bankrupt",
+    "noCardLoan",
+    "bigWindfall",
+    "jobUp"
+  ],
+  "currency": "JPY",
+  "moneyUnit": 10000
+}
