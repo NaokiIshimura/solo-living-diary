@@ -40,25 +40,57 @@
   "bigWindfall": 100,
   "events": {
     "room": {
-      "renewalEvery": 2,
       "options": [
         {
           "tier": "high",
           "oneTime": 60,
           "annual": 120,
-          "fulfillment": 2
+          "fulfillment": 2,
+          "troubleChance": 0.01
         },
         {
           "tier": "mid",
           "oneTime": 40,
           "annual": 80,
-          "fulfillment": 0
+          "fulfillment": 0,
+          "troubleChance": 0.03
         },
         {
           "tier": "low",
           "oneTime": 25,
           "annual": 55,
-          "fulfillment": -2
+          "fulfillment": -2,
+          "troubleChance": 0.15
+        }
+      ]
+    },
+    "renewal": {
+      "every": 2,
+      "feeMonths": 1
+    },
+    "neighbor": {
+      "fulfillment": -5
+    },
+    "appliance": {
+      "breakdownShare": 0.3,
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 50,
+          "breakdownChance": 0.03,
+          "life": 10
+        },
+        {
+          "tier": "mid",
+          "oneTime": 25,
+          "breakdownChance": 0.08,
+          "life": 8
+        },
+        {
+          "tier": "low",
+          "oneTime": 8,
+          "breakdownChance": 0.25,
+          "life": 5
         }
       ]
     },
@@ -93,7 +125,7 @@
       "options": [
         {
           "tier": "high",
-          "annual": 40,
+          "annual": 25,
           "fulfillment": 3,
           "meetBonus": 0.1
         },
@@ -108,6 +140,113 @@
           "annual": 5,
           "fulfillment": 0,
           "meetBonus": 0
+        }
+      ]
+    },
+    "hobby": {
+      "firstYear": 1,
+      "reviewEvery": 3,
+      "skip": {
+        "annual": 0,
+        "fulfillment": -2
+      },
+      "options": [
+        {
+          "tier": "high",
+          "annual": 50,
+          "fulfillment": 3
+        },
+        {
+          "tier": "mid",
+          "annual": 18,
+          "fulfillment": 1
+        },
+        {
+          "tier": "low",
+          "annual": 5,
+          "fulfillment": 0
+        }
+      ]
+    },
+    "invest": {
+      "firstAge": 24,
+      "every": 3,
+      "max": 3,
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 40,
+          "schoolYears": 2
+        },
+        {
+          "tier": "mid",
+          "oneTime": 20,
+          "passChance": 0.6,
+          "raise": 0.05
+        },
+        {
+          "tier": "low",
+          "oneTime": 3,
+          "passChance": 0.3,
+          "raise": 0.05
+        }
+      ]
+    },
+    "car": {
+      "firstAge": 25,
+      "reproposeAfter": 3,
+      "breakdownCost": [
+        20,
+        80
+      ],
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 300,
+          "annual": 35,
+          "years": 10,
+          "resale": 60,
+          "breakdownChance": 0.05
+        },
+        {
+          "tier": "mid",
+          "oneTime": 150,
+          "annual": 30,
+          "years": 8,
+          "resale": 30,
+          "breakdownChance": 0.1
+        },
+        {
+          "tier": "low",
+          "oneTime": 60,
+          "annual": 30,
+          "years": 5,
+          "resale": 5,
+          "breakdownChance": 0.3
+        }
+      ]
+    },
+    "travel": {
+      "firstYear": 1,
+      "every": 2,
+      "skip": {
+        "fulfillment": -1
+      },
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 40,
+          "fulfillment": 6
+        },
+        {
+          "tier": "mid",
+          "oneTime": 15,
+          "fulfillment": 2
+        },
+        {
+          "tier": "low",
+          "oneTime": 3,
+          "fulfillment": 1
         }
       ]
     },
@@ -129,49 +268,83 @@
           "breakup": 0.2
         }
       ]
+    },
+    "konkatsu": {
+      "minAge": 28,
+      "every": 2,
+      "options": [
+        {
+          "tier": "high",
+          "annual": 50,
+          "meetBonus": 0.25
+        },
+        {
+          "tier": "mid",
+          "annual": 5,
+          "meetBonus": 0.1
+        },
+        {
+          "tier": "low",
+          "annual": 0,
+          "meetBonus": 0.05
+        }
+      ]
+    },
+    "friendWedding": {
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 5,
+          "fulfillment": 2,
+          "meetBonus": 0.05
+        },
+        {
+          "tier": "mid",
+          "oneTime": 3,
+          "fulfillment": 0
+        },
+        {
+          "tier": "low",
+          "oneTime": 1,
+          "fulfillment": -1
+        }
+      ]
     }
   },
   "random": {
-    "chancePerYear": 0.3,
+    "chancePerYear": 0.2,
     "events": {
-      "promotion": {
-        "weight": 20,
-        "rate": 0.1
-      },
       "jobOffer": {
-        "weight": 10,
-        "range": 0.2
-      },
-      "illness": {
-        "weight": 20,
-        "cost": [
-          10,
-          50
-        ]
+        "weight": 25,
+        "range": 0.2,
+        "schoolMin": -0.5
       },
       "bonusCut": {
-        "weight": 15,
+        "weight": 25,
         "rate": 0.1
       },
       "windfall": {
-        "weight": 15,
+        "weight": 25,
         "min": 10,
         "max": 100
+      },
+      "friendWedding": {
+        "weight": 25
       }
     }
   },
   "ranks": [
     {
       "rank": "S",
-      "min": 600
+      "min": 800
     },
     {
       "rank": "A",
-      "min": 400
+      "min": 500
     },
     {
       "rank": "B",
-      "min": 200
+      "min": 300
     },
     {
       "rank": "C",
@@ -205,5 +378,21 @@
     "single_mid",
     "single_low",
     "bankrupt"
-  ]
+  ],
+  "yearly": {
+    "promotion": {
+      "chance": 0.08,
+      "rate": 0.1,
+      "highBonus": 0.05,
+      "schoolBonus": 0.45
+    },
+    "illness": {
+      "chance": 0.05,
+      "lowBonus": 0.05,
+      "cost": [
+        10,
+        50
+      ]
+    }
+  }
 }

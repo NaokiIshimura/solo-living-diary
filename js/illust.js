@@ -44,9 +44,13 @@ const ILLUST = {
 
 };
 
-// いまはタイトルと転職の誘いだけ。ライフイベントを足したら、ここに並べる
+// イラストのないイベントは、フェーズ3で足す
 const EVENT_ILLUST = {
   title: "house",
+  room: "house",
+  invest: "books",
+  car: "car",
+  travel: "trip",
   jobOffer: "chart",
 };
 

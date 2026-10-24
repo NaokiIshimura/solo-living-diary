@@ -3,6 +3,7 @@ import {
   SAVE_VERSION,
   achievementsOf,
   bandOf,
+  carValue,
   choose,
   compareWithMid,
   createGame,
@@ -10,6 +11,7 @@ import {
   endYear,
   endingOf,
   immediateCost,
+  renewalFee,
   medianIncome,
   netWorth,
   newSeed,
@@ -205,6 +207,7 @@ function renderStatus() {
     [s("fulfillment"), t(`band.${bandOf(data, state.fulfillment)}`)],
     [s("room"), room],
     [s("partner"), partner],
+    [s("car"), state.car ? t(`events.car.${state.car.tier}.label`) : s("none")],
   ];
   $("#status").replaceChildren(
     ...items.map(([label, value, cls]) => {
@@ -274,14 +277,31 @@ function showYearSummary(r) {
 
 function describe(ev) {
   const e = (k, p) => t(`event.${ev.id}.${k}`, p);
+  const yesNo = () => ({ yes: e("yes"), no: e("no") });
   switch (ev.id) {
+    case "room":
+      return { title: e("title"), text: ev.move ? e("textMove") : e("text") };
+    case "appliance":
+      return { title: e("title"), text: ev.replace ? e("textReplace") : e("text") };
+    case "renewal":
+      return { title: e("title"), text: e("text", { n: state.year - state.room.movedInYear }) };
     case "food":
     case "social":
+    case "hobby":
       return {
         title: e("title"),
         text: ev.review ? e("textReview", { n: state.year }) : e("text"),
-        ...(data.events[ev.id].skip ? { yes: e("yes"), no: e("no") } : {}),
+        ...(data.events[ev.id].skip ? yesNo() : {}),
       };
+    case "invest":
+    case "konkatsu":
+      return { title: e("title"), text: e("text", { age: state.age }), ...yesNo() };
+    case "travel":
+      return { title: e("title"), text: e("text"), ...yesNo() };
+    case "car":
+      return ev.replace
+        ? { title: e("titleReplace"), text: e("textReplace", { years: state.year - state.car.boughtYear, value: carValue(state.car, state.year) }), yes: e("yes"), no: t("event.later"), never: e("never") }
+        : { title: e("titleBuy"), text: e("textBuy"), yes: e("yes"), no: t("event.later"), never: e("never") };
     case "branch":
       return {
         title: e("title"),
@@ -298,6 +318,16 @@ function optionDetail(ev, opt) {
       return t("event.room.detail", { annual: opt.annual, cost: opt.oneTime });
     case "partner":
       return `${t("event.annual", { annual: opt.annual })}・${t("event.partner.breakup", { pct: Math.round(opt.breakup * 100) })}`;
+    case "appliance":
+      return t("event.appliance.detail", { cost: opt.oneTime, life: opt.life }) + (opt.breakdownChance >= 0.2 ? t("event.appliance.fragile") : "");
+    case "car":
+      return t("event.car.detail", { cost: opt.oneTime, annual: opt.annual, years: opt.years, resale: opt.resale }) + (opt.breakdownChance >= 0.2 ? t("event.car.fragile") : "");
+    case "invest":
+      return `${money(opt.oneTime)}・${opt.schoolYears ? t("event.invest.school") : t("event.invest.pass", { pct: Math.round(opt.passChance * 100), raise: Math.round(opt.raise * 100) })}`;
+    case "konkatsu":
+      return t("event.konkatsu.detail", { annual: opt.annual, pct: Math.round(opt.meetBonus * 100) });
+    case "friendWedding":
+      return t("event.friendWedding.detail", { cost: opt.oneTime });
     default:
       return opt.annual !== undefined ? t("event.annual", { annual: opt.annual }) : money(opt.oneTime);
   }
@@ -359,6 +389,16 @@ function openEvent(ev) {
           ...(state.partner ? [button(e("marry"), e("marrySub"), () => decide({ marry: true }))] : []),
           button(e("single"), e("singleSub"), () => decide({ marry: false })),
         );
+      case "renewal":
+        return box.replaceChildren(
+          button(e("renew"), `${e("renewSub", { cost: renewalFee(data, state) })}<br>${predicted(ev, { renew: true })}`, () => decide({ renew: true })),
+          button(e("move"), e("moveSub"), () => decide({ move: true })),
+        );
+      case "neighbor":
+        return box.replaceChildren(
+          button(e("move"), e("moveSub"), () => decide({ move: true })),
+          button(e("endure"), e("endureSub"), () => decide({ endure: true })),
+        );
     }
     if (!d.yes) return tiers();
     const opts = [button(d.yes, "", tiers, true), button(d.no, predicted(ev, { skip: true }), () => decide({ skip: true }))];
@@ -408,9 +448,11 @@ function showResult() {
     ["living", tt.living],
     ["housing", tt.housing],
     ["food", tt.food],
-    ["social", tt.social + tt.date],
+    ["social", tt.social + tt.date + tt.konkatsu],
+    ["leisure", tt.hobby + tt.travel],
+    ["invest", tt.invest],
     ["car", tt.car],
-    ["other", tt.medical + tt.interest],
+    ["other", tt.appliance + tt.medical + tt.events + tt.interest],
   ];
   const maxSpend = Math.max(...spending.map(([, v]) => v), 1);
   const compare = bankrupt ? "" : `<p class="compare">${mid === null ? r("compareBankrupt") : r("compare", { mid, diff: `<strong>${signedMoneyHtml(nw.total - mid)}</strong>` })}</p>`;

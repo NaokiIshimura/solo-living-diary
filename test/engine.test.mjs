@@ -4,7 +4,9 @@ import { readFileSync } from "node:fs";
 import {
   STRATEGIES,
   achievementsOf,
+  autoChoice,
   bandOf,
+  carValue,
   choose,
   compareWithMid,
   createGame,
@@ -14,6 +16,7 @@ import {
   fulfillmentDelta,
   medianIncome,
   meetChance,
+  promotionChance,
   netWorth,
   nextEvent,
   playToEnd,
@@ -25,15 +28,20 @@ import {
 const data = JSON.parse(readFileSync(new URL("../data/profiles/jp.json", import.meta.url), "utf8"));
 const settings = defaultSettings(data);
 
-// ランダムイベントが起きないようにした状態で始め、最初のイベント（部屋・食生活・付き合い）を普通で選ぶ
+// その年の判定（昇進・病気・ランダムイベント・リスク）が起きないようにした状態で始め、
+// 最初のイベント（部屋・家電・食生活・付き合い）を普通で選ぶ
 function quiet(overrides = {}) {
   const state = createGame(data, { ...settings, ...overrides }, 1);
-  state.randomRolledYear = Infinity;
+  state.rolledYear = Infinity;
   choose(data, state, { id: "room" }, { tier: "mid" });
+  choose(data, state, { id: "appliance" }, { tier: "mid" });
   choose(data, state, { id: "food" }, { tier: "mid" });
   choose(data, state, { id: "social" }, { tier: "mid" });
   return state;
 }
+
+// 「全部普通」で選び、分岐イベントはひとりで生きていく
+const midOrSingle = (state) => (ev) => (ev.id === "branch" ? { marry: false } : autoChoice(data, state, ev, "mid"));
 
 // 年を進める。イベントは渡した関数で選ぶ
 function advance(state, years, pickChoice) {
@@ -56,10 +64,12 @@ test("どの方針でも、結婚・ひとり・破綻のどれかで、遅く�
   }
 });
 
-test("最初は部屋探し、食生活、付き合いの順に聞かれる", () => {
+test("最初は部屋探し、家電・家具、食生活、付き合いの順に聞かれる", () => {
   const state = createGame(data, settings, 1);
   assert.equal(nextEvent(data, state).id, "room");
   choose(data, state, { id: "room" }, { tier: "low" });
+  assert.equal(nextEvent(data, state).id, "appliance");
+  choose(data, state, { id: "appliance" }, { tier: "low" });
   assert.equal(nextEvent(data, state).id, "food");
   choose(data, state, { id: "food" }, { tier: "low" });
   assert.equal(nextEvent(data, state).id, "social");
@@ -68,30 +78,114 @@ test("最初は部屋探し、食生活、付き合いの順に聞かれる", ()
   assert.equal(state.choices.none, 1);
 });
 
-test("部屋は初期費用をその場で払い、食生活と付き合いは3年ごとに見直す", () => {
+test("部屋と家電は初期費用をその場で払い、食生活と付き合いは3年ごとに見直す", () => {
   const state = createGame(data, { ...settings, savings: 100 }, 1);
-  state.randomRolledYear = Infinity;
   choose(data, state, { id: "room" }, { tier: "high" });
-  assert.equal(state.savings, 100 - data.events.room.options[0].oneTime);
+  choose(data, state, { id: "appliance" }, { tier: "mid" });
+  assert.equal(state.savings, 100 - 60 - 25);
   choose(data, state, { id: "food" }, { tier: "mid" });
   choose(data, state, { id: "social" }, { tier: "mid" });
-  for (let i = 0; i < 3; i++) {
-    state.randomRolledYear = Infinity;
-    assert.equal(nextEvent(data, state), null);
-    endYear(data, state);
-    state.partner = null;
-    state.queue = [];
-  }
-  state.randomRolledYear = Infinity;
+  assert.equal(state.recurring.food.reviewAt, 3);
+  state.year = 3;
   assert.deepEqual(nextEvent(data, state), { id: "food", review: true });
 });
 
-test("家賃は入居から2年ごとに、更新料として1か月分多くかかる", () => {
+test("趣味は2年目から、旅行は2年目から2年ごとに聞かれる", () => {
   const state = quiet();
-  const rent = state.room.annual;
-  assert.equal(endYear(data, state).items.housing, rent);
-  assert.equal(endYear(data, state).items.housing, rent);
-  assert.equal(endYear(data, state).items.housing, rent + rent / 12);
+  assert.notEqual(nextEvent(data, state)?.id, "hobby");
+  state.year = 1;
+  assert.equal(nextEvent(data, state).id, "hobby");
+  choose(data, state, { id: "hobby" }, { skip: true });
+  assert.equal(nextEvent(data, state).id, "travel");
+  choose(data, state, { id: "travel" }, { tier: "high" });
+  assert.equal(state.fulfillment, data.fulfillment.start + 6); // 旅行の充実度はその年だけ
+  state.year = 2;
+  assert.notEqual(nextEvent(data, state)?.id, "travel");
+});
+
+test("入居から2年ごとに部屋の更新があり、更新料は家賃1か月分。引っ越すと部屋探しになる", () => {
+  const state = quiet();
+  state.year = 2;
+  choose(data, state, { id: "hobby" }, { skip: true });
+  assert.equal(nextEvent(data, state).id, "renewal");
+  const before = state.savings;
+  choose(data, state, { id: "renewal" }, { renew: true });
+  assert.equal(state.savings, before - state.room.annual / 12);
+  assert.notEqual(nextEvent(data, state)?.id, "renewal");
+  state.year = 4;
+  choose(data, state, { id: "renewal" }, { move: true });
+  assert.equal(state.moves, 1);
+  assert.deepEqual(nextEvent(data, state), { id: "room", move: true });
+});
+
+test("隣人トラブルで我慢すると、充実度がもう一度下がる", () => {
+  const state = quiet();
+  state.fulfillment = 50;
+  choose(data, state, { id: "neighbor" }, { endure: true });
+  assert.equal(state.fulfillment, 45);
+});
+
+test("家電は寿命が来ると買い替えになる", () => {
+  const state = quiet();
+  state.year = state.appliance.life;
+  assert.deepEqual(nextEvent(data, state), { id: "appliance", replace: true });
+});
+
+test("車の買い替えでは、今の車を評価額で売って差し引く", () => {
+  const state = quiet({ age: 25, savings: 500 });
+  choose(data, state, { id: "car", replace: false }, { tier: "mid" });
+  assert.equal(state.savings, 500 - 40 - 25 - 150);
+  state.year = state.car.years;
+  assert.equal(carValue(state.car, state.year), state.car.resale);
+  const before = state.savings;
+  choose(data, state, { id: "car", replace: true }, { tier: "low" });
+  assert.equal(state.savings, before - 60 + 30);
+});
+
+test("自己投資は24歳から3年ごと、最大3回。資格に受かると年収が上がる", () => {
+  const state = quiet({ age: 22 });
+  state.age = 24;
+  assert.equal(nextEvent(data, state).id, "invest");
+  let passed = false;
+  for (let seed = 1; !passed && seed < 50; seed++) {
+    const s = quiet({ age: 24, income: 300 });
+    s.rng = seed;
+    choose(data, s, { id: "invest" }, { tier: "mid" });
+    passed = s.flags.certified;
+    if (passed) assert.ok(Math.abs(s.baseIncome - 315) < 1e-9);
+  }
+  assert.ok(passed);
+  const late = quiet({ age: 28 });
+  assert.equal(late.invest.nextAge, 30);
+});
+
+test("スクールに通っている2年間は昇進しやすく、無気力なら昇進しない", () => {
+  const state = quiet({ age: 24 });
+  state.fulfillment = 50;
+  const base = promotionChance(data, state);
+  choose(data, state, { id: "invest" }, { tier: "high" });
+  assert.ok(Math.abs(promotionChance(data, state) - base - data.yearly.promotion.schoolBonus) < 1e-9);
+  state.year += 2;
+  assert.equal(promotionChance(data, state), base);
+  state.fulfillment = 0;
+  assert.equal(promotionChance(data, state), 0);
+});
+
+test("婚活は28歳以降、恋人がいない年に2年ごと。出会いの確率に足され、恋人ができたら止まる", () => {
+  const state = quiet({ age: 28 });
+  state.fulfillment = 50;
+  state.carNever = true;
+  state.invest.count = data.events.invest.max;
+  assert.equal(nextEvent(data, state).id, "konkatsu");
+  choose(data, state, { id: "konkatsu" }, { tier: "high" });
+  assert.ok(Math.abs(meetChance(data, state) - (0.15 + 0.25)) < 1e-9);
+  assert.equal(state.konkatsuNextYear, 2);
+  for (let seed = 1; !state.partner && seed < 100; seed++) {
+    state.rng = seed;
+    endYear(data, state);
+  }
+  assert.ok(state.partner);
+  assert.equal(state.konkatsu, null);
 });
 
 test("充実度は、選んだものの値の合計から自然減を引いて、0〜100に収まる", () => {
@@ -99,6 +193,7 @@ test("充実度は、選んだものの値の合計から自然減を引いて�
   assert.equal(fulfillmentDelta(data, state), 0 + 1 + 1 - data.fulfillment.decayPerYear);
   state.fulfillment = 1;
   state.partner = { since: 0, tier: "high", annual: 0, breakup: 0 };
+  state.room.fulfillment = -10;
   endYear(data, state);
   assert.equal(state.fulfillment, 0);
   assert.equal(bandOf(data, 70), "high");
@@ -123,8 +218,7 @@ test("恋人ができると翌年の初めに交際費を選び、交際年数�
   }
   assert.ok(state.partner);
   assert.equal(state.partner.since, state.age);
-  state.randomRolledYear = Infinity;
-  assert.equal(nextEvent(data, state).id, "partner");
+  assert.equal(state.queue[0].id, "partner");
   choose(data, state, { id: "partner" }, { tier: "mid" });
   assert.equal(state.partner.annual, data.events.partner.options[1].annual);
 });
@@ -133,7 +227,6 @@ test("分岐イベントは、恋人がいて30歳以上・交際2年以上か�
   const state = quiet({ age: 28 });
   state.partner = { since: 28, tier: "high", annual: 0, breakup: 0 };
   state.age = 29;
-  state.randomRolledYear = Infinity;
   assert.notEqual(nextEvent(data, state)?.id, "branch");
   state.age = 30;
   assert.equal(nextEvent(data, state).id, "branch");
@@ -203,9 +296,9 @@ test("−300万円を下回ると家計破綻で終わる", () => {
 });
 
 test("ランクの境目の金額ちょうどは上のランクに入る", () => {
-  assert.equal(rankOf(data, 600).rank, "S");
-  assert.equal(rankOf(data, 200).rank, "B");
-  assert.equal(rankOf(data, 199).rank, "C");
+  assert.equal(rankOf(data, 800).rank, "S");
+  assert.equal(rankOf(data, 300).rank, "B");
+  assert.equal(rankOf(data, 299).rank, "C");
   assert.equal(rankOf(data, 0).rank, "C");
   assert.equal(rankOf(data, -1).rank, "D");
 });
@@ -230,14 +323,14 @@ test("称号は条件の順に調べて、最初に当てはまったものに�
 
 test("年の途中で一度でも貯金がマイナスになると「借金ゼロ」にならない", () => {
   const rich = quiet({ age: 28, savings: 300, income: 600 });
-  advance(rich, 10, (ev) => (ev.id === "branch" ? { marry: false } : { tier: "mid" }));
+  advance(rich, 10, midOrSingle(rich));
   assert.equal(rich.ended, "single");
   assert.ok(achievementsOf(data, rich).includes("noCardLoan"));
 
   const poor = quiet({ age: 28, savings: 300, income: 600 });
   poor.savings = -1;
   poor.flags.minSavings = -1;
-  advance(poor, 10, (ev) => (ev.id === "branch" ? { marry: false } : { tier: "mid" }));
+  advance(poor, 10, midOrSingle(poor));
   assert.ok(!achievementsOf(data, poor).includes("noCardLoan"));
 });
 
