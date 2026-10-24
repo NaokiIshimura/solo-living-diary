@@ -380,3 +380,7 @@ body:has(#langSuggest:not([hidden])) #app { padding-top: 64px; }
 .doc-body .example { padding: 8px 12px; border-radius: 10px; background: var(--bg); font-size: 0.9rem; }
 .doc-body .note, .doc-body .date { color: var(--muted); font-size: 0.85rem; }
 .doc .site-nav ul { font-size: 0.85rem; }
+
+/* 姉妹作（新婚日記）へのリンク（タイトル） */
+.series-link { margin: 16px 0 0; text-align: center; font-size: 0.9rem; }
+.series-link a { color: var(--accent); }
