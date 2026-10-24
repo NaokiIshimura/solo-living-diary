@@ -4,21 +4,145 @@
   <url>
     <loc>https://solo-living-diary.nacn.app/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
   </url>
   <url>
     <loc>https://solo-living-diary.nacn.app/ja/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/zh-tw/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/es/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/"/>
   </url>
   <url>
     <loc>https://solo-living-diary.nacn.app/ja/howto</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/en/howto</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/zh-tw/howto</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/ko/howto</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/es/howto</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto"/>
   </url>
   <url>
     <loc>https://solo-living-diary.nacn.app/ja/privacy</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/zh-tw/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/ko/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://solo-living-diary.nacn.app/es/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy"/>
   </url>
 </urlset>

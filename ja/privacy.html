@@ -17,6 +17,10 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/privacy">
+  <link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/privacy">
+  <link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/privacy">
+  <link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/privacy">
+  <link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/privacy">
   <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/privacy">
   <meta name="theme-color" content="#faf6ef">
   <link rel="stylesheet" href="../css/style.css?v=20261024c">
@@ -107,7 +111,7 @@ function gtag(){dataLayer.push(arguments);}
           <li><a href="https://nacn.app/ja/">nacn.app のほかのゲーム</a></li>
         </ul>
       </nav>
-      <nav class="lang-switch langs"><a href="../ja/privacy.html" hreflang="ja" lang="ja" data-code="ja" aria-current="true">日本語</a></nav>
+      <nav class="lang-switch langs"><a href="../en/privacy.html" hreflang="en" lang="en" data-code="en">English</a><a href="../zh-tw/privacy.html" hreflang="zh-TW" lang="zh-Hant-TW" data-code="zh-tw">繁體中文</a><a href="../es/privacy.html" hreflang="es" lang="es-419" data-code="es">Español</a><a href="../ja/privacy.html" hreflang="ja" lang="ja" data-code="ja" aria-current="true">日本語</a><a href="../ko/privacy.html" hreflang="ko" lang="ko" data-code="ko">한국어</a></nav>
   </main>
 <div class="suggest" id="langSuggest" hidden>
     <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
@@ -116,7 +120,7 @@ function gtag(){dataLayer.push(arguments);}
   <script>
   (() => {
     // ブラウザの言語が別の対応言語なら、その言語のページを1行で案内する（自動では移動しない。閉じたら次から出さない）
-    const ALT = [{"match": ["ja"], "text": "一人暮らし日記は日本語でも遊べます。", "link": "日本語で遊ぶ", "href": "../ja/privacy.html", "lang": "ja", "code": "ja", "current": true}];
+    const ALT = [{"match": ["ja"], "text": "一人暮らし日記は日本語でも遊べます。", "link": "日本語で遊ぶ", "href": "../ja/privacy.html", "lang": "ja", "code": "ja", "current": true}, {"match": ["en"], "text": "Solo Living Diary is also available in English.", "link": "Play in English", "href": "../en/privacy.html", "lang": "en", "code": "en", "current": false}, {"match": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "text": "獨居日記也提供繁體中文版。", "link": "以繁體中文遊玩", "href": "../zh-tw/privacy.html", "lang": "zh-Hant-TW", "code": "zh-tw", "current": false}, {"match": ["ko"], "text": "자취일기는 한국어로도 플레이할 수 있습니다.", "link": "한국어로 플레이", "href": "../ko/privacy.html", "lang": "ko", "code": "ko", "current": false}, {"match": ["es", "!es-es"], "text": "Diario de vida independiente también está disponible en español.", "link": "Jugar en español", "href": "../es/privacy.html", "lang": "es-419", "code": "es", "current": false}];
     // match は言語コードの先頭の一致。「!」付きは除外（例: スペイン語版は中南米向けなので es-ES は外す）
     const langMatches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
     // 自分で選んだ言語を覚えて、次に / を開いたときはその言語へ移動する（言語の切り替えリンクと、この案内のリンク）
