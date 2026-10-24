@@ -14,6 +14,7 @@ import {
   endYear,
   endingOf,
   fulfillmentDelta,
+  handoffData,
   medianIncome,
   meetChance,
   promotionChance,
@@ -311,14 +312,92 @@ test("年収の中央値は表の間を直線で補う", () => {
 
 test("称号は条件の順に調べて、最初に当てはまったものになる", () => {
   const state = quiet();
-  state.choices = { high: 1, mid: 8, low: 1 };
+  state.choices = { high: 1, mid: 8, low: 1, none: 0 };
   assert.equal(titleOf(data, state), "steady");
-  state.choices = { high: 8, mid: 1, low: 1 };
+  state.choices = { high: 8, mid: 1, low: 1, none: 0 };
   assert.equal(titleOf(data, state), "showoff");
-  state.choices = { high: 3, mid: 3, low: 3 };
-  assert.equal(titleOf(data, state), "balanced");
   state.choices = { high: 1, mid: 2, low: 3, none: 4 };
   assert.equal(titleOf(data, state), "frugal"); // 安い＋やらないで7割
+  state.choices = { high: 3, mid: 3, low: 3, none: 0 };
+  assert.equal(titleOf(data, state), "balanced");
+  state.carNever = true;
+  assert.equal(titleOf(data, state), "carFree");
+  state.moves = 3;
+  assert.equal(titleOf(data, state), "mover");
+  state.picks.social = ["high", "high"];
+  assert.equal(titleOf(data, state), "social");
+  state.invest.tiers = ["mid", "low"];
+  assert.equal(titleOf(data, state), "selfInvest");
+  state.picks.hobby = ["high", "high"];
+  assert.equal(titleOf(data, state), "oshi");
+});
+
+test("推し活命・社交家・自分磨きは、1回だけでは取れない", () => {
+  const state = quiet();
+  state.choices = { high: 3, mid: 3, low: 3, none: 0 };
+  state.picks.hobby = ["high"];
+  state.picks.social = ["high"];
+  state.invest.tiers = ["high"];
+  assert.equal(titleOf(data, state), "balanced");
+  state.invest.tiers = ["high", "none"];
+  assert.equal(titleOf(data, state), "balanced");
+});
+
+test("付き合いと趣味で選んだ段階が順に記録される", () => {
+  const state = quiet();
+  state.year = 1;
+  choose(data, state, { id: "hobby" }, { tier: "high" });
+  choose(data, state, { id: "social", review: true }, { skip: true });
+  assert.deepEqual(state.picks.hobby, ["high"]);
+  assert.deepEqual(state.picks.social, ["mid", "none"]);
+});
+
+test("結婚の実績は、婚活の使い方で分かれる", () => {
+  const fate = quiet();
+  fate.partner = { since: fate.age, tier: "mid", annual: 30, breakup: 0.1 };
+  choose(data, fate, { id: "branch" }, { marry: true });
+  assert.ok(achievementsOf(data, fate).includes("fate"));
+  assert.ok(!achievementsOf(data, fate).includes("agency"));
+
+  const agency = quiet({ age: 28 });
+  choose(data, agency, { id: "konkatsu" }, { tier: "high" });
+  agency.partner = { since: agency.age, tier: "mid", annual: 30, breakup: 0.1 };
+  choose(data, agency, { id: "branch" }, { marry: true });
+  assert.ok(achievementsOf(data, agency).includes("agency"));
+  assert.ok(!achievementsOf(data, agency).includes("fate"));
+});
+
+test("引っ越しの回数と充実度で取れる実績", () => {
+  const state = quiet();
+  state.fulfillment = 95;
+  choose(data, state, { id: "branch" }, { marry: false });
+  const got = achievementsOf(data, state);
+  assert.ok(got.includes("stayed"));
+  assert.ok(got.includes("happy"));
+  state.moves = 5;
+  assert.ok(achievementsOf(data, state).includes("wanderer"));
+  assert.ok(!achievementsOf(data, state).includes("stayed"));
+});
+
+test("新婚日記へ引き継ぐデータは、今の年収と車の値をそのまま持つ", () => {
+  const state = quiet({ age: 25, savings: 500, income: 300, gender: "male" });
+  choose(data, state, { id: "car", replace: false }, { tier: "mid" });
+  state.raise = 1.1;
+  state.age = 30;
+  state.year = 5;
+  state.fulfillment = 50;
+  state.partner = { since: 27, tier: "mid", annual: 30, breakup: 0.1 };
+  choose(data, state, { id: "branch" }, { marry: true });
+  const d = handoffData(data, state);
+  assert.deepEqual(d, {
+    v: 1,
+    gender: "male",
+    age: 30,
+    savings: Math.round(state.savings),
+    income: 330,
+    car: { tier: "mid", price: 150, resale: 30, years: 8, annual: 30, breakdownChance: 0.1, boughtAge: 25 },
+    ending: "married_mid",
+  });
 });
 
 test("年の途中で一度でも貯金がマイナスになると「借金ゼロ」にならない", () => {
@@ -365,6 +444,7 @@ test("日記に書く出来事のキーは、すべて日本語の文がある",
   for (const key of keys) assert.equal(typeof lookup(key), "string", key);
   for (const id of data.titles) assert.ok(profileTexts.titles[id]?.name, id);
   for (const id of data.achievements) assert.ok(profileTexts.achievements[id]?.name, id);
+  for (const id of data.titles) assert.ok(profileTexts.titles[id]?.desc, id);
   for (const r of data.ranks) assert.ok(profileTexts.ranks[r.rank]?.comment, r.rank);
   for (const e of data.endings) assert.ok(profileTexts.endings[e]?.name, e);
 });

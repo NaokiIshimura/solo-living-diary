@@ -269,6 +269,12 @@ a.button {
 
 .compare { margin: 8px 0 0; font-size: 0.9rem; }
 
+/* 新婚日記へ続く。結婚エンドでは大きく、ひとりエンドでは小さく */
+.continue { margin: 20px 0 0; text-align: center; }
+.continue .hint { margin: 6px 0 0; }
+a.button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: bold; }
+a.button.small { display: inline-block; padding: 8px 14px; font-size: 0.9rem; }
+
 .bars { display: grid; gap: 8px; font-size: 0.85rem; }
 .bar { display: grid; grid-template-columns: 7.5em 1fr auto; align-items: center; gap: 8px; }
 .bar-label { line-height: 1.3; }

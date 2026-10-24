@@ -18,7 +18,7 @@ SRC = ROOT / 'src'
 SITE = 'https://solo-living-diary.nacn.app/'
 PROFILE = 'jp'
 # css・js・og.png を変えたら新しくする（古いキャッシュを使わせないため）
-ASSET_VER = '20261024b'
+ASSET_VER = '20261024c'
 # hreflang・sitemap.xml の順。いまは日本語だけで、ほかの言語はフェーズ4（ローカライズ）で足す
 # （新婚日記と同じく ['ja', 'en', 'zh-tw', 'ko', 'es'] にする）
 LANGS = ['ja']

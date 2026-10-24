@@ -222,7 +222,13 @@
     "netWorthEnd": "終了時の純資産",
     "lifeMarried": "{start}歳で一人暮らしを始める → {end}歳で結婚",
     "lifeSingle": "{start}歳で一人暮らしを始める → {end}歳、ひとりで生きていく",
-    "fulfillmentLine": "充実度 {n}（{band}）"
+    "fulfillmentLine": "充実度 {n}（{band}）",
+    "continue": {
+      "married": "新婚日記へ続く",
+      "marriedSub": "貯金・年収・車を引き継いで、ふたりの暮らしを始めます（新しいタブで開きます）。",
+      "single": "もし結婚していたら？ 新婚日記で遊ぶ",
+      "singleSub": "貯金・年収・車を引き継いで、新婚日記を始められます（新しいタブで開きます）。"
+    }
   },
   "gallery": {
     "heading": "エンディング図鑑",

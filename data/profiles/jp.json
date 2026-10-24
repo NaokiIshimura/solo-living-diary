@@ -37,7 +37,7 @@
     "minAge": 30,
     "minPartnerYears": 2
   },
-  "bigWindfall": 100,
+  "bigWindfall": 50,
   "events": {
     "room": {
       "options": [
@@ -356,17 +356,29 @@
     }
   ],
   "titles": [
+    "oshi",
+    "selfInvest",
     "showoff",
     "frugal",
     "steady",
+    "social",
+    "mover",
+    "carFree",
     "balanced"
   ],
   "achievements": [
     "rankS",
     "bankrupt",
+    "stayed",
+    "wanderer",
+    "certified",
+    "jobUp",
+    "fate",
+    "agency",
+    "happy",
     "noCardLoan",
     "bigWindfall",
-    "jobUp"
+    "continued"
   ],
   "currency": "JPY",
   "moneyUnit": 10000,
@@ -394,5 +406,6 @@
         50
       ]
     }
-  }
+  },
+  "happyFulfillment": 90
 }
