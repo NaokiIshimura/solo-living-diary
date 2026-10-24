@@ -234,11 +234,11 @@
       "desc": "Aceptaste todas las ofertas de invertir en ti (2 o más)"
     },
     "showoff": {
-      "name": "Aparentador",
+      "name": "Todo apariencia",
       "desc": "Elegiste «Caro» en más del 70% de las decisiones"
     },
     "frugal": {
-      "name": "Maestro del ahorro",
+      "name": "Arte del ahorro",
       "desc": "Elegiste «Barato» o «No» en más del 70% de las decisiones"
     },
     "steady": {
@@ -258,7 +258,7 @@
       "desc": "Decidiste no tener auto"
     },
     "balanced": {
-      "name": "Equilibrado",
+      "name": "Equilibrio",
       "desc": "Combinaste «Caro», «Normal» y «Barato»"
     }
   },
