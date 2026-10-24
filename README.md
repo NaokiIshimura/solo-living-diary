@@ -32,13 +32,13 @@
 ### 新婚日記から変えたところ
 
 - 5言語の訳は、新婚日記の同じ言語の訳に用語と言い回しをそろえた。プライバシーポリシーは、新婚日記と同じく言語ごとの節（英語の米国居住者向け、繁體中文の個人資料、韓国語のクッキー、スペイン語の連絡先と権利）を残した
-- サイトの URL は `https://solo-living-diary.nacn.app/`（仮。リポジトリ名に合わせた）
+- サイトの URL は `https://solo-living-diary.nacn.app/`。名前は English「Solo Living Diary」、繁體中文「獨居日記」、Español「Diario de vida independiente」、한국어「자취일기」
 - 保存のキーは `solo-living-diary-*`
 - イラストは、一人暮らし日記でも使うもの（部屋・旅行・車・本・グラフ）を残し、ほかのイベントのぶんを足した
 
-### まだ決めていないこと
+### v1 のあとに検討すること
 
-- 名前とサブドメイン。いまの名前は仮で、English「Solo Living Diary」、繁體中文「獨居日記」、Español「Diario de vida independiente」、한국어「자취일기」。変えるときは各言語の `i18n/<言語>.json` の `meta`・`site.suggest`、`build.py` の `SITE`、`src/root.html`、`robots.txt`、プライバシーポリシーを直す
+設計書の「未決事項」（18歳開始、ペット、懐かし日記との連携、金額の確認）。
 
 ## 開発
 
