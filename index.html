@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>一人暮らし日記</title>
+  <meta name="description" content="就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。">
+  <link rel="canonical" href="https://solo-living-diary.nacn.app/">
+  <!-- 同じ内容の各言語のページ。このページ自体は言語を選ぶページなので x-default -->
+  <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/">
+  <script>
+  // 自動でその人の言語のページへ移動する。以前の URL（/?lang=en など）、前に自分で選んだ言語、ブラウザで一番希望している言語の順。
+  // どれも対応していなければ、このページで選んでもらう。/?choose なら移動しない（言語を選び直したいとき）
+  (() => {
+    const params = new URLSearchParams(location.search);
+    if (params.has('choose')) return;
+    const MATCH = {"ja": ["ja"]};
+    // 先頭が一致すれば対象。「!」付きは除外（スペイン語版は中南米向けなので es-ES は自動では移動しない）
+    const matches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
+    let code = null;
+    const old = (params.get('lang') || '').toLowerCase();
+    if (MATCH[old]) code = old;
+    try { const saved = localStorage.getItem('lang'); if (!code && saved && MATCH[saved]) code = saved; } catch (e) { /* 保存できない環境 */ }
+    if (!code) {
+      const first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+      code = Object.keys(MATCH).find(c => matches(first, MATCH[c]));
+    }
+    if (code) location.replace(code + '/');
+  })();
+  </script>
+  <meta name="theme-color" content="#faf6ef">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="一人暮らし日記">
+  <meta property="og:title" content="一人暮らし日記｜実家を出た日から30代まで、選択だけで駆け抜ける人生シミュレーション">
+  <meta property="og:description" content="就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。">
+  <meta property="og:url" content="https://solo-living-diary.nacn.app/">
+  <!-- どの言語の人も見るページ。英語版ができたら（フェーズ4）、英語版の画像にする -->
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/ja/og.png?v=20261024b">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css?v=20261024b">
+  <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+(() => {
+  // 事前の同意が要る国：ページの言語か端末のタイムゾーンで見分け、同意するまで Cookie を使わない（バナーを出す）
+  const NEED_LANGS = ['id'];
+  const NEED_TZ = ['Asia/Jakarta', 'Asia/Pontianak', 'Asia/Makassar', 'Asia/Jayapura', 'Asia/Bangkok', 'Asia/Ho_Chi_Minh', 'Asia/Saigon'];
+  // Google の位置判定でも最初から拒否にする国と地域（上の国と、EU・EEA・英国・スイス。EU・英国などにはバナーを出さない）
+  const DENY_REGIONS = ['ID', 'TH', 'VN', 'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT',
+    'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  const saved = (document.cookie.match(/(?:^|; )nacn_consent=v1\.(granted|denied)/) || [])[1] || null;
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* 古いブラウザ */ }
+  const lang = (document.documentElement.lang || '').toLowerCase();
+  const need = NEED_LANGS.some(l => lang === l || lang.startsWith(l + '-')) || NEED_TZ.includes(tz);
+  const state = saved || (need ? 'denied' : 'granted');
+  const all = s => ({ad_storage: s, ad_user_data: s, ad_personalization: s, analytics_storage: s});
+  // 地域ごとの初期値は、地域なしの初期値より優先される。自分で選んだ人には地域の初期値を使わない
+  if (!saved) gtag('consent', 'default', Object.assign(all('denied'), {region: DENY_REGIONS}));
+  gtag('consent', 'default', Object.assign(all(state), {wait_for_update: 500}));
+  if (state === 'denied') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+  window.nacnConsent = {need, saved};
+})();
+</script>
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFHQNP9CT8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WFHQNP9CT8');
+  </script>
+  <style>
+    /* 言語を選ぶページ：言語ごとのカードを並べる。ブラウザの言語に合うカードを先頭に出して目立たせる */
+    .picker-head { text-align: center; margin: 32px 0 20px; }
+    .picker-head p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .picker { display: grid; gap: 14px; }
+    .lang-card { display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+    .lang-card h2 { margin: 0; font-size: 1.2rem; }
+    .lang-card h2 small { margin-left: 8px; color: var(--muted); font-size: 0.8rem; font-weight: normal; }
+    .lang-card p { margin: 0; font-size: 0.9rem; }
+    .lang-card .button { justify-self: start; }
+    .lang-card.pick { border: 2px solid var(--accent); }
+  </style>
+</head>
+<body>
+  <main id="app">
+    <header class="picker-head">
+      <h1 class="logo">一人暮らし日記</h1>
+      <p lang="ja">言語を選んでください</p>
+    </header>
+    <div class="picker" id="picker">
+    <section class="lang-card" lang="ja" data-code="ja">
+      <h2>一人暮らし日記<small>日本語</small></h2>
+      <p>就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。</p>
+      <a class="button primary" href="ja/" hreflang="ja">はじめる</a>
+    </section>
+    </div>
+  </main>
+  <script>
+  (() => {
+    // /?choose で開いたときは、ブラウザで一番希望している言語のカードを先頭に出して目立たせる
+    const MATCH = {"ja": ["ja"]};
+    const first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    const matches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
+    const code = Object.keys(MATCH).find(c => matches(first, MATCH[c]));
+    const card = code && document.querySelector(`.lang-card[data-code="${code}"]`);
+    if (card) {
+      card.classList.add('pick');
+      card.parentNode.prepend(card);
+    }
+    // 選んだ言語を覚えて、次に / を開いたときはその言語へ移動する（nacn.app の全サイトで同じキー）
+    document.querySelectorAll('.lang-card a').forEach(a => a.addEventListener('click', () => {
+      try { localStorage.setItem('lang', a.closest('.lang-card').dataset.code); } catch (e) { /* noop */ }
+    }));
+  })();
+  </script>
+</body>
+</html>
