@@ -3,8 +3,7 @@
 // 書式（:money など）は言語ごとに変えてよいので、差し込む名前だけを比べる。
 import { readFileSync, existsSync } from "node:fs";
 
-// js/i18n.js の LANGS と同じ並び。いまは日本語だけなので、比べる相手はまだない
-const LANGS = ["ja"];
+const LANGS = ["ja", "en", "zh-tw", "es", "ko"];
 const FILES = [(l) => `i18n/${l}.json`, (l) => `data/profiles/jp/${l}.json`];
 const FORMATS = new Set(["money", "num", "signed", "signedMoney"]);
 

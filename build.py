@@ -19,16 +19,18 @@ SITE = 'https://solo-living-diary.nacn.app/'
 PROFILE = 'jp'
 # css・js・og.png を変えたら新しくする（古いキャッシュを使わせないため）
 ASSET_VER = '20261024c'
-# hreflang・sitemap.xml の順。いまは日本語だけで、ほかの言語はフェーズ4（ローカライズ）で足す
-# （新婚日記と同じく ['ja', 'en', 'zh-tw', 'ko', 'es'] にする）
-LANGS = ['ja']
+# hreflang・sitemap.xml の順
+LANGS = ['ja', 'en', 'zh-tw', 'ko', 'es']
 # 言語を選ぶページと言語の切り替えリンクは、話者が多い順に並べる（英語・中国語・スペイン語・日本語・韓国語）
-SPEAKER_ORDER = ['ja']
+SPEAKER_ORDER = ['en', 'zh-tw', 'es', 'ja', 'ko']
 # ブラウザの言語がこれで始まっていたら、その言語のページへ移動・案内する。「!」付きは除外
 # （スペイン語版は中南米向け。EU 向けに見えないよう、スペインのブラウザ es-ES は自動では移動させない）
-# （言語を足すときの値：'en': ['en']、'zh-tw': ['zh-tw', 'zh-hant', 'zh-hk', 'zh-mo']、'ko': ['ko']、'es': ['es', '!es-es']）
 BROWSER_MATCH = {
     'ja': ['ja'],
+    'en': ['en'],
+    'zh-tw': ['zh-tw', 'zh-hant', 'zh-hk', 'zh-mo'],
+    'ko': ['ko'],
+    'es': ['es', '!es-es'],
 }
 # 文章のページ。名前と説明は言語データの pages.<ページ>、本文は src/pages/<言語>/<ページ>.html
 TEXT_PAGES = ['howto', 'privacy']
