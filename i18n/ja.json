@@ -44,7 +44,8 @@
       "partner": "恋人",
       "none": "なし",
       "partnerYears": "交際{n}年目",
-      "listSep": "・"
+      "listSep": "・",
+      "car": "車"
     }
   },
   "summary": {
@@ -56,7 +57,11 @@
       "housing": "家賃",
       "food": "食費",
       "social": "付き合い",
+      "hobby": "趣味",
       "date": "交際費",
+      "konkatsu": "婚活",
+      "car": "車",
+      "breakdown": "車の故障",
       "interest": "利息"
     }
   },
@@ -83,7 +88,31 @@
     "room": {
       "title": "部屋探し",
       "text": "いよいよ一人暮らし。どんな部屋に住みますか？",
-      "detail": "家賃 年{annual:money}・初期費用 {cost:money}"
+      "detail": "家賃 年{annual:money}・初期費用 {cost:money}",
+      "textMove": "引っ越すことにした。次はどんな部屋に住みますか？"
+    },
+    "renewal": {
+      "title": "部屋の更新",
+      "text": "入居して{n}年。部屋の契約を更新しますか？",
+      "renew": "更新する",
+      "renewSub": "更新料 {cost:money}",
+      "move": "引っ越す",
+      "moveSub": "部屋探しへ（初期費用がかかる）"
+    },
+    "neighbor": {
+      "title": "隣人トラブル",
+      "text": "隣の部屋の物音がひどく、眠れない日が続いている。",
+      "move": "引っ越す",
+      "moveSub": "部屋探しへ（初期費用がかかる）",
+      "endure": "我慢する",
+      "endureSub": "充実度がさらに下がる"
+    },
+    "appliance": {
+      "title": "家電・家具",
+      "text": "家電と家具をそろえます。どれにしますか？",
+      "textReplace": "家電がひととおり寿命を迎えた。買い替えます。",
+      "detail": "{cost:money}・寿命{life}年",
+      "fragile": "・壊れやすい"
     },
     "food": {
       "title": "食生活",
@@ -97,10 +126,53 @@
       "yes": "誘いに乗る",
       "no": "ほぼ断る"
     },
+    "hobby": {
+      "title": "趣味・推し活",
+      "text": "休日の楽しみに、お金をかけますか？",
+      "textReview": "一人暮らしを始めて{n}年。趣味へのお金のかけ方を見直しますか？",
+      "yes": "お金をかける",
+      "no": "やらない"
+    },
+    "invest": {
+      "title": "自己投資",
+      "text": "{age}歳。仕事のために、勉強にお金をかけますか？",
+      "yes": "やる",
+      "no": "やらない",
+      "school": "2年間 昇進しやすくなり、転職で年収が上がりやすい",
+      "pass": "合格率{pct}%・合格で年収 +{raise}%"
+    },
+    "car": {
+      "titleBuy": "車の購入",
+      "titleReplace": "車の買い替え",
+      "textBuy": "車を買いますか？",
+      "textReplace": "車を買って{years}年。今の車を{value:money}で手放して、新しい車を買いますか？",
+      "yes": "買う",
+      "never": "生涯持たない",
+      "detail": "{cost:money}・維持費 年{annual:money}・{years}年後に{resale:money}で売却",
+      "fragile": "・故障しやすい"
+    },
+    "travel": {
+      "title": "旅行",
+      "text": "まとまった休みが取れそう。旅行に行きますか？",
+      "yes": "行く",
+      "no": "行かない"
+    },
     "partner": {
       "title": "恋人との交際",
       "text": "恋人ができた。デートや贈り物に、どのくらいお金をかけますか？",
       "breakup": "別れる確率 年{pct}%"
+    },
+    "konkatsu": {
+      "title": "婚活",
+      "text": "{age}歳。そろそろ本気で出会いを探しますか？",
+      "yes": "婚活する",
+      "no": "しない",
+      "detail": "年{annual:money}・出会い +{pct}%"
+    },
+    "friendWedding": {
+      "title": "友人の結婚式",
+      "text": "友人から結婚式の招待状が届いた。",
+      "detail": "{cost:money}"
     },
     "branch": {
       "title": "これからの暮らし",
@@ -123,11 +195,13 @@
     "spending": "生涯支出の内訳",
     "spendingItems": {
       "living": "生活費",
-      "housing": "家賃",
+      "housing": "住まい（家賃・更新料・初期費用）",
       "food": "食費",
-      "social": "付き合い・交際費",
+      "social": "付き合い・交際費・婚活",
+      "leisure": "趣味・旅行",
+      "invest": "自己投資",
       "car": "車",
-      "other": "その他（医療・利息）"
+      "other": "その他（家電・医療・冠婚葬祭・利息）"
     },
     "incomeNote": "収入は手取り {income:money}、臨時収入 {extra:money}。",
     "achievements": "実績",
@@ -182,7 +256,15 @@
     "met": "出会いがあった。恋人ができた。",
     "brokeUp": "恋人と別れた。",
     "married": "結婚することにした。新しい暮らしが始まる。",
-    "single": "ひとりで生きていくと決めた。"
+    "single": "ひとりで生きていくと決めた。",
+    "renewed": "部屋の契約を更新した。更新料は{cost:money}。",
+    "moveOut": "今の部屋を出ることにした。",
+    "neighborTrouble": "隣の部屋とのトラブルで、眠れない日が続いた。",
+    "neighborEndured": "引っ越すのはあきらめて、我慢することにした。",
+    "applianceBroke": "家電が壊れて、買い直した。{cost:money}かかった。",
+    "applianceReplaced": "家電を買い替えた。",
+    "carSold": "乗っていた車を{value:money}で手放した。",
+    "carBreakdown": "車が故障して、修理に{cost:money}かかった。"
   },
   "site": {
     "htmlLang": "ja",
