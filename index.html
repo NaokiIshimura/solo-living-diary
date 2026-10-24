@@ -1,13 +1,17 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>一人暮らし日記</title>
-  <meta name="description" content="就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。">
+  <title>一人暮らし日記 · Solo Living Diary · 獨居日記 · Diario de vida independiente · 자취일기</title>
+  <meta name="description" content="A free life-simulation game: from the day you move out on your own to your early 30s, make only buy-or-skip and high, mid or low choices. Play in English, Traditional Chinese, Spanish, Japanese or Korean.">
   <link rel="canonical" href="https://solo-living-diary.nacn.app/">
   <!-- 同じ内容の各言語のページ。このページ自体は言語を選ぶページなので x-default -->
   <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/">
+  <link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/">
+  <link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/">
+  <link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/">
+  <link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/">
   <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/">
   <script>
   // 自動でその人の言語のページへ移動する。以前の URL（/?lang=en など）、前に自分で選んだ言語、ブラウザで一番希望している言語の順。
@@ -15,7 +19,7 @@
   (() => {
     const params = new URLSearchParams(location.search);
     if (params.has('choose')) return;
-    const MATCH = {"ja": ["ja"]};
+    const MATCH = {"ja": ["ja"], "en": ["en"], "zh-tw": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "ko": ["ko"], "es": ["es", "!es-es"]};
     // 先頭が一致すれば対象。「!」付きは除外（スペイン語版は中南米向けなので es-ES は自動では移動しない）
     const matches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
     let code = null;
@@ -31,12 +35,12 @@
   </script>
   <meta name="theme-color" content="#faf6ef">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="一人暮らし日記">
-  <meta property="og:title" content="一人暮らし日記｜実家を出た日から30代まで、選択だけで駆け抜ける人生シミュレーション">
-  <meta property="og:description" content="就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。">
+  <meta property="og:site_name" content="Solo Living Diary">
+  <meta property="og:title" content="Solo Living Diary | From moving out to your 30s, a life sim made only of choices">
+  <meta property="og:description" content="A free life-simulation game: from the day you move out on your own to your early 30s, make only buy-or-skip and high, mid or low choices.">
   <meta property="og:url" content="https://solo-living-diary.nacn.app/">
-  <!-- どの言語の人も見るページ。英語版ができたら（フェーズ4）、英語版の画像にする -->
-  <meta property="og:image" content="https://solo-living-diary.nacn.app/ja/og.png?v=20261024c">
+  <!-- どの言語の人も見るページなので、英語版の画像にする -->
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/en/og.png?v=20261024c">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -92,20 +96,44 @@ function gtag(){dataLayer.push(arguments);}
   <main id="app">
     <header class="picker-head">
       <h1 class="logo">一人暮らし日記</h1>
+      <p>Choose your language</p>
+      <p lang="zh-Hant-TW">請選擇語言</p>
+      <p lang="es-419">Elige tu idioma</p>
       <p lang="ja">言語を選んでください</p>
+      <p lang="ko">언어를 선택하세요</p>
     </header>
     <div class="picker" id="picker">
+    <section class="lang-card" lang="en" data-code="en">
+      <h2>Solo Living Diary<small>English</small></h2>
+      <p>A life sim from the day you start your first job and leave home to your early 30s, driven only by choices: buy or skip, high, mid or low.</p>
+      <a class="button primary" href="en/" hreflang="en">Start</a>
+    </section>
+    <section class="lang-card" lang="zh-Hant-TW" data-code="zh-tw">
+      <h2>獨居日記<small>繁體中文</small></h2>
+      <p>從出社會、搬出老家的那天到30歲出頭，只靠「買·不買／高·普通·低」的選擇一路走完的人生模擬遊戲。</p>
+      <a class="button primary" href="zh-tw/" hreflang="zh-TW">開始</a>
+    </section>
+    <section class="lang-card" lang="es-419" data-code="es">
+      <h2>Diario de vida independiente<small>Español</small></h2>
+      <p>Un simulador de vida: desde que dejas la casa de tus padres con tu primer empleo hasta los primeros años de tus 30, solo eligiendo «comprar o no» y «caro, normal o barato».</p>
+      <a class="button primary" href="es/" hreflang="es">Empezar</a>
+    </section>
     <section class="lang-card" lang="ja" data-code="ja">
       <h2>一人暮らし日記<small>日本語</small></h2>
       <p>就職して実家を出た日から30代前半までを「買う・買わない／高い・普通・安い」の選択だけで駆け抜ける人生シミュレーション。</p>
       <a class="button primary" href="ja/" hreflang="ja">はじめる</a>
+    </section>
+    <section class="lang-card" lang="ko" data-code="ko">
+      <h2>자취일기<small>한국어</small></h2>
+      <p>취직해서 본가를 떠난 날부터 30대 초반까지 &#x27;산다·안 산다 / 비싸게·보통·싸게&#x27; 선택만으로 달려가는 인생 시뮬레이션.</p>
+      <a class="button primary" href="ko/" hreflang="ko">시작하기</a>
     </section>
     </div>
   </main>
   <script>
   (() => {
     // /?choose で開いたときは、ブラウザで一番希望している言語のカードを先頭に出して目立たせる
-    const MATCH = {"ja": ["ja"]};
+    const MATCH = {"ja": ["ja"], "en": ["en"], "zh-tw": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "ko": ["ko"], "es": ["es", "!es-es"]};
     const first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     const matches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
     const code = Object.keys(MATCH).find(c => matches(first, MATCH[c]));

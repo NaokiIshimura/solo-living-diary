@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "title": "獨居日記",
+    "description": "從出社會、搬出老家的那天到30歲出頭，只靠「買·不買／高·普通·低」的選擇一路走完的人生模擬遊戲。",
+    "gameName": "獨居日記",
+    "hashtag": "#獨居日記",
+    "setInJapan": "本遊戲以日本為背景，金額皆為日圓。"
+  },
+  "title": {
+    "lead": "從搬出老家到30幾歲，<br>只靠選擇一路走完的人生模擬遊戲",
+    "start": "開始",
+    "continue": "繼續",
+    "gallery": "結局圖鑑",
+    "settings": "設定"
+  },
+  "setup": {
+    "heading": "開局設定",
+    "gender": "性別",
+    "female": "女性",
+    "male": "男性",
+    "age": "開始獨居的年齡（{min}〜{max}歲）",
+    "savings": "存款（單位：萬日圓，{min}〜{max}）",
+    "income": "年收入（單位：萬日圓）",
+    "incomeHint": "年收入的初始值是該年齡的中位數。",
+    "random": "隨機",
+    "submit": "用這個設定開始",
+    "omakase": "全部交給系統，直接開始",
+    "back": "回到標題"
+  },
+  "main": {
+    "age": "{n}歲",
+    "pause": "暫停",
+    "startLine": "存款{savings:money}，年收入{income:money}，正式起步。",
+    "resumed": "從上次的進度繼續。",
+    "yearEnd": "年底",
+    "yearEndMoney": "收入 {income:money}·支出 {expense:money}（{delta:signedMoney}）→ {savings:money}",
+    "status": {
+      "age": "年齡",
+      "years": "獨居",
+      "yearsN": "第{n}年",
+      "savings": "存款",
+      "fulfillment": "充實度",
+      "room": "住處",
+      "partner": "戀人",
+      "none": "無",
+      "partnerYears": "交往第{n}年",
+      "listSep": "、",
+      "car": "車"
+    }
+  },
+  "summary": {
+    "head": "{age}歲的家計",
+    "unit": "{delta:signedMoney}",
+    "income": "收入",
+    "items": {
+      "living": "生活費",
+      "housing": "房租",
+      "food": "伙食費",
+      "social": "社交應酬",
+      "hobby": "興趣",
+      "date": "約會開銷",
+      "konkatsu": "婚活",
+      "car": "車",
+      "breakdown": "車子故障",
+      "interest": "利息"
+    }
+  },
+  "event": {
+    "tier": {
+      "high": "高",
+      "mid": "普通",
+      "low": "低"
+    },
+    "tierOption": "{tier}：{label}",
+    "back": "返回",
+    "predicted": "→ 存款 {money:money}",
+    "neverSub": "之後不會再提議",
+    "later": "現在先不買（3年後再考慮）",
+    "jobOffer": {
+      "title": "跳槽邀約",
+      "text": "收到跳槽邀約。年收入可能會變高，也可能變低（±20%）。",
+      "accept": "跳槽",
+      "acceptSub": "年收入會在 −20%〜+20% 之間變動",
+      "decline": "拒絕",
+      "declineSub": "年收入維持不變"
+    },
+    "annual": "每年{annual:money}",
+    "room": {
+      "title": "找房子",
+      "text": "終於要一個人住了。想住什麼樣的房子？",
+      "detail": "房租 每年{annual:money}·入住費用 {cost:money}",
+      "textMove": "決定搬家了。下一間想住什麼樣的房子？"
+    },
+    "renewal": {
+      "title": "續約",
+      "text": "入住{n}年了。要續租這間房子嗎？",
+      "renew": "續約",
+      "renewSub": "續約費 {cost:money}",
+      "move": "搬家",
+      "moveSub": "重新找房子（需要入住費用）"
+    },
+    "neighbor": {
+      "title": "鄰居糾紛",
+      "text": "隔壁吵得不得了，已經好幾天睡不好了。",
+      "move": "搬家",
+      "moveSub": "重新找房子（需要入住費用）",
+      "endure": "忍耐",
+      "endureSub": "充實度會再下降"
+    },
+    "appliance": {
+      "title": "家電·家具",
+      "text": "要把家電和家具買齊了。選哪一種？",
+      "textReplace": "家電差不多都到了壽命。來換新的吧。",
+      "detail": "{cost:money}·可用{life}年",
+      "fragile": "·容易壞"
+    },
+    "food": {
+      "title": "飲食",
+      "text": "每天的三餐要怎麼解決？",
+      "textReview": "一個人住第{n}年了。要重新調整飲食嗎？"
+    },
+    "social": {
+      "title": "社交應酬",
+      "text": "同事或朋友的邀約，要參加到什麼程度？",
+      "textReview": "一個人住第{n}年了。要重新調整社交應酬的方式嗎？",
+      "yes": "接受邀約",
+      "no": "幾乎都推掉"
+    },
+    "hobby": {
+      "title": "興趣·追星",
+      "text": "假日的樂趣，要花錢在上面嗎？",
+      "textReview": "一個人住第{n}年了。要重新調整花在興趣上的錢嗎？",
+      "yes": "花錢",
+      "no": "不做"
+    },
+    "invest": {
+      "title": "自我投資",
+      "text": "{age}歲。要為了工作花錢進修嗎？",
+      "yes": "要",
+      "no": "不要",
+      "school": "2年內比較容易升職，跳槽時年收入也比較容易提高",
+      "pass": "合格率{pct}%·考上後年收入 +{raise}%"
+    },
+    "car": {
+      "titleBuy": "買車",
+      "titleReplace": "換車",
+      "textBuy": "要買車嗎？",
+      "textReplace": "車子開了{years}年。要以{value:money}賣掉現在的車，換一台新車嗎？",
+      "yes": "買",
+      "never": "這輩子不買車",
+      "detail": "{cost:money}·養車費 每年{annual:money}·{years}年後以{resale:money}賣出",
+      "fragile": "·容易故障"
+    },
+    "travel": {
+      "title": "旅行",
+      "text": "好像能請到一段長假。要去旅行嗎？",
+      "yes": "去",
+      "no": "不去"
+    },
+    "partner": {
+      "title": "和戀人交往",
+      "text": "交到戀人了。約會和禮物要花多少錢？",
+      "breakup": "分手機率 每年{pct}%"
+    },
+    "konkatsu": {
+      "title": "婚活",
+      "text": "{age}歲。差不多該認真「婚活」（以結婚為目標找對象）了嗎？",
+      "yes": "開始婚活",
+      "no": "不要",
+      "detail": "每年{annual:money}·邂逅機率 +{pct}%"
+    },
+    "friendWedding": {
+      "title": "朋友的婚禮",
+      "text": "收到朋友的喜帖了。",
+      "detail": "{cost:money}"
+    },
+    "branch": {
+      "title": "往後的生活",
+      "textPartner": "{age}歲。和戀人交往{years}年了。接下來要怎麼做？",
+      "textAlone": "{age}歲。一個人住也第{years}年了。接下來要怎麼做？",
+      "marry": "結婚",
+      "marrySub": "結婚結局",
+      "single": "一個人活下去",
+      "singleSub": "單身結局"
+    }
+  },
+  "result": {
+    "netWorthBankrupt": "破產時的淨資產",
+    "titleLabel": "稱號",
+    "savings": "存款",
+    "carValue": "車輛估值",
+    "netWorth": "淨資產",
+    "compare": "比同條件下「全選普通」（{mid:money}）{diff}",
+    "compareBankrupt": "同條件下「全選普通」的話會破產。",
+    "spending": "一生支出明細",
+    "spendingItems": {
+      "living": "生活費",
+      "housing": "居住（房租·續約費·入住費用）",
+      "food": "伙食費",
+      "social": "社交應酬·約會·婚活",
+      "leisure": "興趣·旅行",
+      "invest": "自我投資",
+      "car": "車",
+      "other": "其他（家電·醫療·婚喪喜慶·利息）"
+    },
+    "incomeNote": "實領收入 {income:money}，臨時收入 {extra:money}。",
+    "achievements": "成就",
+    "noAchievements": "這次沒有達成成就。",
+    "timeline": "人生年表",
+    "lifeBankrupt": "{start}歲開始獨居 → {end}歲破產",
+    "share": "分享",
+    "shareImage": "分享圖片",
+    "saveImage": "儲存圖片",
+    "post": "發佈到 X（Twitter）",
+    "shareText": "我在獨居日記得到「{ending}」（{rank}）。稱號是「{title}」。",
+    "rankWord": "{rank}級",
+    "bankruptWord": "破產",
+    "again": "再玩一次",
+    "toTitle": "回到標題",
+    "cardAlt": "結果圖卡",
+    "new": "NEW",
+    "netWorthEnd": "結束時的淨資產",
+    "lifeMarried": "{start}歲開始獨居 → {end}歲結婚",
+    "lifeSingle": "{start}歲開始獨居 → {end}歲，決定一個人活下去",
+    "fulfillmentLine": "充實度 {n}（{band}）",
+    "continue": {
+      "married": "接著玩新婚日記",
+      "marriedSub": "沿用存款、年收入和車，開始兩個人的生活（會在新分頁開啟）。",
+      "single": "如果結婚了會怎樣？去玩新婚日記",
+      "singleSub": "沿用存款、年收入和車，開始玩新婚日記（會在新分頁開啟）。"
+    }
+  },
+  "gallery": {
+    "heading": "結局圖鑑",
+    "plays": "遊玩次數 {n}次",
+    "best": "·最高淨資產 {money:money}",
+    "endings": "結局",
+    "titles": "稱號",
+    "achievements": "成就",
+    "locked": "？？？",
+    "back": "回到標題"
+  },
+  "settings": {
+    "heading": "設定",
+    "language": "語言",
+    "yearSummary": "顯示年底收支",
+    "speed": "預設進行速度",
+    "clear": "清除資料",
+    "clearHint": "將清除中途存檔、結局圖鑑、成就與設定。",
+    "confirm": "將清除中途存檔、結局圖鑑、成就與設定。確定嗎？",
+    "back": "回到標題"
+  },
+  "h": {
+    "started": "搬出老家，開始一個人住了。",
+    "promotion": "升職了。年收入提高了{pct}%。",
+    "illness": "身體不舒服住院了。醫療費{cost:money}。",
+    "bonusCut": "公司業績不好，獎金變少了。今年實領收入少了一成。",
+    "windfall": "有一筆臨時收入，進帳{amount:money}。",
+    "jobAccepted": "跳槽了。年收入變動{pct:signed}%。",
+    "jobDeclined": "婉拒了跳槽邀約。",
+    "bankrupt": "家計破產了。",
+    "met": "有了新的邂逅，交到戀人了。",
+    "brokeUp": "和戀人分手了。",
+    "married": "決定結婚了。新的生活就要開始。",
+    "single": "決定一個人活下去。",
+    "renewed": "續租了房子。續約費{cost:money}。",
+    "moveOut": "決定搬離現在的房子。",
+    "neighborTrouble": "因為跟隔壁鄰居起了糾紛，好幾天都睡不好。",
+    "neighborEndured": "放棄搬家，決定先忍耐。",
+    "applianceBroke": "家電壞了，只好重買，花了{cost:money}。",
+    "applianceReplaced": "把家電換新了。",
+    "carSold": "把開了多年的車以{value:money}賣掉了。",
+    "carBreakdown": "車子故障了，修理花了{cost:money}。"
+  },
+  "site": {
+    "htmlLang": "zh-Hant-TW",
+    "hreflang": "zh-TW",
+    "ogLocale": "zh_TW",
+    "langName": "繁體中文",
+    "titleSep": "｜",
+    "suggest": {
+      "text": "獨居日記也提供繁體中文版。",
+      "link": "以繁體中文遊玩",
+      "close": "關閉"
+    },
+    "consent": {
+      "label": "Cookie 同意",
+      "text": "本網站使用 Cookie 進行流量統計。即使不同意，也能照常遊玩。",
+      "policy": "隱私權政策",
+      "accept": "同意",
+      "reject": "不同意",
+      "settings": "Cookie 設定"
+    }
+  },
+  "nav": {
+    "label": "站內頁面",
+    "play": "開始遊戲",
+    "howto": "玩法說明",
+    "about": "關於本站／聯絡我們",
+    "privacy": "隱私權政策",
+    "portal": "nacn.app 的其他遊戲"
+  },
+  "pages": {
+    "howto": {
+      "title": "玩法說明",
+      "description": "獨居日記的玩法說明。介紹開局設定、一年的進行方式、每年的金錢計算、隨機事件，以及結束時的等級與稱號。"
+    },
+    "privacy": {
+      "title": "隱私權政策",
+      "description": "說明獨居日記儲存的資訊（只存在您使用的瀏覽器中）、結果的分享、流量分析（Google Analytics）與 Cookie 同意。"
+    }
+  },
+  "band": {
+    "high": "😊 充實",
+    "mid": "🙂 普通",
+    "low": "😞 提不起勁"
+  }
+}

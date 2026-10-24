@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>플레이 방법 | 자취일기</title>
+  <meta name="description" content="자취일기 플레이 방법. 처음 설정, 1년의 진행 방식, 매년의 돈 계산, 랜덤 사건, 종료 시 랭크와 칭호를 설명합니다.">
+  <link rel="canonical" href="https://solo-living-diary.nacn.app/ko/howto">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="자취일기">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="플레이 방법 | 자취일기">
+  <meta property="og:description" content="자취일기 플레이 방법. 처음 설정, 1년의 진행 방식, 매년의 돈 계산, 랜덤 사건, 종료 시 랭크와 칭호를 설명합니다.">
+  <meta property="og:url" content="https://solo-living-diary.nacn.app/ko/howto">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/ko/og.png?v=20261024c">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto">
+  <link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto">
+  <link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto">
+  <link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto">
+  <link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto">
+  <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto">
+  <meta name="theme-color" content="#faf6ef">
+  <link rel="stylesheet" href="../css/style.css?v=20261024c">
+  <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+(() => {
+  // 事前の同意が要る国：ページの言語か端末のタイムゾーンで見分け、同意するまで Cookie を使わない（バナーを出す）
+  const NEED_LANGS = ['id'];
+  const NEED_TZ = ['Asia/Jakarta', 'Asia/Pontianak', 'Asia/Makassar', 'Asia/Jayapura', 'Asia/Bangkok', 'Asia/Ho_Chi_Minh', 'Asia/Saigon'];
+  // Google の位置判定でも最初から拒否にする国と地域（上の国と、EU・EEA・英国・スイス。EU・英国などにはバナーを出さない）
+  const DENY_REGIONS = ['ID', 'TH', 'VN', 'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT',
+    'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  const saved = (document.cookie.match(/(?:^|; )nacn_consent=v1\.(granted|denied)/) || [])[1] || null;
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* 古いブラウザ */ }
+  const lang = (document.documentElement.lang || '').toLowerCase();
+  const need = NEED_LANGS.some(l => lang === l || lang.startsWith(l + '-')) || NEED_TZ.includes(tz);
+  const state = saved || (need ? 'denied' : 'granted');
+  const all = s => ({ad_storage: s, ad_user_data: s, ad_personalization: s, analytics_storage: s});
+  // 地域ごとの初期値は、地域なしの初期値より優先される。自分で選んだ人には地域の初期値を使わない
+  if (!saved) gtag('consent', 'default', Object.assign(all('denied'), {region: DENY_REGIONS}));
+  gtag('consent', 'default', Object.assign(all(state), {wait_for_update: 500}));
+  if (state === 'denied') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+  window.nacnConsent = {need, saved};
+})();
+</script>
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4T14LV4KW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z4T14LV4KW');
+  </script>
+</head>
+<body>
+  <main id="app" class="doc">
+    <a class="doc-back" href="./">← 자취일기</a>
+    <h1>플레이 방법</h1>
+    <article class="doc-body">
+    <p>자취일기는 취직해서 본가를 떠난 날부터 30대 초반까지, 혼자 사는 가계를 1년씩 진행해 나가는 인생 시뮬레이션입니다. 고르는 것은 '산다·안 산다'와 '비싸게·보통·싸게'뿐입니다. 마지막에는 '결혼한다'와 '혼자 살아간다' 중 하나를 고릅니다. 금액은 일본 엔화이며, 무대는 일본입니다.</p>
+
+    <h2>처음에 정하는 것</h2>
+    <ul>
+      <li><strong>성별</strong>: '여성', '남성' 중에서 고릅니다.</li>
+      <li><strong>자취를 시작하는 나이</strong>: 22~28세.</li>
+      <li><strong>저축</strong>: 0~300만 엔(10만 엔 단위).</li>
+      <li><strong>연봉</strong>: 세전 연봉입니다. 초깃값은 시작 나이의 연봉 중앙값입니다. 나이를 바꾸면, 직접 고치지 않은 연봉은 그 나이의 중앙값에 맞춰 바뀝니다.</li>
+    </ul>
+    <p>모든 항목에 '랜덤' 버튼이 있고, '모두 맡기고 시작'을 누르면 전부 랜덤으로 정해서 바로 시작할 수 있습니다.</p>
+
+    <h2>1년의 진행 방식</h2>
+    <p>게임이 시작되면 1년씩 자동으로 진행됩니다. 진행 속도는 '1x', '2x', '일시정지'로 바꿀 수 있습니다. 이벤트가 오면 진행이 멈추고 선택 화면이 열립니다. 버튼에는 금액과 고른 뒤의 저축('→ 저축 ○○만 엔')이 표시됩니다.</p>
+    <p>연말에는 그해의 수입과 지출이 계산되어 저축이 늘거나 줄고, 일기에 '연말' 줄이 기록됩니다. 화면 아래에는 연말 수지 내역이 몇 초 동안 표시됩니다(설정에서 표시하지 않도록 할 수도 있습니다).</p>
+
+    <h2>라이프 이벤트</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>이벤트</th><th>일어나는 때</th><th>비싸게 / 보통 / 싸게 (/ 안 한다)</th></tr></thead>
+        <tbody>
+          <tr><td>집 구하기</td><td>맨 처음, 이사할 때</td><td>역세권·신축 1.5룸(방 하나에 거실이 딸린 1LDK) 월세 연 120만 엔, 초기 비용 60만 엔 / 평범한 원룸(1K) 연 80만 엔, 40만 엔 / 역에서 먼 오래된 방 연 55만 엔, 25만 엔(이웃 갈등이 잦음)</td></tr>
+          <tr><td>가전·가구</td><td>집 구하기 직후, 수명이 다했을 때</td><td>새 제품·고급형 50만 엔(수명 10년) / 새 제품·일반형 25만 엔(8년) / 중고·얻은 물건 8만 엔(5년, 고장이 잦음)</td></tr>
+          <tr><td>식생활</td><td>가전 직후, 이후 3년마다</td><td>외식·배달 위주 연 85만 엔 / 집밥 반, 외식 반 연 45만 엔 / 싸게 해결 연 30만 엔(병이나 부상이 잦음)</td></tr>
+          <tr><td>모임</td><td>식생활 직후, 이후 3년마다</td><td>약속은 전부 나간다 연 25만 엔 / 적당히 연 15만 엔 / 꼭 필요할 때만 연 5만 엔 / 거의 거절한다 0엔</td></tr>
+          <tr><td>계약 갱신</td><td>입주 후 2년마다</td><td>갱신한다(갱신료: 월세 1개월분. 일본에서는 임대 계약을 갱신할 때 이 비용을 냅니다) / 이사한다(집 구하기로)</td></tr>
+          <tr><td>취미·덕질</td><td>2년 차부터, 이후 3년마다</td><td>전력투구 연 50만 엔 / 적당히 연 18만 엔 / 돈을 안 쓴다 연 5만 엔 / 안 한다 0엔</td></tr>
+          <tr><td>자기계발</td><td>24세부터 3년마다(최대 3번)</td><td>학원·직장인 대학원 40만 엔(2년 동안 승진하기 쉬움) / 온라인 강좌·자격증 20만 엔(합격률 60%, 합격하면 연봉 +5%) / 독학 3만 엔(합격률 30%) / 안 한다</td></tr>
+          <tr><td>차</td><td>25세부터. 교체도 있음</td><td>국산 신차 300만 엔, 유지비 연 35만 엔 / 중고차(상태 좋음) 150만 엔, 연 30만 엔 / 초저가 중고차 60만 엔, 연 30만 엔(고장이 잦음) / 지금은 안 산다(3년 뒤 다시 생각) / 평생 갖지 않는다</td></tr>
+          <tr><td>여행</td><td>2년 차부터 2년마다</td><td>해외 40만 엔 / 국내 15만 엔 / 근교 당일치기 3만 엔 / 안 간다</td></tr>
+          <tr><td>연인과의 교제</td><td>연인이 생겼을 때</td><td>데이트 비용 연 60만 엔(헤어질 확률 연 5%) / 연 30만 엔(10%) / 연 12만 엔(20%)</td></tr>
+          <tr><td>짝 찾기</td><td>28세 이후, 연인이 없는 해에 2년마다</td><td>결혼정보회사 연 50만 엔(만남 +25%) / 유료 앱 연 5만 엔(+10%) / 무료 앱·지인 소개 0엔(+5%) / 안 한다</td></tr>
+          <tr><td>앞으로의 생활</td><td>연인이 있고 30세 이상·교제 2년 이상이 되었을 때, 또는 35세</td><td>결혼한다 / 혼자 살아간다(연인이 없을 때는 '혼자 살아간다'만)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>만족도</h2>
+    <p>생활의 만족감을 나타내는 0~100의 값으로, 50에서 시작합니다. 매년 고른 방·식생활·모임·취미의 값이 더해지고, 저절로 3씩 줄어듭니다. 여행이나 친구의 결혼식, 이웃 갈등으로도 오르내립니다. 화면 위쪽에 얼굴 아이콘으로 표시됩니다.</p>
+    <ul>
+      <li><strong>😊 만족(70 이상)</strong>: 승진 확률 +5%, 만남 확률 +5%.</li>
+      <li><strong>🙂 보통(31~69)</strong>: 보정 없음.</li>
+      <li><strong>😞 무기력(30 이하)</strong>: 승진하지 않음, 나이에 따른 연봉 상승이 멈춤, 병·부상 확률 +5%, 만남 확률 −5%, 연인과 헤어질 확률 +10%.</li>
+    </ul>
+    <p>만족도는 랭크에는 들어가지 않지만, 엔딩 이름이 달라집니다.</p>
+
+    <h2>만남과 이별</h2>
+    <p>연인이 없는 해에는 연말에 만남이 있는지 판정합니다. 확률은 10%에 모임 보정(전부 나간다 +10%, 적당히 +5%, 꼭 필요할 때만 0, 거의 거절한다 −5%), 짝 찾기 보정, 만족도 보정을 더한 것입니다. 연인이 있는 해에는 데이트 비용에 따른 확률로 헤어질 수 있습니다.</p>
+
+    <h2>매년의 돈</h2>
+    <ul>
+      <li><strong>실수령</strong>: 연봉의 78%. 연봉은 나이별 중앙값의 상승에 맞춰 매년 오릅니다(무기력한 해에는 오르지 않습니다).</li>
+      <li><strong>생활비</strong>: 공과금·통신비·생활용품 등. 연 45만 엔에서 시작해 매년 1.25%씩 오릅니다.</li>
+      <li><strong>월세·식비·모임·취미·데이트 비용·짝 찾기·차 유지비</strong>: 고른 금액이 매년 듭니다.</li>
+      <li><strong>이자</strong>: 연말에 저축이 마이너스면 카드론으로 취급되어, 마이너스 금액의 10%가 붙습니다.</li>
+    </ul>
+
+    <h2>매년의 사건</h2>
+    <ul>
+      <li><strong>승진</strong>: 기본 8%. 만족 +5%, 학원에 다니는 2년 동안 +45%. 무기력하면 승진하지 않습니다. 승진하면 연봉 +10%.</li>
+      <li><strong>병·부상</strong>: 기본 5%. 식생활 '싸게' +5%, 무기력 +5%. 의료비 10만~50만 엔.</li>
+      <li><strong>랜덤 사건</strong>: 매년 20% 확률로 이직 제안(받아들이면 연봉이 −20%~+20%. 학원에 다니는 동안은 오르기 쉬움)·보너스 삭감(그해 실수령액 −10%)·임시 수입(10만~100만 엔)·친구의 결혼식(참석+뒤풀이 / 참석 / 불참하고 축의금만) 중 하나가 일어납니다.</li>
+      <li><strong>가전 고장</strong>: 고른 가전별 확률로, 구입액의 30%를 들여 1대를 새로 삽니다.</li>
+      <li><strong>차 고장</strong>: 고른 차별 확률로, 수리비 20만~80만 엔.</li>
+      <li><strong>이웃 갈등</strong>: 고른 방별 확률로 일어나며, 만족도 −5. 이사할지, 참을지(만족도가 한 번 더 −5)를 고릅니다.</li>
+    </ul>
+
+    <h2>끝나는 방식</h2>
+    <p>'앞으로의 생활'에서 고르면 게임이 끝납니다. 도중에 저축이 −300만 엔 아래로 내려가면 그 시점에서 '가계 파산 엔딩'이 됩니다.</p>
+    <p>랭크는 종료 시 순자산(저축 + 차 평가액)으로 정해집니다: S 800만 엔 이상, A 500만 엔 이상, B 300만 엔 이상, C 0엔 이상, D 0엔 미만(빚이 남음). 엔딩은 결혼인지 혼자인지와 종료 시 만족도의 조합으로 6가지(그리고 가계 파산 엔딩)입니다.</p>
+
+    <h2>칭호와 업적</h2>
+    <p>칭호는 선택 경향에 따라 하나가 정해집니다. 위에서부터 차례로 확인해서, 처음 해당하는 것이 됩니다.</p>
+    <ul>
+      <li><strong>덕질이 인생</strong>: 취미·덕질에서 2번 이상, 모두 '전력투구'를 골랐다</li>
+      <li><strong>자기계발러</strong>: 제안받은 자기계발을 모두 했다(2번 이상)</li>
+      <li><strong>허세왕</strong>: 선택의 70% 이상에서 '비싸게'를 골랐다</li>
+      <li><strong>절약의 달인</strong>: 선택의 70% 이상에서 '싸게'나 '안 한다'를 골랐다</li>
+      <li><strong>착실파</strong>: 선택의 70% 이상에서 '보통'을 골랐다</li>
+      <li><strong>인싸</strong>: 모임에서 2번 이상, 모두 '약속은 전부 나간다'를 골랐다</li>
+      <li><strong>이사 마니아</strong>: 3번 이상 이사했다</li>
+      <li><strong>차 없는 생활</strong>: 차를 갖지 않기로 했다</li>
+      <li><strong>균형파</strong>: 다른 어느 것에도 해당하지 않는다</li>
+    </ul>
+    <p>업적은 12개입니다(저축의 귀신·밑바닥을 보다·정들면 고향·철새·자격증 획득·이직 성공·운명의 만남·짝 찾기의 성과·매일이 즐거워·빚 제로·뜻밖의 목돈·이야기는 계속된다). 조건은 엔딩 도감에서 확인할 수 있습니다.</p>
+
+    <h2>신혼일기로 이어가기</h2>
+    <p>결과 화면에서 자매작 '신혼일기'로 넘어갈 수 있습니다. 자취일기의 성별·나이·저축·연봉·차를 이어받아 결혼 생활을 시작할 수 있습니다. 결혼 엔딩에서는 큰 버튼으로, 싱글 엔딩에서는 '만약 결혼했다면?'이라는 작은 버튼으로 나옵니다. 가계 파산 엔딩에서는 나오지 않습니다.</p>
+
+    <h2>기록</h2>
+    <p>진행 기록은 연말마다 브라우저에 저장되며, 타이틀 화면의 '이어하기'로 다시 시작할 수 있습니다. 본 엔딩·칭호·업적은 '엔딩 도감'에서 확인할 수 있습니다.</p>
+    </article>
+      <nav class="site-nav" aria-label="사이트 내 페이지">
+        <ul data-consent-menu>
+          <li><a href="./">게임 플레이</a></li>
+          <li><a href="howto.html" aria-current="page">플레이 방법</a></li>
+          <li><a href="https://nacn.app/ko/about.html">운영자 정보·문의</a></li>
+          <li><a href="privacy.html">개인정보 처리방침</a></li>
+          <li><a href="https://nacn.app/ko/">nacn.app의 다른 게임</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch langs"><a href="../en/howto.html" hreflang="en" lang="en" data-code="en">English</a><a href="../zh-tw/howto.html" hreflang="zh-TW" lang="zh-Hant-TW" data-code="zh-tw">繁體中文</a><a href="../es/howto.html" hreflang="es" lang="es-419" data-code="es">Español</a><a href="../ja/howto.html" hreflang="ja" lang="ja" data-code="ja">日本語</a><a href="../ko/howto.html" hreflang="ko" lang="ko" data-code="ko" aria-current="true">한국어</a></nav>
+  </main>
+<div class="suggest" id="langSuggest" hidden>
+    <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
+    <button type="button" class="suggest-close" id="langSuggestClose" aria-label="닫기">×</button>
+  </div>
+  <script>
+  (() => {
+    // ブラウザの言語が別の対応言語なら、その言語のページを1行で案内する（自動では移動しない。閉じたら次から出さない）
+    const ALT = [{"match": ["ja"], "text": "一人暮らし日記は日本語でも遊べます。", "link": "日本語で遊ぶ", "href": "../ja/howto.html", "lang": "ja", "code": "ja", "current": false}, {"match": ["en"], "text": "Solo Living Diary is also available in English.", "link": "Play in English", "href": "../en/howto.html", "lang": "en", "code": "en", "current": false}, {"match": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "text": "獨居日記也提供繁體中文版。", "link": "以繁體中文遊玩", "href": "../zh-tw/howto.html", "lang": "zh-Hant-TW", "code": "zh-tw", "current": false}, {"match": ["ko"], "text": "자취일기는 한국어로도 플레이할 수 있습니다.", "link": "한국어로 플레이", "href": "../ko/howto.html", "lang": "ko", "code": "ko", "current": true}, {"match": ["es", "!es-es"], "text": "Diario de vida independiente también está disponible en español.", "link": "Jugar en español", "href": "../es/howto.html", "lang": "es-419", "code": "es", "current": false}];
+    // match は言語コードの先頭の一致。「!」付きは除外（例: スペイン語版は中南米向けなので es-ES は外す）
+    const langMatches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
+    // 自分で選んだ言語を覚えて、次に / を開いたときはその言語へ移動する（言語の切り替えリンクと、この案内のリンク）
+    const remember = code => { try { localStorage.setItem('lang', code); } catch (e) { /* noop */ } };
+    // 切り替えリンクはこのあとに出てくるので、ページ全体でクリックを受け取る
+    document.addEventListener('click', e => {
+      const a = e.target.closest('.langs a[data-code], #langSuggestLink');
+      if (a && a.dataset.code) remember(a.dataset.code);
+    });
+    const KEY = 'lang-suggest-closed';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) { /* 保存できない環境 */ }
+    const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']).map(l => l.toLowerCase());
+    // 一番希望している言語だけを見る。対応していない言語か、今のページの言語なら何も出さない
+    const first = langs[0] || '';
+    const alt = ALT.find(a => langMatches(first, a.match));
+    if (!alt || alt.current) return;
+    const box = document.getElementById('langSuggest');
+    document.getElementById('langSuggestText').textContent = alt.text;
+    const link = document.getElementById('langSuggestLink');
+    link.textContent = alt.link; link.href = alt.href; link.lang = alt.lang; link.dataset.code = alt.code;
+    box.lang = alt.lang;
+    box.hidden = false;
+    document.getElementById('langSuggestClose').addEventListener('click', () => {
+      box.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) { /* noop */ }
+    });
+  })();
+  </script>
+
+<!-- Cookie の同意のバナー（nacn.app 共通。元の版は claude-skills の consent-mode スキル） -->
+<div class="nacn-consent" id="nacnConsent" role="region" aria-label="쿠키 동의" hidden>
+  <p>이 사이트는 방문 통계를 위해 쿠키를 사용합니다. 동의하지 않아도 그대로 즐길 수 있습니다. <a href="/ko/privacy.html">개인정보 처리방침</a></p>
+  <div class="nacn-consent-btns">
+    <button type="button" data-consent="granted">동의</button>
+    <button type="button" data-consent="denied">거부</button>
+  </div>
+</div>
+<style>
+.nacn-consent{ position:fixed; left:8px; right:8px; bottom:8px; z-index:1000; max-width:720px; margin:0 auto; padding:12px 14px;
+  display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; color:#f4f1ff; background:#1d1a33; border:3px solid #f4f1ff;
+  box-shadow:0 4px 0 rgba(0,0,0,.35); font-size:.9rem; line-height:1.6; }
+.nacn-consent[hidden]{ display:none; }
+.nacn-consent p{ flex:1 1 280px; margin:0; }
+.nacn-consent a{ color:#ffd66b; }
+.nacn-consent-btns{ display:flex; gap:8px; }
+/* 同意する・しないは同じ大きさ・同じ見た目にする（どちらかに誘導しない） */
+.nacn-consent button{ min-width:7em; padding:6px 12px; font:inherit; color:#1d1a33; background:#f4f1ff; border:2px solid #f4f1ff; cursor:pointer; }
+.nacn-consent button:focus-visible{ outline:3px solid #ffd66b; outline-offset:2px; }
+</style>
+<script>
+(() => {
+  const bar = document.getElementById('nacnConsent');
+  // ページの中で言語を切り替えるアプリ（1つの HTML で全言語）は、data-strings に言語ごとの文言を持たせ、表示する前に今の言語の文言にする。
+  // キーは <html lang> を小文字にしたもの（なければ「-」の前）。値は {text, policy, policyHref, accept, reject, settings, label}
+  const strings = bar.dataset.strings ? JSON.parse(bar.dataset.strings) : null;
+  const localize = () => {
+    if (!strings) return;
+    const lang = (document.documentElement.lang || '').toLowerCase();
+    const t = strings[lang] || strings[lang.split('-')[0]];
+    if (!t) return;
+    const link = bar.querySelector('p a');
+    bar.querySelector('p').firstChild.textContent = t.text + ' ';
+    link.textContent = t.policy; link.href = t.policyHref;
+    bar.querySelector('[data-consent="granted"]').textContent = t.accept;
+    bar.querySelector('[data-consent="denied"]').textContent = t.reject;
+    bar.setAttribute('aria-label', t.label);
+    document.querySelectorAll('[data-consent-open]').forEach(a => { a.textContent = t.settings; });
+  };
+  const pad = () => { document.body.style.paddingBottom = bar.hidden ? '' : (bar.offsetHeight + 16) + 'px'; };
+  const show = () => { localize(); bar.hidden = false; pad(); };
+  const choose = v => {
+    // nacn.app の全サブドメインで同じ選択を使う（ローカルでは Domain を付けない）
+    const domain = /(^|\.)nacn\.app$/.test(location.hostname) ? '; Domain=.nacn.app' : '';
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `nacn_consent=v1.${v}; Max-Age=34128000; Path=/; SameSite=Lax${secure}${domain}`;
+    gtag('consent', 'update', {ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v});
+    bar.hidden = true; pad();
+  };
+  bar.querySelectorAll('[data-consent]').forEach(b => b.addEventListener('click', () => choose(b.dataset.consent)));
+  // いつでも選び直せるように、ページ下のメニュー（data-consent-menu を付けた ul か .site-nav ul）に「Cookie の設定」を足す。
+  // ほかの場所に置くなら data-consent-open を付けた要素
+  const menu = document.querySelector('[data-consent-menu]') || document.querySelector('.site-nav ul');
+  if (menu) menu.insertAdjacentHTML('beforeend', '<li><a href="#" data-consent-open>쿠키 설정</a></li>');
+  document.querySelectorAll('[data-consent-open]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(); }));
+  localize();
+  const c = window.nacnConsent || {};
+  if (c.need && !c.saved) show();
+})();
+</script>
+</body>
+</html>

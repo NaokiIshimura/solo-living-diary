@@ -15,8 +15,7 @@ const { pathToFileURL } = require('url');
 const { chromium } = require(process.env.PW || 'playwright');
 
 const ROOT = path.resolve(__dirname, '..');
-// build.py の LANGS と同じ。いまは日本語だけ
-const LANGS = ['ja'];
+const LANGS = ['ja', 'en', 'zh-tw', 'ko', 'es'];
 const FONT = {
   default: { css: 'family=M+PLUS+Rounded+1c:wght@500;800', name: 'M PLUS Rounded 1c' },
   'zh-tw': { css: 'family=Noto+Sans+TC:wght@500;800', name: 'Noto Sans TC' },

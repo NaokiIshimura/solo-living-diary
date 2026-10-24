@@ -2,8 +2,13 @@
 // UI の文は i18n/<言語>.json、国プロファイルの文（イベントの選択肢・日記・称号・実績・ランク）は
 // data/profiles/<国>/<言語>.json にある。どちらも同じ t() で引く。
 
-// いまは日本語だけ。ほかの言語はフェーズ4（ローカライズ）で足す（新婚日記の LANGS と同じ形で並べる）
-export const LANGS = [{ code: "ja", name: "日本語", locale: "ja-JP" }];
+export const LANGS = [
+  { code: "ja", name: "日本語", locale: "ja-JP" },
+  { code: "en", name: "English", locale: "en-US" },
+  { code: "zh-tw", name: "繁體中文", locale: "zh-TW" },
+  { code: "es", name: "Español", locale: "es-419" },
+  { code: "ko", name: "한국어", locale: "ko-KR" },
+];
 
 // 国プロファイルの文が入っているキーの先頭
 const PROFILE_ROOTS = ["events", "ranks", "endings", "titles", "achievements"];

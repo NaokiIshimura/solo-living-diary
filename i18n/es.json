@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "title": "Diario de vida independiente",
+    "description": "Un simulador de vida: desde que dejas la casa de tus padres con tu primer empleo hasta los primeros años de tus 30, solo eligiendo «comprar o no» y «caro, normal o barato».",
+    "gameName": "Diario de vida independiente",
+    "hashtag": "#DiarioDeVidaIndependiente",
+    "setInJapan": "El juego transcurre en Japón; los montos están en yenes japoneses (¥)."
+  },
+  "title": {
+    "lead": "De independizarte a los 30,<br>un simulador de vida a base de decisiones",
+    "start": "Empezar",
+    "continue": "Continuar",
+    "gallery": "Galería de finales",
+    "settings": "Ajustes"
+  },
+  "setup": {
+    "heading": "Configuración inicial",
+    "gender": "Género",
+    "female": "Mujer",
+    "male": "Hombre",
+    "age": "Edad al independizarte ({min}–{max} años)",
+    "savings": "Ahorros (en ¥10.000, {min}–{max})",
+    "income": "Ingreso anual (en ¥10.000)",
+    "incomeHint": "El ingreso inicial es la mediana para esa edad.",
+    "random": "Aleatorio",
+    "submit": "Empezar con esta configuración",
+    "omakase": "Empezar con todo al azar",
+    "back": "Volver al inicio"
+  },
+  "main": {
+    "age": "{n} años",
+    "pause": "Pausa",
+    "startLine": "Ahorros: {savings:money}. Ingreso anual: {income:money}. ¡A empezar!",
+    "resumed": "Retomé la partida.",
+    "yearEnd": "Fin de año",
+    "yearEndMoney": "Ingresos {income:money} · Gastos {expense:money} ({delta:signedMoney}) → {savings:money}",
+    "status": {
+      "age": "Edad",
+      "years": "Por tu cuenta",
+      "yearsN": "Año {n}",
+      "savings": "Ahorros",
+      "fulfillment": "Satisfacción",
+      "room": "Vivienda",
+      "partner": "Pareja",
+      "none": "Ninguna",
+      "partnerYears": "Año {n} de relación",
+      "listSep": ", ",
+      "car": "Auto"
+    }
+  },
+  "summary": {
+    "head": "Finanzas a los {age} años",
+    "unit": "{delta:signedMoney}",
+    "income": "Ingresos",
+    "items": {
+      "living": "Gastos de vida",
+      "housing": "Renta",
+      "food": "Comida",
+      "social": "Vida social",
+      "hobby": "Pasatiempos",
+      "date": "Citas",
+      "konkatsu": "Búsqueda de pareja",
+      "car": "Auto",
+      "breakdown": "Avería del auto",
+      "interest": "Intereses"
+    }
+  },
+  "event": {
+    "tier": {
+      "high": "Caro",
+      "mid": "Normal",
+      "low": "Barato"
+    },
+    "tierOption": "{tier}: {label}",
+    "back": "Atrás",
+    "predicted": "→ Ahorros {money:money}",
+    "neverSub": "No se volverá a preguntar",
+    "later": "Ahora no (lo pienso en 3 años)",
+    "jobOffer": {
+      "title": "Oferta de trabajo",
+      "text": "Te ofrecieron otro empleo. El sueldo podría subir o bajar (±20%).",
+      "accept": "Cambiar de trabajo",
+      "acceptSub": "El sueldo cambia entre −20% y +20%",
+      "decline": "Rechazar",
+      "declineSub": "El sueldo sigue igual"
+    },
+    "annual": "{annual:money}/año",
+    "room": {
+      "title": "Buscar vivienda",
+      "text": "¡Por fin vas a vivir por tu cuenta! ¿Qué tipo de lugar buscas?",
+      "detail": "Renta {annual:money}/año · gastos de mudanza y contrato {cost:money}",
+      "textMove": "Decidiste mudarte. ¿Qué tipo de lugar buscas ahora?"
+    },
+    "renewal": {
+      "title": "Renovar el contrato",
+      "text": "Llevas {n} años aquí. ¿Renuevas el contrato de renta?",
+      "renew": "Renovar",
+      "renewSub": "Cuota de renovación {cost:money}",
+      "move": "Mudarte",
+      "moveSub": "Buscar vivienda (con gastos de mudanza y contrato)"
+    },
+    "neighbor": {
+      "title": "Problemas con los vecinos",
+      "text": "El ruido del vecino es terrible y llevas días sin poder dormir.",
+      "move": "Mudarte",
+      "moveSub": "Buscar vivienda (con gastos de mudanza y contrato)",
+      "endure": "Aguantar",
+      "endureSub": "La satisfacción baja todavía más"
+    },
+    "appliance": {
+      "title": "Electrodomésticos y muebles",
+      "text": "Toca equipar tu hogar con electrodomésticos y muebles. ¿Cuáles eliges?",
+      "textReplace": "Los electrodomésticos ya llegaron al final de su vida útil. Toca reemplazarlos.",
+      "detail": "{cost:money} · duran {life} años",
+      "fragile": " · se descomponen seguido"
+    },
+    "food": {
+      "title": "Alimentación",
+      "text": "¿Cómo vas a resolver la comida de todos los días?",
+      "textReview": "Llevas {n} años viviendo por tu cuenta. ¿Cambias tu forma de comer?"
+    },
+    "social": {
+      "title": "Vida social",
+      "text": "¿Cuántas invitaciones del trabajo y de tus amistades vas a aceptar?",
+      "textReview": "Llevas {n} años viviendo por tu cuenta. ¿Cambias tu forma de convivir?",
+      "yes": "Aceptar invitaciones",
+      "no": "Rechazar casi todas"
+    },
+    "hobby": {
+      "title": "Pasatiempos y fandom",
+      "text": "¿Gastas dinero en lo que disfrutas en tus días libres, como pasatiempos o apoyar a tu artista favorito?",
+      "textReview": "Llevas {n} años viviendo por tu cuenta. ¿Cambias lo que gastas en pasatiempos?",
+      "yes": "Gastar en eso",
+      "no": "No hacerlo"
+    },
+    "invest": {
+      "title": "Invertir en ti",
+      "text": "{age} años. ¿Gastas en estudiar para crecer en el trabajo?",
+      "yes": "Sí",
+      "no": "No",
+      "school": "Durante 2 años es más fácil ascender y conseguir mejor sueldo al cambiar de trabajo",
+      "pass": "Aprobación {pct}% · si apruebas, sueldo +{raise}%"
+    },
+    "car": {
+      "titleBuy": "Comprar un auto",
+      "titleReplace": "Cambiar de auto",
+      "textBuy": "¿Compras un auto?",
+      "textReplace": "Ya llevas {years} años con este auto. ¿Lo vendes por {value:money} y compras uno nuevo?",
+      "yes": "Comprar",
+      "never": "Nunca tener auto",
+      "detail": "{cost:money} · mantenimiento {annual:money}/año · venta en {years} años por {resale:money}",
+      "fragile": " · se avería seguido"
+    },
+    "travel": {
+      "title": "Viaje",
+      "text": "Parece que vas a tener varios días libres seguidos. ¿Te vas de viaje?",
+      "yes": "Sí",
+      "no": "No"
+    },
+    "partner": {
+      "title": "Relación de pareja",
+      "text": "¡Tienes pareja! ¿Cuánto vas a gastar en citas y regalos?",
+      "breakup": "Probabilidad de ruptura {pct}%/año"
+    },
+    "konkatsu": {
+      "title": "Buscar pareja para casarte",
+      "text": "{age} años. ¿Ya es hora de buscar en serio a alguien para casarte?",
+      "yes": "Buscar pareja",
+      "no": "No",
+      "detail": "{annual:money}/año · probabilidad de conocer a alguien +{pct}%"
+    },
+    "friendWedding": {
+      "title": "Boda de una amistad",
+      "text": "Te llegó una invitación a la boda de una amistad.",
+      "detail": "{cost:money}"
+    },
+    "branch": {
+      "title": "Lo que sigue",
+      "textPartner": "{age} años. Llevas {years} años con tu pareja. ¿Qué sigue?",
+      "textAlone": "{age} años. Ya es tu año {years} viviendo por tu cuenta. ¿Qué sigue?",
+      "marry": "Casarte",
+      "marrySub": "Final: boda",
+      "single": "Seguir por tu cuenta",
+      "singleSub": "Final: vida en solitario"
+    }
+  },
+  "result": {
+    "netWorthBankrupt": "Patrimonio neto en la quiebra",
+    "titleLabel": "Título",
+    "savings": "Ahorros",
+    "carValue": "Valor del auto",
+    "netWorth": "Patrimonio neto",
+    "compare": "Frente a elegir «Normal» en todo ({mid:money}): {diff}",
+    "compareBankrupt": "Eligiendo «Normal» en todo, habrías quebrado.",
+    "spending": "Gastos de toda la partida",
+    "spendingItems": {
+      "living": "Gastos de vida",
+      "housing": "Vivienda (renta, renovaciones, gastos de mudanza)",
+      "food": "Comida",
+      "social": "Vida social, citas y búsqueda de pareja",
+      "leisure": "Pasatiempos y viajes",
+      "invest": "Invertir en ti",
+      "car": "Auto",
+      "other": "Otros (electrodomésticos, salud, bodas y funerales, intereses)"
+    },
+    "incomeNote": "Ingresos netos {income:money}; ingresos extra {extra:money}.",
+    "achievements": "Logros",
+    "noAchievements": "Esta vez no hubo logros.",
+    "timeline": "Línea de vida",
+    "lifeBankrupt": "Te independizas a los {start} → quiebra a los {end}",
+    "share": "Compartir",
+    "shareImage": "Compartir imagen",
+    "saveImage": "Guardar imagen",
+    "post": "Publicar en X (Twitter)",
+    "shareText": "En Diario de vida independiente logré «{ending}» ({rank}). Mi título: «{title}».",
+    "rankWord": "Rango {rank}",
+    "bankruptWord": "Quiebra",
+    "again": "Jugar otra vez",
+    "toTitle": "Al inicio",
+    "cardAlt": "Tarjeta con el resultado",
+    "new": "NUEVO",
+    "netWorthEnd": "Patrimonio neto al final",
+    "lifeMarried": "Te independizas a los {start} → boda a los {end}",
+    "lifeSingle": "Te independizas a los {start} → a los {end}, sigues por tu cuenta",
+    "fulfillmentLine": "Satisfacción {n} ({band})",
+    "continue": {
+      "married": "Continuar en Diario de recién casados",
+      "marriedSub": "Empieza la vida en pareja con tus ahorros, tu ingreso y tu auto (se abre en una pestaña nueva).",
+      "single": "¿Y si te hubieras casado? Juega Diario de recién casados",
+      "singleSub": "Empieza Diario de recién casados con tus ahorros, tu ingreso y tu auto (se abre en una pestaña nueva)."
+    }
+  },
+  "gallery": {
+    "heading": "Galería de finales",
+    "plays": "Partidas jugadas: {n}",
+    "best": " · Mejor patrimonio: {money:money}",
+    "endings": "Finales",
+    "titles": "Títulos",
+    "achievements": "Logros",
+    "locked": "???",
+    "back": "Volver al inicio"
+  },
+  "settings": {
+    "heading": "Ajustes",
+    "language": "Idioma",
+    "yearSummary": "Mostrar el balance de fin de año",
+    "speed": "Velocidad inicial",
+    "clear": "Borrar datos",
+    "clearHint": "Borra la partida guardada, la galería, los logros y los ajustes.",
+    "confirm": "Se borrarán la partida guardada, la galería, los logros y los ajustes. ¿Continuar?",
+    "back": "Volver al inicio"
+  },
+  "h": {
+    "started": "Dejé la casa de mis padres y empecé a vivir por mi cuenta.",
+    "promotion": "¡Me ascendieron! El sueldo subió {pct}%.",
+    "illness": "Me enfermé y terminé en el hospital. Gastos médicos: {cost:money}.",
+    "bonusCut": "A la empresa le fue mal y recortaron el bono. Este año entra 10% menos.",
+    "windfall": "Recibí un ingreso extra: {amount:money}.",
+    "jobAccepted": "Cambié de trabajo. El sueldo cambió {pct:signed}%.",
+    "jobDeclined": "Rechacé la oferta de trabajo.",
+    "bankrupt": "Mis finanzas quebraron.",
+    "met": "Conocí a alguien. Ahora tengo pareja.",
+    "brokeUp": "Terminé con mi pareja.",
+    "married": "Decidimos casarnos. Empieza una nueva vida.",
+    "single": "Decidí seguir mi camino por mi cuenta.",
+    "renewed": "Renové el contrato. La cuota de renovación fue de {cost:money}.",
+    "moveOut": "Decidí dejar este lugar.",
+    "neighborTrouble": "Por problemas con el vecino, pasé días sin poder dormir.",
+    "neighborEndured": "Desistí de mudarme y decidí aguantar.",
+    "applianceBroke": "Se descompuso un electrodoméstico y compré otro. Costó {cost:money}.",
+    "applianceReplaced": "Reemplacé los electrodomésticos.",
+    "carSold": "Vendí el auto por {value:money}.",
+    "carBreakdown": "El auto se averió. La reparación costó {cost:money}."
+  },
+  "site": {
+    "htmlLang": "es-419",
+    "hreflang": "es",
+    "ogLocale": "es_MX",
+    "langName": "Español",
+    "titleSep": " | ",
+    "suggest": {
+      "text": "Diario de vida independiente también está disponible en español.",
+      "link": "Jugar en español",
+      "close": "Cerrar"
+    },
+    "consent": {
+      "label": "Consentimiento de cookies",
+      "text": "Usamos cookies para estadísticas. Puedes seguir jugando aunque no aceptes.",
+      "policy": "Aviso de privacidad",
+      "accept": "Aceptar",
+      "reject": "Rechazar",
+      "settings": "Configuración de cookies"
+    }
+  },
+  "nav": {
+    "label": "Páginas del sitio",
+    "play": "Jugar",
+    "howto": "Cómo jugar",
+    "about": "Acerca de y contacto",
+    "privacy": "Aviso de privacidad",
+    "portal": "Más juegos en nacn.app"
+  },
+  "pages": {
+    "howto": {
+      "title": "Cómo jugar",
+      "description": "Cómo jugar Diario de vida independiente: configuración inicial, cómo avanza cada año, cómo se calcula el dinero, los imprevistos, y los rangos y títulos del final."
+    },
+    "privacy": {
+      "title": "Aviso de privacidad",
+      "description": "Qué información guarda Diario de vida independiente (solo en tu navegador), cómo se comparte el resultado, la analítica (Google Analytics) y el consentimiento de cookies."
+    }
+  },
+  "band": {
+    "high": "😊 Feliz",
+    "mid": "🙂 Normal",
+    "low": "😞 Sin ánimo"
+  }
+}

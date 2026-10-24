@@ -1,0 +1,90 @@
+    <p>Diario de vida independiente es un simulador de vida en el que llevas, año por año, las finanzas de alguien que vive por su cuenta, desde que consigue su primer empleo y deja la casa de sus padres hasta los primeros años de sus 30. Solo eliges «comprar o no» y «caro, normal o barato». Al final eliges entre «Casarte» o «Seguir por tu cuenta». Los montos están en yenes japoneses y el juego transcurre en Japón.</p>
+
+    <h2>Lo que decides al principio</h2>
+    <ul>
+      <li><strong>Género</strong>: eliges «Mujer» u «Hombre».</li>
+      <li><strong>Edad al independizarte</strong>: de 22 a 28 años.</li>
+      <li><strong>Ahorros</strong>: de ¥0 a ¥3 millones (en pasos de ¥100 mil).</li>
+      <li><strong>Ingreso anual</strong>: el ingreso bruto anual. El valor inicial es la mediana de ingresos para la edad con la que empiezas. Si cambias la edad, el ingreso que no hayas modificado a mano se ajusta a la mediana de la nueva edad.</li>
+    </ul>
+    <p>Cada opción tiene un botón «Aleatorio», y con «Empezar con todo al azar» se decide todo al azar y la partida empieza de inmediato.</p>
+
+    <h2>Cómo avanza cada año</h2>
+    <p>Al empezar el juego, los años avanzan solos, uno por uno. Puedes cambiar la velocidad con «1x», «2x» y «Pausa». Cuando llega un evento, el avance se detiene y se abre la pantalla para elegir. Cada botón muestra el costo y cómo quedarían tus ahorros después de elegir («→ Ahorros ¥…»).</p>
+    <p>Al final de cada año se calculan los ingresos y gastos, los ahorros suben o bajan, y en el diario aparece una línea de «Fin de año». En la parte inferior de la pantalla se muestra durante unos segundos el desglose del balance de fin de año (puedes ocultarlo en los ajustes).</p>
+
+    <h2>Eventos de vida</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Evento</th><th>Cuándo ocurre</th><th>Caro / Normal / Barato (/ No)</th></tr></thead>
+        <tbody>
+          <tr><td>Buscar vivienda</td><td>Al principio y cada vez que te mudas</td><td>Departamento de una recámara, cerca de la estación y casi nuevo: renta ¥1.2 millones al año, gastos de mudanza y contrato ¥600 mil / Estudio común: ¥800 mil al año, ¥400 mil / Lejos de la estación y algo viejo: ¥550 mil al año, ¥250 mil (más problemas con los vecinos)</td></tr>
+          <tr><td>Electrodomésticos y muebles</td><td>Justo después de buscar vivienda, y cuando llegan al final de su vida útil</td><td>Nuevos, de gama alta ¥500 mil (duran 10 años) / Nuevos, estándar ¥250 mil (8 años) / De segunda mano o regalados ¥80 mil (5 años; se descomponen seguido)</td></tr>
+          <tr><td>Alimentación</td><td>Justo después de los electrodomésticos, y luego cada 3 años</td><td>Casi siempre fuera o a domicilio ¥850 mil al año / Mitad en casa, mitad fuera ¥450 mil al año / Lo más barato ¥300 mil al año (más probabilidad de enfermarte o lastimarte)</td></tr>
+          <tr><td>Vida social</td><td>Justo después de la alimentación, y luego cada 3 años</td><td>Ir a todo ¥250 mil al año / Con moderación ¥150 mil al año / Solo cuando hace falta ¥50 mil al año / Rechazar casi todas ¥0</td></tr>
+          <tr><td>Renovar el contrato</td><td>Cada 2 años desde que te mudas</td><td>Renovar (cuota de renovación: un mes de renta, algo habitual en Japón) / Mudarte (buscar vivienda otra vez)</td></tr>
+          <tr><td>Pasatiempos y fandom</td><td>Desde el 2.º año, y luego cada 3 años</td><td>Con todo ¥500 mil al año / Con moderación ¥180 mil al año / Sin gastar ¥50 mil al año / No hacerlo ¥0</td></tr>
+          <tr><td>Invertir en ti</td><td>Cada 3 años desde los 24 (hasta 3 veces)</td><td>Escuela o posgrado para adultos que trabajan ¥400 mil (2 años con más facilidad para ascender) / Curso a distancia y certificación ¥200 mil (60% de aprobación; si apruebas, sueldo +5%) / Por tu cuenta ¥30 mil (30% de aprobación) / No</td></tr>
+          <tr><td>Auto</td><td>Desde los 25; también hay cambio de auto</td><td>Auto nuevo japonés ¥3 millones, mantenimiento ¥350 mil al año / Auto usado en buen estado ¥1.5 millones, ¥300 mil al año / Auto usado barato ¥600 mil, ¥300 mil al año (se avería seguido) / Ahora no (lo pienso en 3 años) / Nunca tener auto</td></tr>
+          <tr><td>Viaje</td><td>Cada 2 años desde el 2.º año</td><td>Al extranjero ¥400 mil / Nacional ¥150 mil / Paseo cercano de un día ¥30 mil / No</td></tr>
+          <tr><td>Relación de pareja</td><td>Cuando consigues pareja</td><td>Citas ¥600 mil al año (probabilidad de ruptura 5% al año) / ¥300 mil al año (10%) / ¥120 mil al año (20%)</td></tr>
+          <tr><td>Buscar pareja para casarte</td><td>Desde los 28, cada 2 años, en los años sin pareja</td><td>Agencia matrimonial ¥500 mil al año (probabilidad de conocer a alguien +25%) / App de citas de pago ¥50 mil al año (+10%) / Apps gratis o presentaciones de conocidos ¥0 (+5%) / No</td></tr>
+          <tr><td>Lo que sigue</td><td>Cuando tienes pareja, 30 años o más y 2 años o más de relación; o a los 35</td><td>Casarte / Seguir por tu cuenta (si no tienes pareja, solo puedes seguir por tu cuenta)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Satisfacción</h2>
+    <p>Es un valor de 0 a 100 que mide qué tan a gusto vives, y empieza en 50. Cada año se suman los valores de la vivienda, la alimentación, la vida social y los pasatiempos que elegiste, y baja 3 puntos por sí sola. También sube o baja con los viajes, las bodas de tus amistades y los problemas con los vecinos. En la parte superior de la pantalla se muestra con una carita.</p>
+    <ul>
+      <li><strong>😊 Feliz (70 o más)</strong>: probabilidad de ascenso +5%, probabilidad de conocer a alguien +5%.</li>
+      <li><strong>🙂 Normal (de 31 a 69)</strong>: sin ajustes.</li>
+      <li><strong>😞 Sin ánimo (30 o menos)</strong>: no hay ascensos, el sueldo deja de crecer con la edad, probabilidad de enfermarte o lastimarte +5%, probabilidad de conocer a alguien −5%, probabilidad de terminar con tu pareja +10%.</li>
+    </ul>
+    <p>La satisfacción no cuenta para el rango, pero cambia el nombre del final.</p>
+
+    <h2>Encuentros y rupturas</h2>
+    <p>En los años sin pareja, al final del año se decide si conoces a alguien. La probabilidad es 10% más el ajuste por vida social (Ir a todo +10%, Con moderación +5%, Solo cuando hace falta 0, Rechazar casi todas −5%), el ajuste por buscar pareja y el ajuste por satisfacción. En los años con pareja, puede haber una ruptura con una probabilidad que depende de lo que gastas en citas.</p>
+
+    <h2>El dinero de cada año</h2>
+    <ul>
+      <li><strong>Ingreso neto</strong>: el 78% del ingreso anual. El ingreso anual sube cada año al ritmo de la mediana por edad (no sube en los años «Sin ánimo»).</li>
+      <li><strong>Gastos de vida</strong>: luz, agua, gas, teléfono, artículos de uso diario, etc. Empiezan en ¥450 mil al año y suben 1.25% cada año.</li>
+      <li><strong>Renta, comida, vida social, pasatiempos, citas, búsqueda de pareja y mantenimiento del auto</strong>: cada año pagas el monto que elegiste.</li>
+      <li><strong>Intereses</strong>: si al final del año los ahorros están en negativo, se consideran deuda de tarjeta y se cobra un 10% del monto negativo.</li>
+    </ul>
+
+    <h2>Imprevistos de cada año</h2>
+    <ul>
+      <li><strong>Ascenso</strong>: base 8%. «Feliz» +5%, y +45% durante los 2 años en que vas a la escuela. Con «Sin ánimo» no hay ascensos. Al ascender, el sueldo sube 10%.</li>
+      <li><strong>Enfermedad o lesión</strong>: base 5%. Alimentación «Barato» +5%, «Sin ánimo» +5%. Gastos médicos de ¥100 mil a ¥500 mil.</li>
+      <li><strong>Imprevistos al azar</strong>: cada año hay 20% de probabilidad de que ocurra uno de estos: una oferta de trabajo (si aceptas, el sueldo cambia entre −20% y +20%; mientras vas a la escuela, es más probable que suba), un recorte del bono (el ingreso neto de ese año baja 10%), un ingreso extra (de ¥100 mil a ¥1 millón) o la boda de una amistad (ir a la boda y a la fiesta después / ir a la boda / no ir y mandar un regalo).</li>
+      <li><strong>Electrodomésticos descompuestos</strong>: con una probabilidad que depende de los que elegiste, compras uno nuevo por el 30% de lo que pagaste.</li>
+      <li><strong>Avería del auto</strong>: con una probabilidad que depende del auto que elegiste, la reparación cuesta de ¥200 mil a ¥800 mil.</li>
+      <li><strong>Problemas con los vecinos</strong>: ocurren con una probabilidad que depende de la vivienda que elegiste, y la satisfacción baja 5. Eliges entre mudarte o aguantar (la satisfacción baja 5 otra vez).</li>
+    </ul>
+
+    <h2>Cómo termina</h2>
+    <p>La partida termina cuando eliges en «Lo que sigue». Si en algún momento los ahorros bajan de −¥3 millones, llegas en ese momento al «Final: quiebra».</p>
+    <p>El rango depende del patrimonio neto al final (ahorros + valor del auto): S ¥8 millones o más, A ¥5 millones o más, B ¥3 millones o más, C ¥0 o más, D menos de ¥0 (quedó deuda). Hay 6 finales, según si te casas o sigues por tu cuenta y según tu satisfacción al final (además del «Final: quiebra»).</p>
+
+    <h2>Títulos y logros</h2>
+    <p>Recibes un título según tu forma de elegir. Se revisan en orden, de arriba abajo, y te toca el primero que se cumpla.</p>
+    <ul>
+      <li><strong>Fan de corazón</strong>: elegiste «Con todo» en pasatiempos y fandom en todas las ocasiones (2 o más)</li>
+      <li><strong>Siempre aprendiendo</strong>: aceptaste todas las ofertas de invertir en ti (2 o más)</li>
+      <li><strong>Aparentador</strong>: elegiste «Caro» en más del 70% de las decisiones</li>
+      <li><strong>Maestro del ahorro</strong>: elegiste «Barato» o «No» en más del 70% de las decisiones</li>
+      <li><strong>Persona sensata</strong>: elegiste «Normal» en más del 70% de las decisiones</li>
+      <li><strong>Alma de la fiesta</strong>: elegiste «Ir a todo» en vida social en todas las ocasiones (2 o más)</li>
+      <li><strong>Siempre de mudanza</strong>: te mudaste 3 veces o más</li>
+      <li><strong>Vida sin auto</strong>: decidiste no tener auto</li>
+      <li><strong>Equilibrado</strong>: no se cumple ninguno de los anteriores</li>
+    </ul>
+    <p>Hay 12 logros (Máquina de ahorrar, Tocar fondo, Hogar, dulce hogar, Ave migratoria, Certificación lograda, Buen cambio, Cosa del destino, Búsqueda con fruto, Días felices, Cero deudas, Dinero inesperado y La historia continúa). Puedes ver sus condiciones en la «Galería de finales».</p>
+
+    <h2>Continuar en Diario de recién casados</h2>
+    <p>Desde la pantalla de resultados puedes pasar al juego hermano, «Diario de recién casados». Empiezas la vida de casados con el género, la edad, los ahorros, el ingreso anual y el auto de Diario de vida independiente. En el final de boda aparece como un botón grande; en el final en solitario, como un botón pequeño: «¿Y si te hubieras casado?». En el «Final: quiebra» no aparece.</p>
+
+    <h2>Cómo se guarda la partida</h2>
+    <p>El avance se guarda en tu navegador al final de cada año, y puedes retomarlo con «Continuar» en la pantalla de inicio. Los finales, títulos y logros que ya viste se pueden consultar en la «Galería de finales».</p>

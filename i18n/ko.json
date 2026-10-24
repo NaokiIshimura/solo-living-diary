@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "title": "자취일기",
+    "description": "취직해서 본가를 떠난 날부터 30대 초반까지 '산다·안 산다 / 비싸게·보통·싸게' 선택만으로 달려가는 인생 시뮬레이션.",
+    "gameName": "자취일기",
+    "hashtag": "#자취일기",
+    "setInJapan": "이 게임의 무대는 일본이며, 금액은 모두 일본 엔화입니다."
+  },
+  "title": {
+    "lead": "본가를 떠난 날부터 30대까지,<br>선택만으로 달려가는 인생 시뮬레이션",
+    "start": "시작하기",
+    "continue": "이어하기",
+    "gallery": "엔딩 도감",
+    "settings": "설정"
+  },
+  "setup": {
+    "heading": "시작 설정",
+    "gender": "성별",
+    "female": "여성",
+    "male": "남성",
+    "age": "자취를 시작하는 나이 ({min}~{max}세)",
+    "savings": "저축 (단위: 만 엔, {min}~{max})",
+    "income": "연봉 (단위: 만 엔)",
+    "incomeHint": "연봉 초깃값은 해당 나이의 중앙값입니다.",
+    "random": "랜덤",
+    "submit": "이 설정으로 시작",
+    "omakase": "모두 맡기고 시작",
+    "back": "타이틀로 돌아가기"
+  },
+  "main": {
+    "age": "{n}세",
+    "pause": "일시정지",
+    "startLine": "저축 {savings:money}, 연봉 {income:money}으로 시작.",
+    "resumed": "이어서 다시 시작했다.",
+    "yearEnd": "연말",
+    "yearEndMoney": "수입 {income:num} · 지출 {expense:num} ({delta:signed}) → {savings:money}",
+    "status": {
+      "age": "나이",
+      "years": "자취",
+      "yearsN": "{n}년 차",
+      "savings": "저축",
+      "fulfillment": "만족도",
+      "room": "방",
+      "partner": "연인",
+      "none": "없음",
+      "partnerYears": "교제 {n}년 차",
+      "listSep": " · ",
+      "car": "차"
+    }
+  },
+  "summary": {
+    "head": "{age}세의 가계",
+    "unit": "{delta:signed}만 엔",
+    "income": "수입",
+    "items": {
+      "living": "생활비",
+      "housing": "월세",
+      "food": "식비",
+      "social": "모임",
+      "hobby": "취미",
+      "date": "데이트 비용",
+      "konkatsu": "짝 찾기",
+      "car": "차",
+      "breakdown": "차 고장",
+      "interest": "이자"
+    }
+  },
+  "event": {
+    "tier": {
+      "high": "비싸게",
+      "mid": "보통",
+      "low": "싸게"
+    },
+    "tierOption": "{tier}: {label}",
+    "back": "뒤로",
+    "predicted": "→ 저축 {money:money}",
+    "neverSub": "이후로는 제안되지 않습니다",
+    "later": "지금은 안 산다 (3년 뒤 다시 생각)",
+    "jobOffer": {
+      "title": "이직 제안",
+      "text": "이직 제안이 들어왔다. 연봉이 오를 수도, 내릴 수도 있다(±20%).",
+      "accept": "이직한다",
+      "acceptSub": "연봉이 −20%~+20% 사이로 바뀐다",
+      "decline": "거절한다",
+      "declineSub": "연봉은 그대로"
+    },
+    "annual": "연 {annual:money}",
+    "room": {
+      "title": "집 구하기",
+      "text": "드디어 자취 시작. 어떤 방에 살까요?",
+      "detail": "월세 연 {annual:money} · 초기 비용 {cost:money}",
+      "textMove": "이사하기로 했다. 다음에는 어떤 방에 살까요?"
+    },
+    "renewal": {
+      "title": "계약 갱신",
+      "text": "입주한 지 {n}년. 방 계약을 갱신할까요?",
+      "renew": "갱신한다",
+      "renewSub": "갱신료 {cost:money}",
+      "move": "이사한다",
+      "moveSub": "집 구하기로 (초기 비용이 든다)"
+    },
+    "neighbor": {
+      "title": "이웃 갈등",
+      "text": "옆집 소음이 심해서 잠 못 드는 날이 이어지고 있다.",
+      "move": "이사한다",
+      "moveSub": "집 구하기로 (초기 비용이 든다)",
+      "endure": "참는다",
+      "endureSub": "만족도가 더 내려간다"
+    },
+    "appliance": {
+      "title": "가전·가구",
+      "text": "가전과 가구를 장만합니다. 어떤 걸로 할까요?",
+      "textReplace": "가전이 하나같이 수명을 다했다. 새로 바꿉니다.",
+      "detail": "{cost:money} · 수명 {life}년",
+      "fragile": " · 고장이 잦다"
+    },
+    "food": {
+      "title": "식생활",
+      "text": "매일 밥은 어떻게 할까요?",
+      "textReview": "자취한 지 {n}년. 식생활을 바꿔 볼까요?"
+    },
+    "social": {
+      "title": "모임",
+      "text": "회사나 친구들의 약속에 얼마나 나갈까요?",
+      "textReview": "자취한 지 {n}년. 모임 나가는 방식을 바꿔 볼까요?",
+      "yes": "약속에 나간다",
+      "no": "거의 거절한다"
+    },
+    "hobby": {
+      "title": "취미·덕질",
+      "text": "휴일의 즐거움에 돈을 쓸까요?",
+      "textReview": "자취한 지 {n}년. 취미에 쓰는 돈을 바꿔 볼까요?",
+      "yes": "돈을 쓴다",
+      "no": "안 한다"
+    },
+    "invest": {
+      "title": "자기계발",
+      "text": "{age}세. 일을 위해 공부에 돈을 쓸까요?",
+      "yes": "한다",
+      "no": "안 한다",
+      "school": "2년 동안 승진하기 쉬워지고, 이직하면 연봉이 오르기 쉽다",
+      "pass": "합격률 {pct}% · 합격하면 연봉 +{raise}%"
+    },
+    "car": {
+      "titleBuy": "차 구입",
+      "titleReplace": "차 교체",
+      "textBuy": "차를 살까요?",
+      "textReplace": "차를 산 지 {years}년. 지금 차를 {value:money}에 팔고 새 차를 살까요?",
+      "yes": "산다",
+      "never": "평생 갖지 않는다",
+      "detail": "{cost:money} · 유지비 연 {annual:money} · {years}년 뒤 {resale:money}에 매각",
+      "fragile": " · 고장이 잦다"
+    },
+    "travel": {
+      "title": "여행",
+      "text": "휴가를 길게 낼 수 있을 것 같다. 여행을 갈까요?",
+      "yes": "간다",
+      "no": "안 간다"
+    },
+    "partner": {
+      "title": "연인과의 교제",
+      "text": "연인이 생겼다. 데이트나 선물에 돈을 얼마나 쓸까요?",
+      "breakup": "헤어질 확률 연 {pct}%"
+    },
+    "konkatsu": {
+      "title": "짝 찾기",
+      "text": "{age}세. 슬슬 결혼 상대를 본격적으로 찾아볼까요?",
+      "yes": "짝을 찾는다",
+      "no": "안 한다",
+      "detail": "연 {annual:money} · 만남 +{pct}%"
+    },
+    "friendWedding": {
+      "title": "친구의 결혼식",
+      "text": "친구에게서 청첩장이 왔다.",
+      "detail": "{cost:money}"
+    },
+    "branch": {
+      "title": "앞으로의 생활",
+      "textPartner": "{age}세. 연인과 사귄 지 {years}년이 됐다. 앞으로 어떻게 할까요?",
+      "textAlone": "{age}세. 자취도 {years}년 차. 앞으로 어떻게 할까요?",
+      "marry": "결혼한다",
+      "marrySub": "결혼 엔딩",
+      "single": "혼자 살아간다",
+      "singleSub": "싱글 엔딩"
+    }
+  },
+  "result": {
+    "netWorthBankrupt": "파산 시 순자산",
+    "titleLabel": "칭호",
+    "savings": "저축",
+    "carValue": "차 평가액",
+    "netWorth": "순자산",
+    "compare": "같은 조건에서 '모두 보통'을 골랐을 때({mid:money})보다 {diff}",
+    "compareBankrupt": "같은 조건에서 '모두 보통'을 골랐다면 파산했을 거예요.",
+    "spending": "평생 지출 내역",
+    "spendingItems": {
+      "living": "생활비",
+      "housing": "주거(월세·갱신료·초기 비용)",
+      "food": "식비",
+      "social": "모임·데이트·짝 찾기",
+      "leisure": "취미·여행",
+      "invest": "자기계발",
+      "car": "차",
+      "other": "기타(가전·의료·경조사·이자)"
+    },
+    "incomeNote": "수입은 실수령 {income:money}, 임시 수입 {extra:money}.",
+    "achievements": "업적",
+    "noAchievements": "이번에는 업적 없음.",
+    "timeline": "인생 연표",
+    "lifeBankrupt": "{start}세 자취 시작 → {end}세 파산",
+    "share": "공유",
+    "shareImage": "이미지 공유",
+    "saveImage": "이미지 저장",
+    "post": "X(트위터)에 게시",
+    "shareText": "자취일기에서 '{ending}'({rank})에 도달했다. 칭호는 '{title}'.",
+    "rankWord": "{rank}랭크",
+    "bankruptWord": "파산",
+    "again": "한 번 더",
+    "toTitle": "타이틀로",
+    "cardAlt": "결과 이미지 카드",
+    "new": "NEW",
+    "netWorthEnd": "종료 시 순자산",
+    "lifeMarried": "{start}세 자취 시작 → {end}세 결혼",
+    "lifeSingle": "{start}세 자취 시작 → {end}세, 혼자 살아가기로",
+    "fulfillmentLine": "만족도 {n} ({band})",
+    "continue": {
+      "married": "신혼일기로 이어가기",
+      "marriedSub": "저축·연봉·차를 이어받아 둘의 생활을 시작합니다(새 탭에서 열립니다).",
+      "single": "만약 결혼했다면? 신혼일기 플레이",
+      "singleSub": "저축·연봉·차를 이어받아 신혼일기를 시작할 수 있습니다(새 탭에서 열립니다)."
+    }
+  },
+  "gallery": {
+    "heading": "엔딩 도감",
+    "plays": "플레이 횟수 {n}회",
+    "best": " · 최고 순자산 {money:money}",
+    "endings": "엔딩",
+    "titles": "칭호",
+    "achievements": "업적",
+    "locked": "???",
+    "back": "타이틀로 돌아가기"
+  },
+  "settings": {
+    "heading": "설정",
+    "language": "언어",
+    "yearSummary": "연말 수지 표시",
+    "speed": "진행 속도 기본값",
+    "clear": "데이터 삭제",
+    "clearHint": "중간 저장·엔딩 도감·업적·설정을 모두 지웁니다.",
+    "confirm": "중간 저장·엔딩 도감·업적·설정을 모두 지웁니다. 계속할까요?",
+    "back": "타이틀로 돌아가기"
+  },
+  "h": {
+    "started": "본가를 떠나 자취를 시작했다.",
+    "promotion": "승진했다. 연봉이 {pct}% 올랐다.",
+    "illness": "몸이 안 좋아 입원했다. 의료비는 {cost:money}.",
+    "bonusCut": "회사 실적이 나빠 보너스가 줄었다. 올해 실수령액은 10% 줄어든다.",
+    "windfall": "임시 수입이 생겼다. {amount:money}이 들어왔다.",
+    "jobAccepted": "이직했다. 연봉이 {pct:signed}% 바뀌었다.",
+    "jobDeclined": "이직 제안은 거절했다.",
+    "bankrupt": "가계가 파산했다.",
+    "met": "좋은 만남이 있었다. 연인이 생겼다.",
+    "brokeUp": "연인과 헤어졌다.",
+    "married": "결혼하기로 했다. 새로운 생활이 시작된다.",
+    "single": "혼자 살아가기로 마음먹었다.",
+    "renewed": "방 계약을 갱신했다. 갱신료는 {cost:money}.",
+    "moveOut": "지금 사는 방을 나가기로 했다.",
+    "neighborTrouble": "옆집과의 갈등으로 잠 못 드는 날이 이어졌다.",
+    "neighborEndured": "이사는 포기하고 참기로 했다.",
+    "applianceBroke": "가전이 고장 나서 새로 샀다. {cost:money}이 들었다.",
+    "applianceReplaced": "가전을 새로 바꿨다.",
+    "carSold": "타던 차를 {value:money}에 팔았다.",
+    "carBreakdown": "차가 고장 나서 수리비로 {cost:money}이 들었다."
+  },
+  "site": {
+    "htmlLang": "ko",
+    "hreflang": "ko",
+    "ogLocale": "ko_KR",
+    "langName": "한국어",
+    "titleSep": " | ",
+    "suggest": {
+      "text": "자취일기는 한국어로도 플레이할 수 있습니다.",
+      "link": "한국어로 플레이",
+      "close": "닫기"
+    },
+    "consent": {
+      "label": "쿠키 동의",
+      "text": "이 사이트는 방문 통계를 위해 쿠키를 사용합니다. 동의하지 않아도 그대로 즐길 수 있습니다.",
+      "policy": "개인정보 처리방침",
+      "accept": "동의",
+      "reject": "거부",
+      "settings": "쿠키 설정"
+    }
+  },
+  "nav": {
+    "label": "사이트 내 페이지",
+    "play": "게임 플레이",
+    "howto": "플레이 방법",
+    "about": "운영자 정보·문의",
+    "privacy": "개인정보 처리방침",
+    "portal": "nacn.app의 다른 게임"
+  },
+  "pages": {
+    "howto": {
+      "title": "플레이 방법",
+      "description": "자취일기 플레이 방법. 처음 설정, 1년의 진행 방식, 매년의 돈 계산, 랜덤 사건, 종료 시 랭크와 칭호를 설명합니다."
+    },
+    "privacy": {
+      "title": "개인정보 처리방침",
+      "description": "자취일기에서 저장하는 정보(사용 중인 브라우저 안에만 저장), 결과 공유, 접속 분석(Google 애널리틱스), 쿠키 동의와 쿠키 거부 방법을 설명합니다."
+    }
+  },
+  "band": {
+    "high": "😊 만족",
+    "mid": "🙂 보통",
+    "low": "😞 무기력"
+  }
+}

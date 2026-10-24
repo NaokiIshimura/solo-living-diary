@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es-419" data-lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cómo jugar | Diario de vida independiente</title>
+  <meta name="description" content="Cómo jugar Diario de vida independiente: configuración inicial, cómo avanza cada año, cómo se calcula el dinero, los imprevistos, y los rangos y títulos del final.">
+  <link rel="canonical" href="https://solo-living-diary.nacn.app/es/howto">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Diario de vida independiente">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Cómo jugar | Diario de vida independiente">
+  <meta property="og:description" content="Cómo jugar Diario de vida independiente: configuración inicial, cómo avanza cada año, cómo se calcula el dinero, los imprevistos, y los rangos y títulos del final.">
+  <meta property="og:url" content="https://solo-living-diary.nacn.app/es/howto">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/es/og.png?v=20261024c">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto">
+  <link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto">
+  <link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto">
+  <link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto">
+  <link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto">
+  <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto">
+  <meta name="theme-color" content="#faf6ef">
+  <link rel="stylesheet" href="../css/style.css?v=20261024c">
+  <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+(() => {
+  // 事前の同意が要る国：ページの言語か端末のタイムゾーンで見分け、同意するまで Cookie を使わない（バナーを出す）
+  const NEED_LANGS = ['id'];
+  const NEED_TZ = ['Asia/Jakarta', 'Asia/Pontianak', 'Asia/Makassar', 'Asia/Jayapura', 'Asia/Bangkok', 'Asia/Ho_Chi_Minh', 'Asia/Saigon'];
+  // Google の位置判定でも最初から拒否にする国と地域（上の国と、EU・EEA・英国・スイス。EU・英国などにはバナーを出さない）
+  const DENY_REGIONS = ['ID', 'TH', 'VN', 'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT',
+    'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  const saved = (document.cookie.match(/(?:^|; )nacn_consent=v1\.(granted|denied)/) || [])[1] || null;
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* 古いブラウザ */ }
+  const lang = (document.documentElement.lang || '').toLowerCase();
+  const need = NEED_LANGS.some(l => lang === l || lang.startsWith(l + '-')) || NEED_TZ.includes(tz);
+  const state = saved || (need ? 'denied' : 'granted');
+  const all = s => ({ad_storage: s, ad_user_data: s, ad_personalization: s, analytics_storage: s});
+  // 地域ごとの初期値は、地域なしの初期値より優先される。自分で選んだ人には地域の初期値を使わない
+  if (!saved) gtag('consent', 'default', Object.assign(all('denied'), {region: DENY_REGIONS}));
+  gtag('consent', 'default', Object.assign(all(state), {wait_for_update: 500}));
+  if (state === 'denied') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+  window.nacnConsent = {need, saved};
+})();
+</script>
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4T14LV4KW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z4T14LV4KW');
+  </script>
+</head>
+<body>
+  <main id="app" class="doc">
+    <a class="doc-back" href="./">← Diario de vida independiente</a>
+    <h1>Cómo jugar</h1>
+    <article class="doc-body">
+    <p>Diario de vida independiente es un simulador de vida en el que llevas, año por año, las finanzas de alguien que vive por su cuenta, desde que consigue su primer empleo y deja la casa de sus padres hasta los primeros años de sus 30. Solo eliges «comprar o no» y «caro, normal o barato». Al final eliges entre «Casarte» o «Seguir por tu cuenta». Los montos están en yenes japoneses y el juego transcurre en Japón.</p>
+
+    <h2>Lo que decides al principio</h2>
+    <ul>
+      <li><strong>Género</strong>: eliges «Mujer» u «Hombre».</li>
+      <li><strong>Edad al independizarte</strong>: de 22 a 28 años.</li>
+      <li><strong>Ahorros</strong>: de ¥0 a ¥3 millones (en pasos de ¥100 mil).</li>
+      <li><strong>Ingreso anual</strong>: el ingreso bruto anual. El valor inicial es la mediana de ingresos para la edad con la que empiezas. Si cambias la edad, el ingreso que no hayas modificado a mano se ajusta a la mediana de la nueva edad.</li>
+    </ul>
+    <p>Cada opción tiene un botón «Aleatorio», y con «Empezar con todo al azar» se decide todo al azar y la partida empieza de inmediato.</p>
+
+    <h2>Cómo avanza cada año</h2>
+    <p>Al empezar el juego, los años avanzan solos, uno por uno. Puedes cambiar la velocidad con «1x», «2x» y «Pausa». Cuando llega un evento, el avance se detiene y se abre la pantalla para elegir. Cada botón muestra el costo y cómo quedarían tus ahorros después de elegir («→ Ahorros ¥…»).</p>
+    <p>Al final de cada año se calculan los ingresos y gastos, los ahorros suben o bajan, y en el diario aparece una línea de «Fin de año». En la parte inferior de la pantalla se muestra durante unos segundos el desglose del balance de fin de año (puedes ocultarlo en los ajustes).</p>
+
+    <h2>Eventos de vida</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Evento</th><th>Cuándo ocurre</th><th>Caro / Normal / Barato (/ No)</th></tr></thead>
+        <tbody>
+          <tr><td>Buscar vivienda</td><td>Al principio y cada vez que te mudas</td><td>Departamento de una recámara, cerca de la estación y casi nuevo: renta ¥1.2 millones al año, gastos de mudanza y contrato ¥600 mil / Estudio común: ¥800 mil al año, ¥400 mil / Lejos de la estación y algo viejo: ¥550 mil al año, ¥250 mil (más problemas con los vecinos)</td></tr>
+          <tr><td>Electrodomésticos y muebles</td><td>Justo después de buscar vivienda, y cuando llegan al final de su vida útil</td><td>Nuevos, de gama alta ¥500 mil (duran 10 años) / Nuevos, estándar ¥250 mil (8 años) / De segunda mano o regalados ¥80 mil (5 años; se descomponen seguido)</td></tr>
+          <tr><td>Alimentación</td><td>Justo después de los electrodomésticos, y luego cada 3 años</td><td>Casi siempre fuera o a domicilio ¥850 mil al año / Mitad en casa, mitad fuera ¥450 mil al año / Lo más barato ¥300 mil al año (más probabilidad de enfermarte o lastimarte)</td></tr>
+          <tr><td>Vida social</td><td>Justo después de la alimentación, y luego cada 3 años</td><td>Ir a todo ¥250 mil al año / Con moderación ¥150 mil al año / Solo cuando hace falta ¥50 mil al año / Rechazar casi todas ¥0</td></tr>
+          <tr><td>Renovar el contrato</td><td>Cada 2 años desde que te mudas</td><td>Renovar (cuota de renovación: un mes de renta, algo habitual en Japón) / Mudarte (buscar vivienda otra vez)</td></tr>
+          <tr><td>Pasatiempos y fandom</td><td>Desde el 2.º año, y luego cada 3 años</td><td>Con todo ¥500 mil al año / Con moderación ¥180 mil al año / Sin gastar ¥50 mil al año / No hacerlo ¥0</td></tr>
+          <tr><td>Invertir en ti</td><td>Cada 3 años desde los 24 (hasta 3 veces)</td><td>Escuela o posgrado para adultos que trabajan ¥400 mil (2 años con más facilidad para ascender) / Curso a distancia y certificación ¥200 mil (60% de aprobación; si apruebas, sueldo +5%) / Por tu cuenta ¥30 mil (30% de aprobación) / No</td></tr>
+          <tr><td>Auto</td><td>Desde los 25; también hay cambio de auto</td><td>Auto nuevo japonés ¥3 millones, mantenimiento ¥350 mil al año / Auto usado en buen estado ¥1.5 millones, ¥300 mil al año / Auto usado barato ¥600 mil, ¥300 mil al año (se avería seguido) / Ahora no (lo pienso en 3 años) / Nunca tener auto</td></tr>
+          <tr><td>Viaje</td><td>Cada 2 años desde el 2.º año</td><td>Al extranjero ¥400 mil / Nacional ¥150 mil / Paseo cercano de un día ¥30 mil / No</td></tr>
+          <tr><td>Relación de pareja</td><td>Cuando consigues pareja</td><td>Citas ¥600 mil al año (probabilidad de ruptura 5% al año) / ¥300 mil al año (10%) / ¥120 mil al año (20%)</td></tr>
+          <tr><td>Buscar pareja para casarte</td><td>Desde los 28, cada 2 años, en los años sin pareja</td><td>Agencia matrimonial ¥500 mil al año (probabilidad de conocer a alguien +25%) / App de citas de pago ¥50 mil al año (+10%) / Apps gratis o presentaciones de conocidos ¥0 (+5%) / No</td></tr>
+          <tr><td>Lo que sigue</td><td>Cuando tienes pareja, 30 años o más y 2 años o más de relación; o a los 35</td><td>Casarte / Seguir por tu cuenta (si no tienes pareja, solo puedes seguir por tu cuenta)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Satisfacción</h2>
+    <p>Es un valor de 0 a 100 que mide qué tan a gusto vives, y empieza en 50. Cada año se suman los valores de la vivienda, la alimentación, la vida social y los pasatiempos que elegiste, y baja 3 puntos por sí sola. También sube o baja con los viajes, las bodas de tus amistades y los problemas con los vecinos. En la parte superior de la pantalla se muestra con una carita.</p>
+    <ul>
+      <li><strong>😊 Feliz (70 o más)</strong>: probabilidad de ascenso +5%, probabilidad de conocer a alguien +5%.</li>
+      <li><strong>🙂 Normal (de 31 a 69)</strong>: sin ajustes.</li>
+      <li><strong>😞 Sin ánimo (30 o menos)</strong>: no hay ascensos, el sueldo deja de crecer con la edad, probabilidad de enfermarte o lastimarte +5%, probabilidad de conocer a alguien −5%, probabilidad de terminar con tu pareja +10%.</li>
+    </ul>
+    <p>La satisfacción no cuenta para el rango, pero cambia el nombre del final.</p>
+
+    <h2>Encuentros y rupturas</h2>
+    <p>En los años sin pareja, al final del año se decide si conoces a alguien. La probabilidad es 10% más el ajuste por vida social (Ir a todo +10%, Con moderación +5%, Solo cuando hace falta 0, Rechazar casi todas −5%), el ajuste por buscar pareja y el ajuste por satisfacción. En los años con pareja, puede haber una ruptura con una probabilidad que depende de lo que gastas en citas.</p>
+
+    <h2>El dinero de cada año</h2>
+    <ul>
+      <li><strong>Ingreso neto</strong>: el 78% del ingreso anual. El ingreso anual sube cada año al ritmo de la mediana por edad (no sube en los años «Sin ánimo»).</li>
+      <li><strong>Gastos de vida</strong>: luz, agua, gas, teléfono, artículos de uso diario, etc. Empiezan en ¥450 mil al año y suben 1.25% cada año.</li>
+      <li><strong>Renta, comida, vida social, pasatiempos, citas, búsqueda de pareja y mantenimiento del auto</strong>: cada año pagas el monto que elegiste.</li>
+      <li><strong>Intereses</strong>: si al final del año los ahorros están en negativo, se consideran deuda de tarjeta y se cobra un 10% del monto negativo.</li>
+    </ul>
+
+    <h2>Imprevistos de cada año</h2>
+    <ul>
+      <li><strong>Ascenso</strong>: base 8%. «Feliz» +5%, y +45% durante los 2 años en que vas a la escuela. Con «Sin ánimo» no hay ascensos. Al ascender, el sueldo sube 10%.</li>
+      <li><strong>Enfermedad o lesión</strong>: base 5%. Alimentación «Barato» +5%, «Sin ánimo» +5%. Gastos médicos de ¥100 mil a ¥500 mil.</li>
+      <li><strong>Imprevistos al azar</strong>: cada año hay 20% de probabilidad de que ocurra uno de estos: una oferta de trabajo (si aceptas, el sueldo cambia entre −20% y +20%; mientras vas a la escuela, es más probable que suba), un recorte del bono (el ingreso neto de ese año baja 10%), un ingreso extra (de ¥100 mil a ¥1 millón) o la boda de una amistad (ir a la boda y a la fiesta después / ir a la boda / no ir y mandar un regalo).</li>
+      <li><strong>Electrodomésticos descompuestos</strong>: con una probabilidad que depende de los que elegiste, compras uno nuevo por el 30% de lo que pagaste.</li>
+      <li><strong>Avería del auto</strong>: con una probabilidad que depende del auto que elegiste, la reparación cuesta de ¥200 mil a ¥800 mil.</li>
+      <li><strong>Problemas con los vecinos</strong>: ocurren con una probabilidad que depende de la vivienda que elegiste, y la satisfacción baja 5. Eliges entre mudarte o aguantar (la satisfacción baja 5 otra vez).</li>
+    </ul>
+
+    <h2>Cómo termina</h2>
+    <p>La partida termina cuando eliges en «Lo que sigue». Si en algún momento los ahorros bajan de −¥3 millones, llegas en ese momento al «Final: quiebra».</p>
+    <p>El rango depende del patrimonio neto al final (ahorros + valor del auto): S ¥8 millones o más, A ¥5 millones o más, B ¥3 millones o más, C ¥0 o más, D menos de ¥0 (quedó deuda). Hay 6 finales, según si te casas o sigues por tu cuenta y según tu satisfacción al final (además del «Final: quiebra»).</p>
+
+    <h2>Títulos y logros</h2>
+    <p>Recibes un título según tu forma de elegir. Se revisan en orden, de arriba abajo, y te toca el primero que se cumpla.</p>
+    <ul>
+      <li><strong>Fan de corazón</strong>: elegiste «Con todo» en pasatiempos y fandom en todas las ocasiones (2 o más)</li>
+      <li><strong>Siempre aprendiendo</strong>: aceptaste todas las ofertas de invertir en ti (2 o más)</li>
+      <li><strong>Aparentador</strong>: elegiste «Caro» en más del 70% de las decisiones</li>
+      <li><strong>Maestro del ahorro</strong>: elegiste «Barato» o «No» en más del 70% de las decisiones</li>
+      <li><strong>Persona sensata</strong>: elegiste «Normal» en más del 70% de las decisiones</li>
+      <li><strong>Alma de la fiesta</strong>: elegiste «Ir a todo» en vida social en todas las ocasiones (2 o más)</li>
+      <li><strong>Siempre de mudanza</strong>: te mudaste 3 veces o más</li>
+      <li><strong>Vida sin auto</strong>: decidiste no tener auto</li>
+      <li><strong>Equilibrado</strong>: no se cumple ninguno de los anteriores</li>
+    </ul>
+    <p>Hay 12 logros (Máquina de ahorrar, Tocar fondo, Hogar, dulce hogar, Ave migratoria, Certificación lograda, Buen cambio, Cosa del destino, Búsqueda con fruto, Días felices, Cero deudas, Dinero inesperado y La historia continúa). Puedes ver sus condiciones en la «Galería de finales».</p>
+
+    <h2>Continuar en Diario de recién casados</h2>
+    <p>Desde la pantalla de resultados puedes pasar al juego hermano, «Diario de recién casados». Empiezas la vida de casados con el género, la edad, los ahorros, el ingreso anual y el auto de Diario de vida independiente. En el final de boda aparece como un botón grande; en el final en solitario, como un botón pequeño: «¿Y si te hubieras casado?». En el «Final: quiebra» no aparece.</p>
+
+    <h2>Cómo se guarda la partida</h2>
+    <p>El avance se guarda en tu navegador al final de cada año, y puedes retomarlo con «Continuar» en la pantalla de inicio. Los finales, títulos y logros que ya viste se pueden consultar en la «Galería de finales».</p>
+    </article>
+      <nav class="site-nav" aria-label="Páginas del sitio">
+        <ul data-consent-menu>
+          <li><a href="./">Jugar</a></li>
+          <li><a href="howto.html" aria-current="page">Cómo jugar</a></li>
+          <li><a href="https://nacn.app/es/about.html">Acerca de y contacto</a></li>
+          <li><a href="privacy.html">Aviso de privacidad</a></li>
+          <li><a href="https://nacn.app/es/">Más juegos en nacn.app</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch langs"><a href="../en/howto.html" hreflang="en" lang="en" data-code="en">English</a><a href="../zh-tw/howto.html" hreflang="zh-TW" lang="zh-Hant-TW" data-code="zh-tw">繁體中文</a><a href="../es/howto.html" hreflang="es" lang="es-419" data-code="es" aria-current="true">Español</a><a href="../ja/howto.html" hreflang="ja" lang="ja" data-code="ja">日本語</a><a href="../ko/howto.html" hreflang="ko" lang="ko" data-code="ko">한국어</a></nav>
+  </main>
+<div class="suggest" id="langSuggest" hidden>
+    <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
+    <button type="button" class="suggest-close" id="langSuggestClose" aria-label="Cerrar">×</button>
+  </div>
+  <script>
+  (() => {
+    // ブラウザの言語が別の対応言語なら、その言語のページを1行で案内する（自動では移動しない。閉じたら次から出さない）
+    const ALT = [{"match": ["ja"], "text": "一人暮らし日記は日本語でも遊べます。", "link": "日本語で遊ぶ", "href": "../ja/howto.html", "lang": "ja", "code": "ja", "current": false}, {"match": ["en"], "text": "Solo Living Diary is also available in English.", "link": "Play in English", "href": "../en/howto.html", "lang": "en", "code": "en", "current": false}, {"match": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "text": "獨居日記也提供繁體中文版。", "link": "以繁體中文遊玩", "href": "../zh-tw/howto.html", "lang": "zh-Hant-TW", "code": "zh-tw", "current": false}, {"match": ["ko"], "text": "자취일기는 한국어로도 플레이할 수 있습니다.", "link": "한국어로 플레이", "href": "../ko/howto.html", "lang": "ko", "code": "ko", "current": false}, {"match": ["es", "!es-es"], "text": "Diario de vida independiente también está disponible en español.", "link": "Jugar en español", "href": "../es/howto.html", "lang": "es-419", "code": "es", "current": true}];
+    // match は言語コードの先頭の一致。「!」付きは除外（例: スペイン語版は中南米向けなので es-ES は外す）
+    const langMatches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
+    // 自分で選んだ言語を覚えて、次に / を開いたときはその言語へ移動する（言語の切り替えリンクと、この案内のリンク）
+    const remember = code => { try { localStorage.setItem('lang', code); } catch (e) { /* noop */ } };
+    // 切り替えリンクはこのあとに出てくるので、ページ全体でクリックを受け取る
+    document.addEventListener('click', e => {
+      const a = e.target.closest('.langs a[data-code], #langSuggestLink');
+      if (a && a.dataset.code) remember(a.dataset.code);
+    });
+    const KEY = 'lang-suggest-closed';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) { /* 保存できない環境 */ }
+    const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']).map(l => l.toLowerCase());
+    // 一番希望している言語だけを見る。対応していない言語か、今のページの言語なら何も出さない
+    const first = langs[0] || '';
+    const alt = ALT.find(a => langMatches(first, a.match));
+    if (!alt || alt.current) return;
+    const box = document.getElementById('langSuggest');
+    document.getElementById('langSuggestText').textContent = alt.text;
+    const link = document.getElementById('langSuggestLink');
+    link.textContent = alt.link; link.href = alt.href; link.lang = alt.lang; link.dataset.code = alt.code;
+    box.lang = alt.lang;
+    box.hidden = false;
+    document.getElementById('langSuggestClose').addEventListener('click', () => {
+      box.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) { /* noop */ }
+    });
+  })();
+  </script>
+
+<!-- Cookie の同意のバナー（nacn.app 共通。元の版は claude-skills の consent-mode スキル） -->
+<div class="nacn-consent" id="nacnConsent" role="region" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para estadísticas. Puedes seguir jugando aunque no aceptes. <a href="/es/privacy.html">Aviso de privacidad</a></p>
+  <div class="nacn-consent-btns">
+    <button type="button" data-consent="granted">Aceptar</button>
+    <button type="button" data-consent="denied">Rechazar</button>
+  </div>
+</div>
+<style>
+.nacn-consent{ position:fixed; left:8px; right:8px; bottom:8px; z-index:1000; max-width:720px; margin:0 auto; padding:12px 14px;
+  display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; color:#f4f1ff; background:#1d1a33; border:3px solid #f4f1ff;
+  box-shadow:0 4px 0 rgba(0,0,0,.35); font-size:.9rem; line-height:1.6; }
+.nacn-consent[hidden]{ display:none; }
+.nacn-consent p{ flex:1 1 280px; margin:0; }
+.nacn-consent a{ color:#ffd66b; }
+.nacn-consent-btns{ display:flex; gap:8px; }
+/* 同意する・しないは同じ大きさ・同じ見た目にする（どちらかに誘導しない） */
+.nacn-consent button{ min-width:7em; padding:6px 12px; font:inherit; color:#1d1a33; background:#f4f1ff; border:2px solid #f4f1ff; cursor:pointer; }
+.nacn-consent button:focus-visible{ outline:3px solid #ffd66b; outline-offset:2px; }
+</style>
+<script>
+(() => {
+  const bar = document.getElementById('nacnConsent');
+  // ページの中で言語を切り替えるアプリ（1つの HTML で全言語）は、data-strings に言語ごとの文言を持たせ、表示する前に今の言語の文言にする。
+  // キーは <html lang> を小文字にしたもの（なければ「-」の前）。値は {text, policy, policyHref, accept, reject, settings, label}
+  const strings = bar.dataset.strings ? JSON.parse(bar.dataset.strings) : null;
+  const localize = () => {
+    if (!strings) return;
+    const lang = (document.documentElement.lang || '').toLowerCase();
+    const t = strings[lang] || strings[lang.split('-')[0]];
+    if (!t) return;
+    const link = bar.querySelector('p a');
+    bar.querySelector('p').firstChild.textContent = t.text + ' ';
+    link.textContent = t.policy; link.href = t.policyHref;
+    bar.querySelector('[data-consent="granted"]').textContent = t.accept;
+    bar.querySelector('[data-consent="denied"]').textContent = t.reject;
+    bar.setAttribute('aria-label', t.label);
+    document.querySelectorAll('[data-consent-open]').forEach(a => { a.textContent = t.settings; });
+  };
+  const pad = () => { document.body.style.paddingBottom = bar.hidden ? '' : (bar.offsetHeight + 16) + 'px'; };
+  const show = () => { localize(); bar.hidden = false; pad(); };
+  const choose = v => {
+    // nacn.app の全サブドメインで同じ選択を使う（ローカルでは Domain を付けない）
+    const domain = /(^|\.)nacn\.app$/.test(location.hostname) ? '; Domain=.nacn.app' : '';
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `nacn_consent=v1.${v}; Max-Age=34128000; Path=/; SameSite=Lax${secure}${domain}`;
+    gtag('consent', 'update', {ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v});
+    bar.hidden = true; pad();
+  };
+  bar.querySelectorAll('[data-consent]').forEach(b => b.addEventListener('click', () => choose(b.dataset.consent)));
+  // いつでも選び直せるように、ページ下のメニュー（data-consent-menu を付けた ul か .site-nav ul）に「Cookie の設定」を足す。
+  // ほかの場所に置くなら data-consent-open を付けた要素
+  const menu = document.querySelector('[data-consent-menu]') || document.querySelector('.site-nav ul');
+  if (menu) menu.insertAdjacentHTML('beforeend', '<li><a href="#" data-consent-open>Configuración de cookies</a></li>');
+  document.querySelectorAll('[data-consent-open]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(); }));
+  localize();
+  const c = window.nacnConsent || {};
+  if (c.need && !c.saved) show();
+})();
+</script>
+</body>
+</html>

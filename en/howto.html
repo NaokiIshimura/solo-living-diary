@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>How to play | Solo Living Diary</title>
+  <meta name="description" content="How to play Solo Living Diary: setup, how a year passes, the yearly money math, random events, and the final ranks and titles.">
+  <link rel="canonical" href="https://solo-living-diary.nacn.app/en/howto">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Solo Living Diary">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="How to play | Solo Living Diary">
+  <meta property="og:description" content="How to play Solo Living Diary: setup, how a year passes, the yearly money math, random events, and the final ranks and titles.">
+  <meta property="og:url" content="https://solo-living-diary.nacn.app/en/howto">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/en/og.png?v=20261024c">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="ja" href="https://solo-living-diary.nacn.app/ja/howto">
+  <link rel="alternate" hreflang="en" href="https://solo-living-diary.nacn.app/en/howto">
+  <link rel="alternate" hreflang="zh-TW" href="https://solo-living-diary.nacn.app/zh-tw/howto">
+  <link rel="alternate" hreflang="ko" href="https://solo-living-diary.nacn.app/ko/howto">
+  <link rel="alternate" hreflang="es" href="https://solo-living-diary.nacn.app/es/howto">
+  <link rel="alternate" hreflang="x-default" href="https://solo-living-diary.nacn.app/en/howto">
+  <meta name="theme-color" content="#faf6ef">
+  <link rel="stylesheet" href="../css/style.css?v=20261024c">
+  <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+(() => {
+  // 事前の同意が要る国：ページの言語か端末のタイムゾーンで見分け、同意するまで Cookie を使わない（バナーを出す）
+  const NEED_LANGS = ['id'];
+  const NEED_TZ = ['Asia/Jakarta', 'Asia/Pontianak', 'Asia/Makassar', 'Asia/Jayapura', 'Asia/Bangkok', 'Asia/Ho_Chi_Minh', 'Asia/Saigon'];
+  // Google の位置判定でも最初から拒否にする国と地域（上の国と、EU・EEA・英国・スイス。EU・英国などにはバナーを出さない）
+  const DENY_REGIONS = ['ID', 'TH', 'VN', 'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT',
+    'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  const saved = (document.cookie.match(/(?:^|; )nacn_consent=v1\.(granted|denied)/) || [])[1] || null;
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* 古いブラウザ */ }
+  const lang = (document.documentElement.lang || '').toLowerCase();
+  const need = NEED_LANGS.some(l => lang === l || lang.startsWith(l + '-')) || NEED_TZ.includes(tz);
+  const state = saved || (need ? 'denied' : 'granted');
+  const all = s => ({ad_storage: s, ad_user_data: s, ad_personalization: s, analytics_storage: s});
+  // 地域ごとの初期値は、地域なしの初期値より優先される。自分で選んだ人には地域の初期値を使わない
+  if (!saved) gtag('consent', 'default', Object.assign(all('denied'), {region: DENY_REGIONS}));
+  gtag('consent', 'default', Object.assign(all(state), {wait_for_update: 500}));
+  if (state === 'denied') (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+  window.nacnConsent = {need, saved};
+})();
+</script>
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4T14LV4KW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z4T14LV4KW');
+  </script>
+</head>
+<body>
+  <main id="app" class="doc">
+    <a class="doc-back" href="./">← Solo Living Diary</a>
+    <h1>How to play</h1>
+    <article class="doc-body">
+    <p>Solo Living Diary is a life simulation that follows your household finances one year at a time, from the day you start your first job and move out of your parents' home until your early 30s. The only decisions you make are whether to buy something or skip it, and whether to go High, Mid or Low. At the end, you choose to "Get married" or "Go on solo". The game is set in Japan, and all amounts are in Japanese yen.</p>
+
+    <h2>What you decide at the start</h2>
+    <ul>
+      <li><strong>Gender</strong>: choose "Female" or "Male".</li>
+      <li><strong>Age when you move out</strong>: 22 to 28.</li>
+      <li><strong>Savings</strong>: ¥0 to ¥3M, in steps of ¥100K.</li>
+      <li><strong>Annual income</strong>: your gross annual income. The default is the median income for your starting age. If you change the age, an income you haven't edited by hand is updated to the median for the new age.</li>
+    </ul>
+    <p>Every item has a "Random" button, and "Randomize all and start" picks everything at random and starts the game right away.</p>
+
+    <h2>How a year goes by</h2>
+    <p>Once the game starts, it moves forward one year at a time on its own. You can switch the pace with "1x", "2x" and "Pause". When an event comes up, the game stops and opens a choice screen. Each button shows the cost and what your savings will be after you choose it ("→ Savings ¥…").</p>
+    <p>At the end of each year, that year's income and spending are calculated, your savings go up or down, and a "Year end" line is written in the diary. A breakdown of the year-end finances appears at the bottom of the screen for a few seconds (you can turn it off in Settings).</p>
+
+    <h2>Life events</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Event</th><th>When it happens</th><th>High / Mid / Low (/ Skip)</th></tr></thead>
+        <tbody>
+          <tr><td>Finding a place</td><td>At the start, and whenever you move</td><td>New one-bedroom (1LDK) near the station: rent ¥1.2M a year, move-in costs ¥600K / Standard studio (1K): ¥800K a year, ¥400K / Older place far from the station: ¥550K a year, ¥250K (noisy neighbors more likely)</td></tr>
+          <tr><td>Appliances &amp; furniture</td><td>Right after finding a place, and when they wear out</td><td>New, top models ¥500K (last 10 years) / New, standard ¥250K (8 years) / Secondhand / hand-me-downs ¥80K (5 years, break easily)</td></tr>
+          <tr><td>Eating habits</td><td>Right after appliances, then every 3 years</td><td>Mostly eating out and delivery ¥850K a year / Half cooking, half eating out ¥450K a year / As cheap as possible ¥300K a year (more likely to get sick or injured)</td></tr>
+          <tr><td>Socializing</td><td>Right after eating habits, then every 3 years</td><td>Go to everything ¥250K a year / In moderation ¥150K a year / Only when needed ¥50K a year / Mostly decline ¥0</td></tr>
+          <tr><td>Lease renewal</td><td>Every 2 years after moving in</td><td>Renew (renewal fee of one month's rent, standard in Japan) / Move out (find a new place)</td></tr>
+          <tr><td>Hobbies &amp; fandom</td><td>From year 2, then every 3 years</td><td>All in ¥500K a year / In moderation ¥180K a year / No spending ¥50K a year / Skip ¥0</td></tr>
+          <tr><td>Investing in yourself</td><td>Every 3 years from age 24 (up to 3 times)</td><td>Classes / grad school for working adults ¥400K (promotions more likely for 2 years) / Correspondence course / certification ¥200K (60% pass rate, income +5% if you pass) / Self-study ¥30K (30% pass rate) / Skip</td></tr>
+          <tr><td>Car</td><td>From age 25; replaced over time</td><td>New Japanese car ¥3M, upkeep ¥350K a year / Used car (good condition) ¥1.5M, ¥300K a year / Cheap used car ¥600K, ¥300K a year (breaks down often) / Not now (think again in 3 years) / Never own one</td></tr>
+          <tr><td>Travel</td><td>Every 2 years from year 2</td><td>Trip abroad ¥400K / Trip in Japan ¥150K / Day trip nearby ¥30K / Skip</td></tr>
+          <tr><td>Dating</td><td>When you start seeing someone</td><td>Dating costs ¥600K a year (breakup chance 5% a year) / ¥300K a year (10%) / ¥120K a year (20%)</td></tr>
+          <tr><td>Partner search (marriage-minded dating)</td><td>From age 28, every 2 years while you're single</td><td>Matchmaking agency ¥500K a year (chance to meet someone +25%) / Paid dating app ¥50K a year (+10%) / Free apps / introductions ¥0 (+5%) / Not now</td></tr>
+          <tr><td>What comes next</td><td>When you're 30 or older and have been dating 2+ years, or at 35</td><td>Get married / Go on solo (if you have no partner, only "Go on solo")</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Fulfillment</h2>
+    <p>Fulfillment is a 0 to 100 score for how satisfied you are with your life, starting at 50. Each year, the values of your current room, eating habits, socializing and hobbies are added, and it naturally drops by 3. Trips, friends' weddings and noisy neighbors also raise or lower it. It's shown as a face icon at the top of the screen.</p>
+    <ul>
+      <li><strong>😊 Fulfilled (70 or more)</strong>: promotion chance +5%, chance to meet someone +5%.</li>
+      <li><strong>🙂 Okay (31 to 69)</strong>: no effect.</li>
+      <li><strong>😞 Listless (30 or less)</strong>: no promotions, no age-based income growth, illness or injury chance +5%, chance to meet someone −5%, breakup chance +10%.</li>
+    </ul>
+    <p>Fulfillment doesn't count toward your rank, but it changes the name of your ending.</p>
+
+    <h2>Meeting someone and breaking up</h2>
+    <p>In years when you're single, the game checks at year end whether you meet someone. The chance is 10%, plus a socializing bonus (Go to everything +10%, In moderation +5%, Only when needed 0, Mostly decline −5%), the partner search bonus and the fulfillment bonus. In years when you're dating, you may break up, with a chance that depends on how much you spend on dating.</p>
+
+    <h2>How the money is calculated each year</h2>
+    <ul>
+      <li><strong>Take-home income</strong>: 78% of your annual income. Your income rises every year in line with the median income growth for your age (but not in listless years).</li>
+      <li><strong>Living costs</strong>: utilities, phone and internet, daily necessities and so on. Starts at ¥450K a year and rises 1.25% every year.</li>
+      <li><strong>Rent, food, socializing, hobbies, dating, partner search and car upkeep</strong>: the amounts you chose are charged every year.</li>
+      <li><strong>Interest</strong>: if your savings are negative at year end, the shortfall is treated as a card loan and charged 10% interest.</li>
+    </ul>
+
+    <h2>Things that happen each year</h2>
+    <ul>
+      <li><strong>Promotion</strong>: 8% base chance. +5% when fulfilled, +45% during the 2 years you attend classes. No promotions while listless. A promotion raises your income 10%.</li>
+      <li><strong>Illness or injury</strong>: 5% base chance. +5% with "Low" eating habits, +5% when listless. Medical bills of ¥100K–¥500K.</li>
+      <li><strong>Random events</strong>: each year there's a 20% chance of one of these: a job offer (if you accept, your income changes by −20% to +20%; it's more likely to go up while you attend classes), a bonus cut (take-home pay −10% that year), a windfall (¥100K–¥1M), or a friend's wedding (Attend + after-party / Attend / Skip it, send a gift).</li>
+      <li><strong>Appliance breakdown</strong>: with a chance that depends on the appliances you chose, one item breaks and you replace it for 30% of the purchase price.</li>
+      <li><strong>Car breakdown</strong>: with a chance that depends on the car you chose, repairs cost ¥200K–¥800K.</li>
+      <li><strong>Noisy neighbors</strong>: happens with a chance that depends on your room, and fulfillment drops 5. You choose to move out, or put up with it (fulfillment drops another 5).</li>
+    </ul>
+
+    <h2>How the game ends</h2>
+    <p>The game ends when you make your choice in "What comes next". If your savings drop below −¥3M along the way, you get the "Bankrupt Ending" right then.</p>
+    <p>Your rank is decided by your final net worth (savings + the value of your car): S ¥8M or more, A ¥5M or more, B ¥3M or more, C ¥0 or more, D less than ¥0 (debt left over). There are 6 endings, based on whether you marry or go solo and on your final fulfillment (plus the Bankrupt Ending).</p>
+
+    <h2>Titles and achievements</h2>
+    <p>You get one title based on how you chose. The conditions are checked from the top, and the first one that matches is your title.</p>
+    <ul>
+      <li><strong>Fandom Is Life</strong>: chose "All in" every time for hobbies &amp; fandom (2+ times)</li>
+      <li><strong>Self-Improver</strong>: did every self-investment offered (2+ times)</li>
+      <li><strong>Show-off</strong>: chose "High" in 70%+ of choices</li>
+      <li><strong>Master of Thrift</strong>: chose "Low" or skipped in 70%+ of choices</li>
+      <li><strong>Steady Type</strong>: chose "Mid" in 70%+ of choices</li>
+      <li><strong>Social Butterfly</strong>: chose "Go to everything" every time for socializing (2+ times)</li>
+      <li><strong>Serial Mover</strong>: moved 3 or more times</li>
+      <li><strong>Car-Free Life</strong>: chose never to own a car</li>
+      <li><strong>Well-Balanced</strong>: none of the above</li>
+    </ul>
+    <p>There are 12 achievements (Savings Machine, Rock Bottom, Home Sweet Home, Migratory Bird, Certified, Good Move, Meant to Be, Search Pays Off, Every Day Is Fun, Debt-Free, Unexpected Fortune, The Story Continues). You can check their conditions under "Endings".</p>
+
+    <h2>Continue in Newlywed Diary</h2>
+    <p>From the results screen, you can move on to the sister game, Newlywed Diary. It carries over your gender, age, savings, income and car from Solo Living Diary so you can start married life. With a married ending it appears as a large button, and with a solo ending as a small "What if you'd married?" button. It doesn't appear with the Bankrupt Ending.</p>
+
+    <h2>Saving your progress</h2>
+    <p>Your progress is saved in your browser at the end of every year, and you can pick up where you left off with "Continue" on the title screen. The endings, titles and achievements you've seen can be checked under "Endings".</p>
+    </article>
+      <nav class="site-nav" aria-label="Site pages">
+        <ul data-consent-menu>
+          <li><a href="./">Play the game</a></li>
+          <li><a href="howto.html" aria-current="page">How to play</a></li>
+          <li><a href="https://nacn.app/en/about.html">About &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="https://nacn.app/en/">More games on nacn.app</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch langs"><a href="../en/howto.html" hreflang="en" lang="en" data-code="en" aria-current="true">English</a><a href="../zh-tw/howto.html" hreflang="zh-TW" lang="zh-Hant-TW" data-code="zh-tw">繁體中文</a><a href="../es/howto.html" hreflang="es" lang="es-419" data-code="es">Español</a><a href="../ja/howto.html" hreflang="ja" lang="ja" data-code="ja">日本語</a><a href="../ko/howto.html" hreflang="ko" lang="ko" data-code="ko">한국어</a></nav>
+  </main>
+<div class="suggest" id="langSuggest" hidden>
+    <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
+    <button type="button" class="suggest-close" id="langSuggestClose" aria-label="Close">×</button>
+  </div>
+  <script>
+  (() => {
+    // ブラウザの言語が別の対応言語なら、その言語のページを1行で案内する（自動では移動しない。閉じたら次から出さない）
+    const ALT = [{"match": ["ja"], "text": "一人暮らし日記は日本語でも遊べます。", "link": "日本語で遊ぶ", "href": "../ja/howto.html", "lang": "ja", "code": "ja", "current": false}, {"match": ["en"], "text": "Solo Living Diary is also available in English.", "link": "Play in English", "href": "../en/howto.html", "lang": "en", "code": "en", "current": true}, {"match": ["zh-tw", "zh-hant", "zh-hk", "zh-mo"], "text": "獨居日記也提供繁體中文版。", "link": "以繁體中文遊玩", "href": "../zh-tw/howto.html", "lang": "zh-Hant-TW", "code": "zh-tw", "current": false}, {"match": ["ko"], "text": "자취일기는 한국어로도 플레이할 수 있습니다.", "link": "한국어로 플레이", "href": "../ko/howto.html", "lang": "ko", "code": "ko", "current": false}, {"match": ["es", "!es-es"], "text": "Diario de vida independiente también está disponible en español.", "link": "Jugar en español", "href": "../es/howto.html", "lang": "es-419", "code": "es", "current": false}];
+    // match は言語コードの先頭の一致。「!」付きは除外（例: スペイン語版は中南米向けなので es-ES は外す）
+    const langMatches = (lang, list) => list.some(m => m[0] !== '!' && lang.startsWith(m)) && !list.some(m => m[0] === '!' && lang.startsWith(m.slice(1)));
+    // 自分で選んだ言語を覚えて、次に / を開いたときはその言語へ移動する（言語の切り替えリンクと、この案内のリンク）
+    const remember = code => { try { localStorage.setItem('lang', code); } catch (e) { /* noop */ } };
+    // 切り替えリンクはこのあとに出てくるので、ページ全体でクリックを受け取る
+    document.addEventListener('click', e => {
+      const a = e.target.closest('.langs a[data-code], #langSuggestLink');
+      if (a && a.dataset.code) remember(a.dataset.code);
+    });
+    const KEY = 'lang-suggest-closed';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) { /* 保存できない環境 */ }
+    const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']).map(l => l.toLowerCase());
+    // 一番希望している言語だけを見る。対応していない言語か、今のページの言語なら何も出さない
+    const first = langs[0] || '';
+    const alt = ALT.find(a => langMatches(first, a.match));
+    if (!alt || alt.current) return;
+    const box = document.getElementById('langSuggest');
+    document.getElementById('langSuggestText').textContent = alt.text;
+    const link = document.getElementById('langSuggestLink');
+    link.textContent = alt.link; link.href = alt.href; link.lang = alt.lang; link.dataset.code = alt.code;
+    box.lang = alt.lang;
+    box.hidden = false;
+    document.getElementById('langSuggestClose').addEventListener('click', () => {
+      box.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) { /* noop */ }
+    });
+  })();
+  </script>
+
+<!-- Cookie の同意のバナー（nacn.app 共通。元の版は claude-skills の consent-mode スキル） -->
+<div class="nacn-consent" id="nacnConsent" role="region" aria-label="Cookie consent" hidden>
+  <p>We use cookies for analytics. You can still play even if you decline. <a href="/en/privacy.html">Privacy policy</a></p>
+  <div class="nacn-consent-btns">
+    <button type="button" data-consent="granted">Accept</button>
+    <button type="button" data-consent="denied">Decline</button>
+  </div>
+</div>
+<style>
+.nacn-consent{ position:fixed; left:8px; right:8px; bottom:8px; z-index:1000; max-width:720px; margin:0 auto; padding:12px 14px;
+  display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; color:#f4f1ff; background:#1d1a33; border:3px solid #f4f1ff;
+  box-shadow:0 4px 0 rgba(0,0,0,.35); font-size:.9rem; line-height:1.6; }
+.nacn-consent[hidden]{ display:none; }
+.nacn-consent p{ flex:1 1 280px; margin:0; }
+.nacn-consent a{ color:#ffd66b; }
+.nacn-consent-btns{ display:flex; gap:8px; }
+/* 同意する・しないは同じ大きさ・同じ見た目にする（どちらかに誘導しない） */
+.nacn-consent button{ min-width:7em; padding:6px 12px; font:inherit; color:#1d1a33; background:#f4f1ff; border:2px solid #f4f1ff; cursor:pointer; }
+.nacn-consent button:focus-visible{ outline:3px solid #ffd66b; outline-offset:2px; }
+</style>
+<script>
+(() => {
+  const bar = document.getElementById('nacnConsent');
+  // ページの中で言語を切り替えるアプリ（1つの HTML で全言語）は、data-strings に言語ごとの文言を持たせ、表示する前に今の言語の文言にする。
+  // キーは <html lang> を小文字にしたもの（なければ「-」の前）。値は {text, policy, policyHref, accept, reject, settings, label}
+  const strings = bar.dataset.strings ? JSON.parse(bar.dataset.strings) : null;
+  const localize = () => {
+    if (!strings) return;
+    const lang = (document.documentElement.lang || '').toLowerCase();
+    const t = strings[lang] || strings[lang.split('-')[0]];
+    if (!t) return;
+    const link = bar.querySelector('p a');
+    bar.querySelector('p').firstChild.textContent = t.text + ' ';
+    link.textContent = t.policy; link.href = t.policyHref;
+    bar.querySelector('[data-consent="granted"]').textContent = t.accept;
+    bar.querySelector('[data-consent="denied"]').textContent = t.reject;
+    bar.setAttribute('aria-label', t.label);
+    document.querySelectorAll('[data-consent-open]').forEach(a => { a.textContent = t.settings; });
+  };
+  const pad = () => { document.body.style.paddingBottom = bar.hidden ? '' : (bar.offsetHeight + 16) + 'px'; };
+  const show = () => { localize(); bar.hidden = false; pad(); };
+  const choose = v => {
+    // nacn.app の全サブドメインで同じ選択を使う（ローカルでは Domain を付けない）
+    const domain = /(^|\.)nacn\.app$/.test(location.hostname) ? '; Domain=.nacn.app' : '';
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `nacn_consent=v1.${v}; Max-Age=34128000; Path=/; SameSite=Lax${secure}${domain}`;
+    gtag('consent', 'update', {ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v});
+    bar.hidden = true; pad();
+  };
+  bar.querySelectorAll('[data-consent]').forEach(b => b.addEventListener('click', () => choose(b.dataset.consent)));
+  // いつでも選び直せるように、ページ下のメニュー（data-consent-menu を付けた ul か .site-nav ul）に「Cookie の設定」を足す。
+  // ほかの場所に置くなら data-consent-open を付けた要素
+  const menu = document.querySelector('[data-consent-menu]') || document.querySelector('.site-nav ul');
+  if (menu) menu.insertAdjacentHTML('beforeend', '<li><a href="#" data-consent-open>Cookie settings</a></li>');
+  document.querySelectorAll('[data-consent-open]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(); }));
+  localize();
+  const c = window.nacnConsent || {};
+  if (c.need && !c.saved) show();
+})();
+</script>
+</body>
+</html>
