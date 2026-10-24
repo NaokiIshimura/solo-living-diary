@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "title": "Solo Living Diary",
+    "description": "A life sim from the day you start your first job and leave home to your early 30s, driven only by choices: buy or skip, high, mid or low.",
+    "gameName": "Solo Living Diary",
+    "hashtag": "#SoloLivingDiary",
+    "setInJapan": "Set in Japan. All amounts are in Japanese yen."
+  },
+  "title": {
+    "lead": "From leaving home to your 30s,<br>a life sim made only of choices",
+    "start": "Start",
+    "continue": "Continue",
+    "gallery": "Endings",
+    "settings": "Settings"
+  },
+  "setup": {
+    "heading": "Setup",
+    "gender": "Gender",
+    "female": "Female",
+    "male": "Male",
+    "age": "Age when you move out ({min}–{max})",
+    "savings": "Savings (in ¥10,000, {min}–{max})",
+    "income": "Annual income (in ¥10,000)",
+    "incomeHint": "The default income is the median for that age.",
+    "random": "Random",
+    "submit": "Start with these settings",
+    "omakase": "Randomize all and start",
+    "back": "Back to title"
+  },
+  "main": {
+    "age": "Age {n}",
+    "pause": "Pause",
+    "startLine": "Starting with savings of {savings:money} and an income of {income:money}.",
+    "resumed": "Picked up where I left off.",
+    "yearEnd": "Year end",
+    "yearEndMoney": "Income {income:money} · Spent {expense:money} ({delta:signedMoney}) → {savings:money}",
+    "status": {
+      "age": "Age",
+      "years": "On my own",
+      "yearsN": "Year {n}",
+      "savings": "Savings",
+      "fulfillment": "Fulfillment",
+      "room": "Room",
+      "partner": "Partner",
+      "none": "None",
+      "partnerYears": "Dating, year {n}",
+      "listSep": ", ",
+      "car": "Car"
+    }
+  },
+  "summary": {
+    "head": "Finances at {age}",
+    "unit": "{delta:signedMoney}",
+    "income": "Income",
+    "items": {
+      "living": "Living costs",
+      "housing": "Rent",
+      "food": "Food",
+      "social": "Socializing",
+      "hobby": "Hobbies",
+      "date": "Dating",
+      "konkatsu": "Partner search",
+      "car": "Car",
+      "breakdown": "Car repairs",
+      "interest": "Interest"
+    }
+  },
+  "event": {
+    "tier": {
+      "high": "High",
+      "mid": "Mid",
+      "low": "Low"
+    },
+    "tierOption": "{tier}: {label}",
+    "back": "Back",
+    "predicted": "→ Savings {money:money}",
+    "neverSub": "Won't be asked again",
+    "later": "Not now (think again in 3 years)",
+    "jobOffer": {
+      "title": "Job offer",
+      "text": "You got a job offer. Your income may go up or down (±20%).",
+      "accept": "Switch jobs",
+      "acceptSub": "Income changes by −20% to +20%",
+      "decline": "Decline",
+      "declineSub": "Income stays the same"
+    },
+    "annual": "{annual:money}/yr",
+    "room": {
+      "title": "Finding a place",
+      "text": "Time to live on your own. What kind of place will you rent?",
+      "detail": "Rent {annual:money}/yr · move-in costs {cost:money}",
+      "textMove": "You've decided to move. What kind of place will you rent next?"
+    },
+    "renewal": {
+      "title": "Lease renewal",
+      "text": "You've lived here {n} years. Renew your lease?",
+      "renew": "Renew",
+      "renewSub": "Renewal fee {cost:money}",
+      "move": "Move out",
+      "moveSub": "Find a new place (move-in costs apply)"
+    },
+    "neighbor": {
+      "title": "Noisy neighbors",
+      "text": "The noise from next door is terrible, and you haven't slept well for days.",
+      "move": "Move out",
+      "moveSub": "Find a new place (move-in costs apply)",
+      "endure": "Put up with it",
+      "endureSub": "Fulfillment drops further"
+    },
+    "appliance": {
+      "title": "Appliances & furniture",
+      "text": "Time to get appliances and furniture. Which will you choose?",
+      "textReplace": "Your appliances have all reached the end of their life. Time to replace them.",
+      "detail": "{cost:money} · lasts {life} yrs",
+      "fragile": " · breaks easily"
+    },
+    "food": {
+      "title": "Eating habits",
+      "text": "How will you handle your daily meals?",
+      "textReview": "{n} years on your own. Rethink your eating habits?"
+    },
+    "social": {
+      "title": "Socializing",
+      "text": "How often will you say yes to invitations from coworkers and friends?",
+      "textReview": "{n} years on your own. Rethink how you socialize?",
+      "yes": "Say yes",
+      "no": "Mostly decline"
+    },
+    "hobby": {
+      "title": "Hobbies & fandom",
+      "text": "Spend money on your days off — hobbies, or supporting your favorite idol or artist?",
+      "textReview": "{n} years on your own. Rethink how much you spend on hobbies?",
+      "yes": "Spend on it",
+      "no": "Skip"
+    },
+    "invest": {
+      "title": "Investing in yourself",
+      "text": "Age {age}. Spend money on studying to get ahead at work?",
+      "yes": "Do it",
+      "no": "Skip",
+      "school": "For 2 years: promotions more likely, better raises when switching jobs",
+      "pass": "Pass rate {pct}% · income +{raise}% if you pass"
+    },
+    "car": {
+      "titleBuy": "Buy a car",
+      "titleReplace": "Replace the car",
+      "textBuy": "Buy a car?",
+      "textReplace": "You've had the car {years} years. Sell it for {value:money} and buy a new one?",
+      "yes": "Buy",
+      "never": "Never own one",
+      "detail": "{cost:money} · upkeep {annual:money}/yr · sells for {resale:money} after {years} yrs",
+      "fragile": " · breaks down often"
+    },
+    "travel": {
+      "title": "Travel",
+      "text": "Looks like you can take some time off. Go on a trip?",
+      "yes": "Go",
+      "no": "Skip"
+    },
+    "partner": {
+      "title": "Dating",
+      "text": "You're seeing someone! How much will you spend on dates and gifts?",
+      "breakup": "Breakup chance {pct}%/yr"
+    },
+    "konkatsu": {
+      "title": "Partner search",
+      "text": "Age {age}. Time to get serious about finding someone to marry?",
+      "yes": "Start searching",
+      "no": "Not now",
+      "detail": "{annual:money}/yr · chance to meet someone +{pct}%"
+    },
+    "friendWedding": {
+      "title": "A friend's wedding",
+      "text": "A wedding invitation arrived from a friend.",
+      "detail": "{cost:money}"
+    },
+    "branch": {
+      "title": "What comes next",
+      "textPartner": "Age {age}. You've been together {years} years. What now?",
+      "textAlone": "Age {age}. Year {years} of living on your own. What now?",
+      "marry": "Get married",
+      "marrySub": "Married ending",
+      "single": "Go on solo",
+      "singleSub": "Solo ending"
+    }
+  },
+  "result": {
+    "netWorthBankrupt": "Net worth at bankruptcy",
+    "titleLabel": "Title",
+    "savings": "Savings",
+    "carValue": "Car value",
+    "netWorth": "Net worth",
+    "compare": "vs. picking \"Mid\" for everything ({mid:money}): {diff}",
+    "compareBankrupt": "Picking \"Mid\" for everything would have gone bankrupt.",
+    "spending": "Total spending",
+    "spendingItems": {
+      "living": "Living costs",
+      "housing": "Housing (rent, renewal fees, move-in costs)",
+      "food": "Food",
+      "social": "Socializing, dating, partner search",
+      "leisure": "Hobbies & travel",
+      "invest": "Self-investment",
+      "car": "Car",
+      "other": "Other (appliances, medical, weddings, interest)"
+    },
+    "incomeNote": "Take-home income {income:money}; windfalls {extra:money}.",
+    "achievements": "Achievements",
+    "noAchievements": "No achievements this time.",
+    "timeline": "Life timeline",
+    "lifeBankrupt": "Moved out at {start} → bankrupt at {end}",
+    "share": "Share",
+    "shareImage": "Share image",
+    "saveImage": "Save image",
+    "post": "Post to X (Twitter)",
+    "shareText": "I got \"{ending}\" ({rank}) in Solo Living Diary. My title: \"{title}\".",
+    "rankWord": "Rank {rank}",
+    "bankruptWord": "Bankrupt",
+    "again": "Play again",
+    "toTitle": "Title",
+    "cardAlt": "Result image card",
+    "new": "NEW",
+    "netWorthEnd": "Final net worth",
+    "lifeMarried": "Moved out at {start} → married at {end}",
+    "lifeSingle": "Moved out at {start} → going solo at {end}",
+    "fulfillmentLine": "Fulfillment {n} ({band})",
+    "continue": {
+      "married": "Continue in Newlywed Diary",
+      "marriedSub": "Carry over your savings, income and car and start life as a couple (opens in a new tab).",
+      "single": "What if you'd married? Play Newlywed Diary",
+      "singleSub": "Carry over your savings, income and car and start Newlywed Diary (opens in a new tab)."
+    }
+  },
+  "gallery": {
+    "heading": "Endings",
+    "plays": "Played {n} times",
+    "plays_one": "Played 1 time",
+    "best": " · Best net worth {money:money}",
+    "endings": "Endings",
+    "titles": "Titles",
+    "achievements": "Achievements",
+    "locked": "???",
+    "back": "Back to title"
+  },
+  "settings": {
+    "heading": "Settings",
+    "language": "Language",
+    "yearSummary": "Show year-end finances",
+    "speed": "Default speed",
+    "clear": "Delete data",
+    "clearHint": "Deletes your save, endings, achievements and settings.",
+    "confirm": "This deletes your save, endings, achievements and settings. Continue?",
+    "back": "Back to title"
+  },
+  "h": {
+    "started": "I left my parents' home and started living on my own.",
+    "promotion": "I got a promotion. My income rose {pct}%.",
+    "illness": "I got sick and ended up in the hospital. Medical bills: {cost:money}.",
+    "bonusCut": "The company had a bad year and bonuses were cut. Take-home pay is down 10% this year.",
+    "windfall": "A windfall! {amount:money} came my way.",
+    "jobAccepted": "I switched jobs. Income changed {pct:signed}%.",
+    "jobDeclined": "I turned down the job offer.",
+    "bankrupt": "My finances collapsed.",
+    "met": "I met someone. We started dating.",
+    "brokeUp": "We broke up.",
+    "married": "We decided to get married. A new life begins.",
+    "single": "I decided to keep living on my own terms, solo.",
+    "renewed": "I renewed my lease. The renewal fee was {cost:money}.",
+    "moveOut": "I decided to move out of this place.",
+    "neighborTrouble": "Trouble with the neighbors next door kept me up night after night.",
+    "neighborEndured": "I gave up on moving and decided to put up with it.",
+    "applianceBroke": "An appliance broke, so I bought a new one. It cost {cost:money}.",
+    "applianceReplaced": "I replaced my appliances.",
+    "carSold": "I sold my old car for {value:money}.",
+    "carBreakdown": "The car broke down. Repairs cost {cost:money}."
+  },
+  "site": {
+    "htmlLang": "en",
+    "hreflang": "en",
+    "ogLocale": "en_US",
+    "langName": "English",
+    "titleSep": " | ",
+    "suggest": {
+      "text": "Solo Living Diary is also available in English.",
+      "link": "Play in English",
+      "close": "Close"
+    },
+    "consent": {
+      "label": "Cookie consent",
+      "text": "We use cookies for analytics. You can still play even if you decline.",
+      "policy": "Privacy policy",
+      "accept": "Accept",
+      "reject": "Decline",
+      "settings": "Cookie settings"
+    }
+  },
+  "nav": {
+    "label": "Site pages",
+    "play": "Play the game",
+    "howto": "How to play",
+    "about": "About & contact",
+    "privacy": "Privacy policy",
+    "portal": "More games on nacn.app"
+  },
+  "pages": {
+    "howto": {
+      "title": "How to play",
+      "description": "How to play Solo Living Diary: setup, how a year passes, the yearly money math, random events, and the final ranks and titles."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "What Solo Living Diary stores (only in your browser), how sharing results works, analytics with Google Analytics, cookie consent, and a notice for U.S. residents."
+    }
+  },
+  "band": {
+    "high": "😊 Fulfilled",
+    "mid": "🙂 Okay",
+    "low": "😞 Listless"
+  }
+}

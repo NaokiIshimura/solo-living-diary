@@ -1,0 +1,90 @@
+    <p>Solo Living Diary is a life simulation that follows your household finances one year at a time, from the day you start your first job and move out of your parents' home until your early 30s. The only decisions you make are whether to buy something or skip it, and whether to go High, Mid or Low. At the end, you choose to "Get married" or "Go on solo". The game is set in Japan, and all amounts are in Japanese yen.</p>
+
+    <h2>What you decide at the start</h2>
+    <ul>
+      <li><strong>Gender</strong>: choose "Female" or "Male".</li>
+      <li><strong>Age when you move out</strong>: 22 to 28.</li>
+      <li><strong>Savings</strong>: ¥0 to ¥3M, in steps of ¥100K.</li>
+      <li><strong>Annual income</strong>: your gross annual income. The default is the median income for your starting age. If you change the age, an income you haven't edited by hand is updated to the median for the new age.</li>
+    </ul>
+    <p>Every item has a "Random" button, and "Randomize all and start" picks everything at random and starts the game right away.</p>
+
+    <h2>How a year goes by</h2>
+    <p>Once the game starts, it moves forward one year at a time on its own. You can switch the pace with "1x", "2x" and "Pause". When an event comes up, the game stops and opens a choice screen. Each button shows the cost and what your savings will be after you choose it ("→ Savings ¥…").</p>
+    <p>At the end of each year, that year's income and spending are calculated, your savings go up or down, and a "Year end" line is written in the diary. A breakdown of the year-end finances appears at the bottom of the screen for a few seconds (you can turn it off in Settings).</p>
+
+    <h2>Life events</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Event</th><th>When it happens</th><th>High / Mid / Low (/ Skip)</th></tr></thead>
+        <tbody>
+          <tr><td>Finding a place</td><td>At the start, and whenever you move</td><td>New one-bedroom (1LDK) near the station: rent ¥1.2M a year, move-in costs ¥600K / Standard studio (1K): ¥800K a year, ¥400K / Older place far from the station: ¥550K a year, ¥250K (noisy neighbors more likely)</td></tr>
+          <tr><td>Appliances &amp; furniture</td><td>Right after finding a place, and when they wear out</td><td>New, top models ¥500K (last 10 years) / New, standard ¥250K (8 years) / Secondhand / hand-me-downs ¥80K (5 years, break easily)</td></tr>
+          <tr><td>Eating habits</td><td>Right after appliances, then every 3 years</td><td>Mostly eating out and delivery ¥850K a year / Half cooking, half eating out ¥450K a year / As cheap as possible ¥300K a year (more likely to get sick or injured)</td></tr>
+          <tr><td>Socializing</td><td>Right after eating habits, then every 3 years</td><td>Go to everything ¥250K a year / In moderation ¥150K a year / Only when needed ¥50K a year / Mostly decline ¥0</td></tr>
+          <tr><td>Lease renewal</td><td>Every 2 years after moving in</td><td>Renew (renewal fee of one month's rent, standard in Japan) / Move out (find a new place)</td></tr>
+          <tr><td>Hobbies &amp; fandom</td><td>From year 2, then every 3 years</td><td>All in ¥500K a year / In moderation ¥180K a year / No spending ¥50K a year / Skip ¥0</td></tr>
+          <tr><td>Investing in yourself</td><td>Every 3 years from age 24 (up to 3 times)</td><td>Classes / grad school for working adults ¥400K (promotions more likely for 2 years) / Correspondence course / certification ¥200K (60% pass rate, income +5% if you pass) / Self-study ¥30K (30% pass rate) / Skip</td></tr>
+          <tr><td>Car</td><td>From age 25; replaced over time</td><td>New Japanese car ¥3M, upkeep ¥350K a year / Used car (good condition) ¥1.5M, ¥300K a year / Cheap used car ¥600K, ¥300K a year (breaks down often) / Not now (think again in 3 years) / Never own one</td></tr>
+          <tr><td>Travel</td><td>Every 2 years from year 2</td><td>Trip abroad ¥400K / Trip in Japan ¥150K / Day trip nearby ¥30K / Skip</td></tr>
+          <tr><td>Dating</td><td>When you start seeing someone</td><td>Dating costs ¥600K a year (breakup chance 5% a year) / ¥300K a year (10%) / ¥120K a year (20%)</td></tr>
+          <tr><td>Partner search (marriage-minded dating)</td><td>From age 28, every 2 years while you're single</td><td>Matchmaking agency ¥500K a year (chance to meet someone +25%) / Paid dating app ¥50K a year (+10%) / Free apps / introductions ¥0 (+5%) / Not now</td></tr>
+          <tr><td>What comes next</td><td>When you're 30 or older and have been dating 2+ years, or at 35</td><td>Get married / Go on solo (if you have no partner, only "Go on solo")</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Fulfillment</h2>
+    <p>Fulfillment is a 0 to 100 score for how satisfied you are with your life, starting at 50. Each year, the values of your current room, eating habits, socializing and hobbies are added, and it naturally drops by 3. Trips, friends' weddings and noisy neighbors also raise or lower it. It's shown as a face icon at the top of the screen.</p>
+    <ul>
+      <li><strong>😊 Fulfilled (70 or more)</strong>: promotion chance +5%, chance to meet someone +5%.</li>
+      <li><strong>🙂 Okay (31 to 69)</strong>: no effect.</li>
+      <li><strong>😞 Listless (30 or less)</strong>: no promotions, no age-based income growth, illness or injury chance +5%, chance to meet someone −5%, breakup chance +10%.</li>
+    </ul>
+    <p>Fulfillment doesn't count toward your rank, but it changes the name of your ending.</p>
+
+    <h2>Meeting someone and breaking up</h2>
+    <p>In years when you're single, the game checks at year end whether you meet someone. The chance is 10%, plus a socializing bonus (Go to everything +10%, In moderation +5%, Only when needed 0, Mostly decline −5%), the partner search bonus and the fulfillment bonus. In years when you're dating, you may break up, with a chance that depends on how much you spend on dating.</p>
+
+    <h2>How the money is calculated each year</h2>
+    <ul>
+      <li><strong>Take-home income</strong>: 78% of your annual income. Your income rises every year in line with the median income growth for your age (but not in listless years).</li>
+      <li><strong>Living costs</strong>: utilities, phone and internet, daily necessities and so on. Starts at ¥450K a year and rises 1.25% every year.</li>
+      <li><strong>Rent, food, socializing, hobbies, dating, partner search and car upkeep</strong>: the amounts you chose are charged every year.</li>
+      <li><strong>Interest</strong>: if your savings are negative at year end, the shortfall is treated as a card loan and charged 10% interest.</li>
+    </ul>
+
+    <h2>Things that happen each year</h2>
+    <ul>
+      <li><strong>Promotion</strong>: 8% base chance. +5% when fulfilled, +45% during the 2 years you attend classes. No promotions while listless. A promotion raises your income 10%.</li>
+      <li><strong>Illness or injury</strong>: 5% base chance. +5% with "Low" eating habits, +5% when listless. Medical bills of ¥100K–¥500K.</li>
+      <li><strong>Random events</strong>: each year there's a 20% chance of one of these: a job offer (if you accept, your income changes by −20% to +20%; it's more likely to go up while you attend classes), a bonus cut (take-home pay −10% that year), a windfall (¥100K–¥1M), or a friend's wedding (Attend + after-party / Attend / Skip it, send a gift).</li>
+      <li><strong>Appliance breakdown</strong>: with a chance that depends on the appliances you chose, one item breaks and you replace it for 30% of the purchase price.</li>
+      <li><strong>Car breakdown</strong>: with a chance that depends on the car you chose, repairs cost ¥200K–¥800K.</li>
+      <li><strong>Noisy neighbors</strong>: happens with a chance that depends on your room, and fulfillment drops 5. You choose to move out, or put up with it (fulfillment drops another 5).</li>
+    </ul>
+
+    <h2>How the game ends</h2>
+    <p>The game ends when you make your choice in "What comes next". If your savings drop below −¥3M along the way, you get the "Bankrupt Ending" right then.</p>
+    <p>Your rank is decided by your final net worth (savings + the value of your car): S ¥8M or more, A ¥5M or more, B ¥3M or more, C ¥0 or more, D less than ¥0 (debt left over). There are 6 endings, based on whether you marry or go solo and on your final fulfillment (plus the Bankrupt Ending).</p>
+
+    <h2>Titles and achievements</h2>
+    <p>You get one title based on how you chose. The conditions are checked from the top, and the first one that matches is your title.</p>
+    <ul>
+      <li><strong>Fandom Is Life</strong>: chose "All in" every time for hobbies &amp; fandom (2+ times)</li>
+      <li><strong>Self-Improver</strong>: did every self-investment offered (2+ times)</li>
+      <li><strong>Show-off</strong>: chose "High" in 70%+ of choices</li>
+      <li><strong>Master of Thrift</strong>: chose "Low" or skipped in 70%+ of choices</li>
+      <li><strong>Steady Type</strong>: chose "Mid" in 70%+ of choices</li>
+      <li><strong>Social Butterfly</strong>: chose "Go to everything" every time for socializing (2+ times)</li>
+      <li><strong>Serial Mover</strong>: moved 3 or more times</li>
+      <li><strong>Car-Free Life</strong>: chose never to own a car</li>
+      <li><strong>Well-Balanced</strong>: none of the above</li>
+    </ul>
+    <p>There are 12 achievements (Savings Machine, Rock Bottom, Home Sweet Home, Migratory Bird, Certified, Good Move, Meant to Be, Search Pays Off, Every Day Is Fun, Debt-Free, Unexpected Fortune, The Story Continues). You can check their conditions under "Endings".</p>
+
+    <h2>Continue in Newlywed Diary</h2>
+    <p>From the results screen, you can move on to the sister game, Newlywed Diary. It carries over your gender, age, savings, income and car from Solo Living Diary so you can start married life. With a married ending it appears as a large button, and with a solo ending as a small "What if you'd married?" button. It doesn't appear with the Bankrupt Ending.</p>
+
+    <h2>Saving your progress</h2>
+    <p>Your progress is saved in your browser at the end of every year, and you can pick up where you left off with "Continue" on the title screen. The endings, titles and achievements you've seen can be checked under "Endings".</p>

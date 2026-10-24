@@ -1,0 +1,315 @@
+{
+  "events": {
+    "room": {
+      "high": {
+        "label": "Depa de 1 recámara, cerca de la estación y casi nuevo",
+        "diary": "Elegí un departamento de una recámara, casi nuevo y cerca de la estación. La renta es alta, pero el camino a casa es cortito."
+      },
+      "mid": {
+        "label": "Estudio común",
+        "diary": "Elegí un estudio a 10 minutos a pie de la estación. Aquí empieza mi nueva vida."
+      },
+      "low": {
+        "label": "Lejos de la estación y algo viejo",
+        "diary": "Elegí un lugar a 20 minutos de la estación. Con lo que ahorro de renta, vale la pena levantarme un poco más temprano."
+      }
+    },
+    "appliance": {
+      "high": {
+        "label": "Nuevos, de gama alta",
+        "diary": "Compré electrodomésticos y muebles nuevos de gama alta. De pronto, el lugar se sintió como mi castillo."
+      },
+      "mid": {
+        "label": "Nuevos, estándar",
+        "diary": "Compré electrodomésticos y muebles nuevos, de los normales."
+      },
+      "low": {
+        "label": "De segunda mano o regalados",
+        "diary": "Junté electrodomésticos de segunda mano y otros que me regalaron. Con que funcionen, basta."
+      }
+    },
+    "food": {
+      "high": {
+        "label": "Casi siempre fuera o a domicilio",
+        "diary": "Casi siempre como fuera o pido a domicilio. La cocina apenas la uso."
+      },
+      "mid": {
+        "label": "Mitad en casa, mitad fuera",
+        "diary": "Decidí cocinar entre semana y salir a comer de vez en cuando los fines de semana."
+      },
+      "low": {
+        "label": "Lo más barato (tienda de conveniencia y ofertas)",
+        "diary": "Comer barato ante todo. La pasta y los frijoles se volvieron mis mejores amigos."
+      },
+      "same": "Decidí seguir comiendo como hasta ahora."
+    },
+    "social": {
+      "high": {
+        "label": "Ir a todo",
+        "diary": "Decidí ir a todas las reuniones y salidas a las que me inviten."
+      },
+      "mid": {
+        "label": "Con moderación",
+        "diary": "Decidí ir con moderación, solo a lo que de verdad se me antoja."
+      },
+      "low": {
+        "label": "Solo cuando hace falta",
+        "diary": "Decidí aparecer solo cuando de verdad hace falta."
+      },
+      "skip": {
+        "diary": "Decidí rechazar casi todas las invitaciones. Ahora tengo más tiempo para mí."
+      },
+      "same": "Decidí seguir conviviendo como hasta ahora."
+    },
+    "hobby": {
+      "high": {
+        "label": "Con todo",
+        "diary": "Decidí darlo todo por mis pasatiempos y por mi artista favorito."
+      },
+      "mid": {
+        "label": "Con moderación",
+        "diary": "Decidí disfrutar mis pasatiempos sin pasarme."
+      },
+      "low": {
+        "label": "Sin gastar",
+        "diary": "Decidí disfrutar mis pasatiempos sin gastar dinero."
+      },
+      "skip": {
+        "diary": "Dejé mis pasatiempos. Ahora paso más días libres en casa."
+      },
+      "same": "Decidí seguir con mis pasatiempos como hasta ahora."
+    },
+    "invest": {
+      "high": {
+        "label": "Escuela o posgrado para adultos que trabajan",
+        "diary": "Empecé a ir a clases después del trabajo. Voy a esforzarme estos 2 años."
+      },
+      "mid": {
+        "label": "Curso a distancia y certificación",
+        "pass": "Obtuve una certificación con un curso a distancia. El sueldo subió {pct}%.",
+        "fail": "Reprobé el examen de certificación."
+      },
+      "low": {
+        "label": "Por mi cuenta",
+        "pass": "Estudié por mi cuenta y aprobé la certificación. El sueldo subió {pct}%.",
+        "fail": "Estudié por mi cuenta y presenté el examen, pero lo reprobé."
+      },
+      "skip": {
+        "diary": "Por ahora decidí no invertir en mí."
+      }
+    },
+    "car": {
+      "high": {
+        "label": "Auto nuevo japonés",
+        "diary": "Compré un auto nuevo japonés."
+      },
+      "mid": {
+        "label": "Auto usado en buen estado",
+        "diary": "Compré un auto usado en buen estado."
+      },
+      "low": {
+        "label": "Auto usado barato",
+        "diary": "Compré un auto usado barato. Con que ande, basta."
+      },
+      "skip": "Por ahora decidí no comprar auto.",
+      "never": "Decidí no tener auto. Me muevo en tren y en bicicleta."
+    },
+    "travel": {
+      "high": {
+        "label": "Viaje al extranjero",
+        "diary": "Me animé y viajé al extranjero."
+      },
+      "mid": {
+        "label": "Viaje nacional",
+        "diary": "Viajé por Japón. Fue un buen respiro."
+      },
+      "low": {
+        "label": "Paseo cercano de un día",
+        "diary": "Hice un paseo de un día a un lugar cercano."
+      },
+      "skip": {
+        "diary": "Este año no salí de viaje."
+      }
+    },
+    "partner": {
+      "high": {
+        "label": "Gastar en grande en citas",
+        "diary": "Decidí no escatimar en el tiempo con mi pareja."
+      },
+      "mid": {
+        "label": "Con moderación",
+        "diary": "Decidí salir con mi pareja sin gastar de más."
+      },
+      "low": {
+        "label": "Citas económicas",
+        "diary": "Decidí disfrutar con mi pareja planes que no cuestan dinero."
+      }
+    },
+    "konkatsu": {
+      "high": {
+        "label": "Agencia matrimonial",
+        "diary": "Me inscribí en una agencia matrimonial."
+      },
+      "mid": {
+        "label": "App de citas de pago",
+        "diary": "Empecé a usar una app de citas de pago."
+      },
+      "low": {
+        "label": "Apps gratis o presentaciones de conocidos",
+        "diary": "Decidí buscar pareja con apps gratuitas y con presentaciones de conocidos."
+      },
+      "skip": {
+        "diary": "Decidí no buscar pareja para casarme."
+      }
+    },
+    "friendWedding": {
+      "high": {
+        "label": "Ir a la boda y a la fiesta después",
+        "diary": "Fui a la boda de una amistad y me quedé hasta la fiesta de después."
+      },
+      "mid": {
+        "label": "Ir a la boda",
+        "diary": "Fui a la boda de una amistad."
+      },
+      "low": {
+        "label": "No ir y mandar un regalo",
+        "diary": "No fui a la boda de una amistad, pero mandé un regalo."
+      }
+    }
+  },
+  "ranks": {
+    "S": {
+      "comment": "El dinero casi no preocupa. Puedes dar el siguiente paso con ligereza."
+    },
+    "A": {
+      "comment": "Disfrutaste cuando tocaba y aun así ahorraste bien."
+    },
+    "B": {
+      "comment": "Sin lujos, pero sin apuros. Sacas adelante tu vida por tu cuenta."
+    },
+    "C": {
+      "comment": "Hay pocos ahorros, pero no hay deudas. Lo bueno apenas empieza."
+    },
+    "D": {
+      "comment": "Quedó deuda en la tarjeta. Lo primero es pagarla."
+    }
+  },
+  "endings": {
+    "married_high": {
+      "name": "Una nueva vida de a dos",
+      "comment": "Al final de unos días felices, apareció alguien con quien caminar."
+    },
+    "married_mid": {
+      "name": "Una boda común",
+      "comment": "Sin grandes lujos, empieza en calma una nueva vida."
+    },
+    "married_low": {
+      "name": "Boda por impulso",
+      "comment": "En plena época de cansancio, decidiste casarte. Desde aquí, a reponerse."
+    },
+    "single_high": {
+      "name": "Libre y a mi manera",
+      "comment": "Una vida propia, rodeada de lo que te gusta. Seguirás así, con ligereza."
+    },
+    "single_mid": {
+      "name": "A mi propio ritmo",
+      "comment": "Sin ajustarte a nadie, vives a tu propio ritmo."
+    },
+    "single_low": {
+      "name": "Solo el dinero me hace compañía",
+      "comment": "Los números de la cuenta crecieron, pero no hay con quién platicar."
+    },
+    "bankrupt": {
+      "name": "Final: quiebra",
+      "comment": "Las deudas crecieron y ya no pudiste sostener tu vida. ¿Dónde te excediste? Repásalo e inténtalo otra vez."
+    }
+  },
+  "titles": {
+    "oshi": {
+      "name": "Fan de corazón",
+      "desc": "Elegiste «Con todo» en pasatiempos y fandom en todas las ocasiones (2 o más)"
+    },
+    "selfInvest": {
+      "name": "Siempre aprendiendo",
+      "desc": "Aceptaste todas las ofertas de invertir en ti (2 o más)"
+    },
+    "showoff": {
+      "name": "Aparentador",
+      "desc": "Elegiste «Caro» en más del 70% de las decisiones"
+    },
+    "frugal": {
+      "name": "Maestro del ahorro",
+      "desc": "Elegiste «Barato» o «No» en más del 70% de las decisiones"
+    },
+    "steady": {
+      "name": "Persona sensata",
+      "desc": "Elegiste «Normal» en más del 70% de las decisiones"
+    },
+    "social": {
+      "name": "Alma de la fiesta",
+      "desc": "Elegiste «Ir a todo» en vida social en todas las ocasiones (2 o más)"
+    },
+    "mover": {
+      "name": "Siempre de mudanza",
+      "desc": "Te mudaste 3 veces o más"
+    },
+    "carFree": {
+      "name": "Vida sin auto",
+      "desc": "Decidiste no tener auto"
+    },
+    "balanced": {
+      "name": "Equilibrado",
+      "desc": "Combinaste «Caro», «Normal» y «Barato»"
+    }
+  },
+  "achievements": {
+    "rankS": {
+      "name": "Máquina de ahorrar",
+      "desc": "Terminaste con rango S"
+    },
+    "bankrupt": {
+      "name": "Tocar fondo",
+      "desc": "Viste el final de quiebra"
+    },
+    "stayed": {
+      "name": "Hogar, dulce hogar",
+      "desc": "Terminaste sin mudarte ni una vez"
+    },
+    "wanderer": {
+      "name": "Ave migratoria",
+      "desc": "Te mudaste 5 veces o más"
+    },
+    "certified": {
+      "name": "Certificación lograda",
+      "desc": "Aprobaste una certificación"
+    },
+    "jobUp": {
+      "name": "Buen cambio",
+      "desc": "Cambiaste de trabajo y te subió el sueldo"
+    },
+    "fate": {
+      "name": "Cosa del destino",
+      "desc": "Llegaste al final de boda sin buscar pareja activamente"
+    },
+    "agency": {
+      "name": "Búsqueda con fruto",
+      "desc": "Llegaste al final de boda con una agencia matrimonial"
+    },
+    "happy": {
+      "name": "Días felices",
+      "desc": "Terminaste con satisfacción de 90 o más"
+    },
+    "noCardLoan": {
+      "name": "Cero deudas",
+      "desc": "Terminaste sin que los ahorros bajaran nunca de cero"
+    },
+    "bigWindfall": {
+      "name": "Dinero inesperado",
+      "desc": "Recibiste un ingreso extra de ¥500 mil o más"
+    },
+    "continued": {
+      "name": "La historia continúa",
+      "desc": "Pulsaste el botón para continuar en Diario de recién casados"
+    }
+  }
+}
