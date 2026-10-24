@@ -37,7 +37,6 @@
 ### まだ決めていないこと
 
 - 名前とサブドメイン（英語名を含む）。変えるときは `build.py` の `SITE`、`src/root.html`、`robots.txt`、プライバシーポリシーを直す
-- Google アナリティクスの測定 ID。いまは新婚日記と同じ ID（`src/game.html`・`src/page.html`・`src/root.html`・`src/404.html`）
 
 ## 開発
 
