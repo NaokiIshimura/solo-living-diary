@@ -6,7 +6,7 @@
 export const LANGS = [{ code: "ja", name: "日本語", locale: "ja-JP" }];
 
 // 国プロファイルの文が入っているキーの先頭
-const PROFILE_ROOTS = ["events", "ranks", "titles", "achievements"];
+const PROFILE_ROOTS = ["events", "ranks", "endings", "titles", "achievements"];
 
 let ui = {};
 let profileTexts = {};
