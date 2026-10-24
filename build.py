@@ -33,7 +33,7 @@ BROWSER_MATCH = {
 # 文章のページ。名前と説明は言語データの pages.<ページ>、本文は src/pages/<言語>/<ページ>.html
 TEXT_PAGES = ['howto', 'privacy']
 # 国プロファイルの文が入っているキーの先頭（js/i18n.js の PROFILE_ROOTS と同じ）
-PROFILE_ROOTS = {'events', 'ranks', 'titles', 'achievements'}
+PROFILE_ROOTS = {'events', 'ranks', 'endings', 'titles', 'achievements'}
 
 
 def load_locales():

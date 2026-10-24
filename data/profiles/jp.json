@@ -19,12 +19,118 @@
   },
   "baseLiving": 45,
   "livingGrowthPerYear": 0.0125,
-  "rent": 80,
-  "food": 45,
   "cardLoanRate": 0.1,
   "bankruptLine": -300,
+  "fulfillment": {
+    "start": 50,
+    "decayPerYear": 3,
+    "highMin": 70,
+    "lowMax": 30
+  },
+  "meeting": {
+    "baseChance": 0.1,
+    "highBonus": 0.05,
+    "lowBonus": -0.05,
+    "lowBreakupBonus": 0.1
+  },
+  "branch": {
+    "minAge": 30,
+    "minPartnerYears": 2
+  },
   "bigWindfall": 100,
-  "events": {},
+  "events": {
+    "room": {
+      "renewalEvery": 2,
+      "options": [
+        {
+          "tier": "high",
+          "oneTime": 60,
+          "annual": 120,
+          "fulfillment": 2
+        },
+        {
+          "tier": "mid",
+          "oneTime": 40,
+          "annual": 80,
+          "fulfillment": 0
+        },
+        {
+          "tier": "low",
+          "oneTime": 25,
+          "annual": 55,
+          "fulfillment": -2
+        }
+      ]
+    },
+    "food": {
+      "reviewEvery": 3,
+      "options": [
+        {
+          "tier": "high",
+          "annual": 85,
+          "fulfillment": 2
+        },
+        {
+          "tier": "mid",
+          "annual": 45,
+          "fulfillment": 1
+        },
+        {
+          "tier": "low",
+          "annual": 30,
+          "fulfillment": -1,
+          "illnessBonus": 0.05
+        }
+      ]
+    },
+    "social": {
+      "reviewEvery": 3,
+      "skip": {
+        "annual": 0,
+        "fulfillment": -2,
+        "meetBonus": -0.05
+      },
+      "options": [
+        {
+          "tier": "high",
+          "annual": 40,
+          "fulfillment": 3,
+          "meetBonus": 0.1
+        },
+        {
+          "tier": "mid",
+          "annual": 15,
+          "fulfillment": 1,
+          "meetBonus": 0.05
+        },
+        {
+          "tier": "low",
+          "annual": 5,
+          "fulfillment": 0,
+          "meetBonus": 0
+        }
+      ]
+    },
+    "partner": {
+      "options": [
+        {
+          "tier": "high",
+          "annual": 60,
+          "breakup": 0.05
+        },
+        {
+          "tier": "mid",
+          "annual": 30,
+          "breakup": 0.1
+        },
+        {
+          "tier": "low",
+          "annual": 12,
+          "breakup": 0.2
+        }
+      ]
+    }
+  },
   "random": {
     "chancePerYear": 0.3,
     "events": {
@@ -90,5 +196,14 @@
     "jobUp"
   ],
   "currency": "JPY",
-  "moneyUnit": 10000
+  "moneyUnit": 10000,
+  "endings": [
+    "married_high",
+    "married_mid",
+    "married_low",
+    "single_high",
+    "single_mid",
+    "single_low",
+    "bankrupt"
+  ]
 }

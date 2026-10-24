@@ -39,7 +39,11 @@
       "years": "一人暮らし",
       "yearsN": "{n}年目",
       "savings": "貯金",
+      "fulfillment": "充実度",
+      "room": "部屋",
+      "partner": "恋人",
       "none": "なし",
+      "partnerYears": "交際{n}年目",
       "listSep": "・"
     }
   },
@@ -51,6 +55,8 @@
       "living": "生活費",
       "housing": "家賃",
       "food": "食費",
+      "social": "付き合い",
+      "date": "交際費",
       "interest": "利息"
     }
   },
@@ -72,6 +78,38 @@
       "acceptSub": "年収が −20%〜+20% のどこかに変わる",
       "decline": "断る",
       "declineSub": "年収はそのまま"
+    },
+    "annual": "年{annual:money}",
+    "room": {
+      "title": "部屋探し",
+      "text": "いよいよ一人暮らし。どんな部屋に住みますか？",
+      "detail": "家賃 年{annual:money}・初期費用 {cost:money}"
+    },
+    "food": {
+      "title": "食生活",
+      "text": "毎日のごはんをどうしますか？",
+      "textReview": "一人暮らしを始めて{n}年。食生活を見直しますか？"
+    },
+    "social": {
+      "title": "付き合い",
+      "text": "職場や友だちからの誘いに、どのくらい乗りますか？",
+      "textReview": "一人暮らしを始めて{n}年。付き合い方を見直しますか？",
+      "yes": "誘いに乗る",
+      "no": "ほぼ断る"
+    },
+    "partner": {
+      "title": "恋人との交際",
+      "text": "恋人ができた。デートや贈り物に、どのくらいお金をかけますか？",
+      "breakup": "別れる確率 年{pct}%"
+    },
+    "branch": {
+      "title": "これからの暮らし",
+      "textPartner": "{age}歳。恋人と付き合って{years}年になる。これからどうしますか？",
+      "textAlone": "{age}歳。一人暮らしも{years}年目。これからどうしますか？",
+      "marry": "結婚する",
+      "marrySub": "結婚エンド",
+      "single": "ひとりで生きていく",
+      "singleSub": "ひとりエンド"
     }
   },
   "result": {
@@ -87,6 +125,7 @@
       "living": "生活費",
       "housing": "家賃",
       "food": "食費",
+      "social": "付き合い・交際費",
       "car": "車",
       "other": "その他（医療・利息）"
     },
@@ -107,7 +146,9 @@
     "cardAlt": "結果の画像カード",
     "new": "NEW",
     "netWorthEnd": "終了時の純資産",
-    "lifeEnd": "{start}歳で一人暮らしを始める → {end}歳"
+    "lifeMarried": "{start}歳で一人暮らしを始める → {end}歳で結婚",
+    "lifeSingle": "{start}歳で一人暮らしを始める → {end}歳、ひとりで生きていく",
+    "fulfillmentLine": "充実度 {n}（{band}）"
   },
   "gallery": {
     "heading": "エンディング図鑑",
@@ -138,7 +179,10 @@
     "jobAccepted": "転職した。年収は{pct:signed}%になった。",
     "jobDeclined": "転職の誘いは断った。",
     "bankrupt": "家計が破綻した。",
-    "ended": "一人暮らしの日々に、ひと区切りがついた。"
+    "met": "出会いがあった。恋人ができた。",
+    "brokeUp": "恋人と別れた。",
+    "married": "結婚することにした。新しい暮らしが始まる。",
+    "single": "ひとりで生きていくと決めた。"
   },
   "site": {
     "htmlLang": "ja",
@@ -177,5 +221,10 @@
       "title": "プライバシーポリシー",
       "description": "一人暮らし日記で保存する情報（お使いのブラウザの中だけ）、結果のシェア、アクセス解析（Google アナリティクス）、Cookie の同意について説明します。"
     }
+  },
+  "band": {
+    "high": "😊 充実",
+    "mid": "🙂 ふつう",
+    "low": "😞 無気力"
   }
 }

@@ -2,11 +2,13 @@
 import {
   SAVE_VERSION,
   achievementsOf,
+  bandOf,
   choose,
   compareWithMid,
   createGame,
   defaultSettings,
   endYear,
+  endingOf,
   immediateCost,
   medianIncome,
   netWorth,
@@ -194,10 +196,15 @@ function flushDiary() {
 
 function renderStatus() {
   const s = (k, p) => t(`main.status.${k}`, p);
+  const room = state.room ? t(`events.room.${state.room.tier}.label`) : s("none");
+  const partner = state.partner ? s("partnerYears", { n: state.age - state.partner.since + 1 }) : s("none");
   const items = [
     [s("age"), t("main.age", { n: state.age })],
     [s("years"), s("yearsN", { n: state.year + 1 })],
     [s("savings"), money(state.savings), "savings" + (state.savings < 0 ? " minus" : "")],
+    [s("fulfillment"), t(`band.${bandOf(data, state.fulfillment)}`)],
+    [s("room"), room],
+    [s("partner"), partner],
   ];
   $("#status").replaceChildren(
     ...items.map(([label, value, cls]) => {
@@ -267,11 +274,33 @@ function showYearSummary(r) {
 
 function describe(ev) {
   const e = (k, p) => t(`event.${ev.id}.${k}`, p);
-  return { title: e("title"), text: e("text") };
+  switch (ev.id) {
+    case "food":
+    case "social":
+      return {
+        title: e("title"),
+        text: ev.review ? e("textReview", { n: state.year }) : e("text"),
+        ...(data.events[ev.id].skip ? { yes: e("yes"), no: e("no") } : {}),
+      };
+    case "branch":
+      return {
+        title: e("title"),
+        text: state.partner ? e("textPartner", { age: state.age, years: state.age - state.partner.since }) : e("textAlone", { age: state.age, years: state.year + 1 }),
+      };
+    default:
+      return { title: e("title"), text: e("text") };
+  }
 }
 
 function optionDetail(ev, opt) {
-  return money(opt.oneTime);
+  switch (ev.id) {
+    case "room":
+      return t("event.room.detail", { annual: opt.annual, cost: opt.oneTime });
+    case "partner":
+      return `${t("event.annual", { annual: opt.annual })}・${t("event.partner.breakup", { pct: Math.round(opt.breakup * 100) })}`;
+    default:
+      return opt.annual !== undefined ? t("event.annual", { annual: opt.annual }) : money(opt.oneTime);
+  }
 }
 
 function predicted(ev, choice) {
@@ -299,6 +328,8 @@ function openEvent(ev) {
     flushDiary();
     renderStatus();
     save();
+    // 分岐イベントで暮らしが終わったら、そのままリザルトへ
+    if (state.ended) return setTimeout(showResult, 800);
     // 同じ年のイベントは続けて出す。年を進めるのは再生中だけ
     const next = nextEvent(data, state);
     flushDiary();
@@ -323,6 +354,11 @@ function openEvent(ev) {
           button(e("accept"), e("acceptSub"), () => decide({ accept: true })),
           button(e("decline"), e("declineSub"), () => decide({ accept: false })),
         );
+      case "branch":
+        return box.replaceChildren(
+          ...(state.partner ? [button(e("marry"), e("marrySub"), () => decide({ marry: true }))] : []),
+          button(e("single"), e("singleSub"), () => decide({ marry: false })),
+        );
     }
     if (!d.yes) return tiers();
     const opts = [button(d.yes, "", tiers, true), button(d.no, predicted(ev, { skip: true }), () => decide({ skip: true }))];
@@ -338,23 +374,27 @@ function openEvent(ev) {
 
 const newBadge = () => `<span class="new">${t("result.new")}</span>`;
 
-function endingOf(nw) {
-  const key = state.ended === "bankrupt" ? "bankrupt" : rankOf(data, nw.total).rank;
-  return { key, rank: key === "bankrupt" ? "―" : key, ending: t(`ranks.${key}.ending`), comment: t(`ranks.${key}.comment`) };
+function endingInfo(nw) {
+  const key = endingOf(data, state);
+  const rank = key === "bankrupt" ? "―" : rankOf(data, nw.total).rank;
+  const comment = key === "bankrupt" ? t("endings.bankrupt.comment") : `${t(`endings.${key}.comment`)}<br>${t(`ranks.${rank}.comment`)}`;
+  return { key, rank, ending: t(`endings.${key}.name`), comment };
 }
 
 function lifeLines() {
   const r = (k, p) => t(`result.${k}`, p);
-  return [r(state.ended === "bankrupt" ? "lifeBankrupt" : "lifeEnd", { start: state.startAge, end: state.age })];
+  const key = { bankrupt: "lifeBankrupt", married: "lifeMarried", single: "lifeSingle" }[state.ended];
+  const band = t(`band.${bandOf(data, state.fulfillment)}`);
+  return [r(key, { start: state.startAge, end: state.age }), r("fulfillmentLine", { n: Math.round(state.fulfillment), band })];
 }
 
 function showResult() {
   const nw = netWorth(state);
-  const ending = endingOf(nw);
+  const ending = endingInfo(nw);
   const title = titleOf(data, state);
   const achieved = achievementsOf(data, state);
   if (!state.recorded) {
-    state.fresh = recordResult({ ending: ending.key, title, achievements: achieved, netWorth: state.ended === "end" ? nw.total : null });
+    state.fresh = recordResult({ ending: ending.key, title, achievements: achieved, netWorth: state.ended === "bankrupt" ? null : nw.total });
     state.recorded = true;
   }
   const fresh = state.fresh;
@@ -368,6 +408,7 @@ function showResult() {
     ["living", tt.living],
     ["housing", tt.housing],
     ["food", tt.food],
+    ["social", tt.social + tt.date],
     ["car", tt.car],
     ["other", tt.medical + tt.interest],
   ];
@@ -454,7 +495,7 @@ async function renderShare(nw, ending, title) {
 function showGallery() {
   const rec = loadRecords();
   const g = (k, p) => t(`gallery.${k}`, p);
-  const endings = [...data.ranks.map((x) => x.rank), "bankrupt"];
+  const endings = data.endings;
   const count = (ids, seen) => `${ids.filter((x) => seen[x]).length} / ${ids.length}`;
   const locked = g("locked");
   $("#gallery").innerHTML = `
@@ -462,7 +503,7 @@ function showGallery() {
     <section>
       <h3>${g("endings")} <span class="count">${count(endings, rec.endings)}</span></h3>
       <ul class="cards">${endings
-        .map((k) => (rec.endings[k] ? `<li><span class="card-rank">${k === "bankrupt" ? "―" : k}</span>${t(`ranks.${k}.ending`)}</li>` : `<li class="locked"><span class="card-rank">?</span>${locked}</li>`))
+        .map((k) => (rec.endings[k] ? `<li>${t(`endings.${k}.name`)}</li>` : `<li class="locked">${locked}</li>`))
         .join("")}</ul>
     </section>
     <section>
