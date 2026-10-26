@@ -89,7 +89,7 @@ function gtag(){dataLayer.push(arguments);}
       <div class="title-illust" id="title-illust"></div>
       <h1 class="logo" data-i18n="meta.gameName">Diario de vida independiente</h1>
       <p class="lead" data-i18n="title.lead">De independizarte a los 30,<br>un simulador de vida a base de decisiones</p>
-      <p class="note" data-i18n="units.setIn">El juego transcurre en Japón; los montos están en yenes japoneses (¥).</p>
+      <p class="note" data-i18n="units.setIn">El juego transcurre en México; los montos están en pesos mexicanos (MX$).</p>
       <div class="stack">
         <button id="btn-start" class="primary" data-i18n="title.start">Empezar</button>
         <button id="btn-continue" data-i18n="title.continue" hidden>Continuar</button>
@@ -121,11 +121,11 @@ function gtag(){dataLayer.push(arguments);}
         <label><span data-i18n="setup.age" data-i18n-params='{"min":22,"max":28}'>Edad al independizarte (22–28 años)</span>
           <span class="field"><input name="age" type="number" min="22" max="28" step="1" required><button type="button" data-random="age" data-i18n="setup.random">Aleatorio</button></span>
         </label>
-        <label><span id="savings-label" data-i18n="setup.savings">Ahorros (en ¥10.000, 0–300)</span>
+        <label><span id="savings-label" data-i18n="setup.savings">Ahorros (en MX$1,000, 0–300)</span>
           <span class="field"><input name="savings" type="number" min="0" max="300" step="10" required><button type="button" data-random="savings" data-i18n="setup.random">Aleatorio</button></span>
           <output class="hint" data-money-for="savings"></output>
         </label>
-        <label><span id="income-label" data-i18n="setup.income">Ingreso anual (en ¥10.000)</span>
+        <label><span id="income-label" data-i18n="setup.income">Ingreso anual (en MX$1,000)</span>
           <span class="field"><input name="income" type="number" min="0" max="3000" step="10" required><button type="button" data-random="income" data-i18n="setup.random">Aleatorio</button></span>
           <output class="hint" data-money-for="income"></output>
         </label>
