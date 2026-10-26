@@ -17,11 +17,12 @@
   "setup": {
     "heading": "開始設定",
     "gender": "性別",
+    "country": "国・地域",
     "female": "女性",
     "male": "男性",
     "age": "一人暮らしを始める年齢（{min}〜{max}歳）",
-    "savings": "貯金（万円・{min}〜{max}）",
-    "income": "年収（万円）",
+    "savings": "貯金（{unit}・{min}〜{max}）",
+    "income": "年収（{unit}）",
     "incomeHint": "年収の初期値は、その年齢の中央値です。",
     "random": "ランダム",
     "submit": "この設定ではじめる",
@@ -315,5 +316,9 @@
     "high": "😊 充実",
     "mid": "🙂 ふつう",
     "low": "😞 無気力"
+  },
+  "countries": {
+    "jp": "日本",
+    "us": "アメリカ"
   }
 }

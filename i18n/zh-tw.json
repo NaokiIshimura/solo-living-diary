@@ -17,11 +17,12 @@
   "setup": {
     "heading": "開局設定",
     "gender": "性別",
+    "country": "國家／地區",
     "female": "女性",
     "male": "男性",
     "age": "開始獨居的年齡（{min}〜{max}歲）",
-    "savings": "存款（單位：萬日圓，{min}〜{max}）",
-    "income": "年收入（單位：萬日圓）",
+    "savings": "存款（單位：{unit}，{min}〜{max}）",
+    "income": "年收入（單位：{unit}）",
     "incomeHint": "年收入的初始值是該年齡的中位數。",
     "random": "隨機",
     "submit": "用這個設定開始",
@@ -315,5 +316,9 @@
     "high": "😊 充實",
     "mid": "🙂 普通",
     "low": "😞 提不起勁"
+  },
+  "countries": {
+    "jp": "日本",
+    "us": "美國"
   }
 }

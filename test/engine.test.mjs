@@ -390,7 +390,8 @@ test("新婚日記へ引き継ぐデータは、今の年収と車の値をそ�
   choose(data, state, { id: "branch" }, { marry: true });
   const d = handoffData(data, state);
   assert.deepEqual(d, {
-    v: 1,
+    v: 2,
+    country: "jp",
     gender: "male",
     age: 30,
     savings: Math.round(state.savings),
@@ -447,4 +448,27 @@ test("日記に書く出来事のキーは、すべて日本語の文がある",
   for (const id of data.titles) assert.ok(profileTexts.titles[id]?.desc, id);
   for (const r of data.ranks) assert.ok(profileTexts.ranks[r.rank]?.comment, r.rank);
   for (const e of data.endings) assert.ok(profileTexts.endings[e]?.name, e);
+});
+
+test("遊んでいる国を状態に持つ（途中保存と新婚日記への引き継ぎに使う）", () => {
+  const state = createGame(data, settings, 1);
+  assert.equal(state.country, data.country);
+  assert.equal(data.country, "jp");
+});
+
+test("国の対応表：言語ごとの既定の国は、プロファイルのそろった国の中から選ぶ", () => {
+  const countries = JSON.parse(readFileSync(new URL("../data/countries.json", import.meta.url), "utf8"));
+  for (const c of countries.available) {
+    const profile = JSON.parse(readFileSync(new URL(`../data/profiles/${c}.json`, import.meta.url), "utf8"));
+    assert.equal(profile.country, c);
+  }
+  for (const [lang, list] of Object.entries(countries.byLang)) {
+    assert.ok(list.length > 0, lang);
+    // そろった国は、その国を選べる言語の文を持つ
+    for (const c of list.filter((x) => countries.available.includes(x))) assert.ok(countries.texts[c].includes(lang), `${c}/${lang}`);
+  }
+  // texts に書いた言語の文のファイルがある
+  for (const [c, langs] of Object.entries(countries.texts)) {
+    for (const lang of langs) assert.ok(readFileSync(new URL(`../data/profiles/${c}/${lang}.json`, import.meta.url), "utf8"), `${c}/${lang}`);
+  }
 });

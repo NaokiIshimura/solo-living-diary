@@ -17,11 +17,12 @@
   "setup": {
     "heading": "시작 설정",
     "gender": "성별",
+    "country": "국가/지역",
     "female": "여성",
     "male": "남성",
     "age": "자취를 시작하는 나이 ({min}~{max}세)",
-    "savings": "저축 (단위: 만 엔, {min}~{max})",
-    "income": "연봉 (단위: 만 엔)",
+    "savings": "저축 (단위: {unit}, {min}~{max})",
+    "income": "연봉 (단위: {unit})",
     "incomeHint": "연봉 초깃값은 해당 나이의 중앙값입니다.",
     "random": "랜덤",
     "submit": "이 설정으로 시작",
@@ -315,5 +316,9 @@
     "high": "😊 만족",
     "mid": "🙂 보통",
     "low": "😞 무기력"
+  },
+  "countries": {
+    "jp": "일본",
+    "us": "미국"
   }
 }

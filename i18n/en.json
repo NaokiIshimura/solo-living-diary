@@ -17,11 +17,12 @@
   "setup": {
     "heading": "Setup",
     "gender": "Gender",
+    "country": "Country/region",
     "female": "Female",
     "male": "Male",
     "age": "Age when you move out ({min}–{max})",
-    "savings": "Savings (in ¥10,000, {min}–{max})",
-    "income": "Annual income (in ¥10,000)",
+    "savings": "Savings (in {unit}, {min}–{max})",
+    "income": "Annual income (in {unit})",
     "incomeHint": "The default income is the median for that age.",
     "random": "Random",
     "submit": "Start with these settings",
@@ -316,5 +317,9 @@
     "high": "😊 Fulfilled",
     "mid": "🙂 Okay",
     "low": "😞 Listless"
+  },
+  "countries": {
+    "jp": "Japan",
+    "us": "United States"
   }
 }

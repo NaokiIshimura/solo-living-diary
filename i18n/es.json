@@ -17,11 +17,12 @@
   "setup": {
     "heading": "Configuración inicial",
     "gender": "Género",
+    "country": "País o región",
     "female": "Mujer",
     "male": "Hombre",
     "age": "Edad al independizarte ({min}–{max} años)",
-    "savings": "Ahorros (en ¥10.000, {min}–{max})",
-    "income": "Ingreso anual (en ¥10.000)",
+    "savings": "Ahorros (en {unit}, {min}–{max})",
+    "income": "Ingreso anual (en {unit})",
     "incomeHint": "El ingreso inicial es la mediana para esa edad.",
     "random": "Aleatorio",
     "submit": "Empezar con esta configuración",
@@ -315,5 +316,9 @@
     "high": "😊 Feliz",
     "mid": "🙂 Normal",
     "low": "😞 Sin ánimo"
+  },
+  "countries": {
+    "jp": "Japón",
+    "us": "Estados Unidos"
   }
 }

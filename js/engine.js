@@ -62,6 +62,7 @@ export function createGame(data, settings, seed = newSeed()) {
     version: SAVE_VERSION,
     seed,
     rng: seed >>> 0,
+    country: data.country, // 遊んでいる国（途中保存から続けるときと、新婚日記への引き継ぎに使う）
     year: 0, // 一人暮らしを始めてからの年数。始めた年が 0
     startAge: settings.age,
     age: settings.age,
@@ -617,11 +618,13 @@ export function compareWithMid(data, state) {
 // ---- 新婚日記への引き継ぎ ----
 
 // 新婚日記の開始設定に渡すデータ（設計書の「新婚日記への引き継ぎ」）。URL のクエリ d に base64url にして入れる
-// 車は新婚日記の state.car と同じ値をそのまま渡し、買った年は年齢で渡す
+// 車は新婚日記の state.car と同じ値をそのまま渡し、買った年は年齢で渡す。
+// 版2で国を足した（新婚日記は引き継いだ国で始める）。金額はその国のプロファイルの単位
 export function handoffData(data, state) {
   const c = state.car;
   return {
-    v: 1,
+    v: 2,
+    country: state.country ?? data.country,
     gender: state.gender,
     age: state.age,
     savings: Math.round(state.savings),
