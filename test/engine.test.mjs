@@ -491,7 +491,7 @@ test("開始設定の既定と刻みは国の値を使う", () => {
 });
 
 
-for (const code of ["us", "sg"]) {
+for (const code of ["us", "sg", "ph"]) {
   test(`${code} のプロファイル：日本と同じ項目を持ち、方針ごとの結果が釣り合う`, () => {
     const profile = JSON.parse(readFileSync(new URL(`../data/profiles/${code}.json`, import.meta.url), "utf8"));
     const shape = (v) => (Array.isArray(v) ? v.length : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v);
