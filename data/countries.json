@@ -1,7 +1,8 @@
 {
   "available": [
     "jp",
-    "us"
+    "us",
+    "sg"
   ],
   "byLang": {
     "ja": [
@@ -33,6 +34,9 @@
       "ko"
     ],
     "us": [
+      "en"
+    ],
+    "sg": [
       "en"
     ]
   }
