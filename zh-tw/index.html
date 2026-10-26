@@ -89,7 +89,7 @@ function gtag(){dataLayer.push(arguments);}
       <div class="title-illust" id="title-illust"></div>
       <h1 class="logo" data-i18n="meta.gameName">獨居日記</h1>
       <p class="lead" data-i18n="title.lead">從搬出老家到30幾歲，<br>只靠選擇一路走完的人生模擬遊戲</p>
-      <p class="note" data-i18n="units.setIn">本遊戲以日本為背景，金額皆為日圓。</p>
+      <p class="note" data-i18n="units.setIn">本遊戲以台灣為背景，金額皆為新台幣。</p>
       <div class="stack">
         <button id="btn-start" class="primary" data-i18n="title.start">開始</button>
         <button id="btn-continue" data-i18n="title.continue" hidden>繼續</button>
@@ -121,11 +121,11 @@ function gtag(){dataLayer.push(arguments);}
         <label><span data-i18n="setup.age" data-i18n-params='{"min":22,"max":28}'>開始獨居的年齡（22〜28歲）</span>
           <span class="field"><input name="age" type="number" min="22" max="28" step="1" required><button type="button" data-random="age" data-i18n="setup.random">隨機</button></span>
         </label>
-        <label><span id="savings-label" data-i18n="setup.savings">存款（單位：萬日圓，0〜300）</span>
+        <label><span id="savings-label" data-i18n="setup.savings">存款（單位：萬元，0〜100）</span>
           <span class="field"><input name="savings" type="number" min="0" max="300" step="10" required><button type="button" data-random="savings" data-i18n="setup.random">隨機</button></span>
           <output class="hint" data-money-for="savings"></output>
         </label>
-        <label><span id="income-label" data-i18n="setup.income">年收入（單位：萬日圓）</span>
+        <label><span id="income-label" data-i18n="setup.income">年收入（單位：萬元）</span>
           <span class="field"><input name="income" type="number" min="0" max="3000" step="10" required><button type="button" data-random="income" data-i18n="setup.random">隨機</button></span>
           <output class="hint" data-money-for="income"></output>
         </label>
