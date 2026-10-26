@@ -89,7 +89,7 @@ function gtag(){dataLayer.push(arguments);}
       <div class="title-illust" id="title-illust"></div>
       <h1 class="logo" data-i18n="meta.gameName">一人暮らし日記</h1>
       <p class="lead" data-i18n="title.lead">実家を出た日から30代まで、<br>選択だけで駆け抜ける人生シミュレーション</p>
-      <p class="note" data-i18n="meta.setInJapan"></p>
+      <p class="note" data-i18n="units.setIn"></p>
       <div class="stack">
         <button id="btn-start" class="primary" data-i18n="title.start">はじめる</button>
         <button id="btn-continue" data-i18n="title.continue" hidden>続きから</button>
@@ -121,7 +121,7 @@ function gtag(){dataLayer.push(arguments);}
         <label><span data-i18n="setup.age" data-i18n-params='{"min":22,"max":28}'>一人暮らしを始める年齢（22〜28歳）</span>
           <span class="field"><input name="age" type="number" min="22" max="28" step="1" required><button type="button" data-random="age" data-i18n="setup.random">ランダム</button></span>
         </label>
-        <label><span id="savings-label" data-i18n="setup.savings" data-i18n-params='{"min":0,"max":300}'>貯金（万円・0〜300）</span>
+        <label><span id="savings-label" data-i18n="setup.savings">貯金（万円・0〜300）</span>
           <span class="field"><input name="savings" type="number" min="0" max="300" step="10" required><button type="button" data-random="savings" data-i18n="setup.random">ランダム</button></span>
           <output class="hint" data-money-for="savings"></output>
         </label>

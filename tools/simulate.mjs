@@ -1,17 +1,18 @@
 // 方針ごとに自動プレイして、終了時の純資産・充実度・エンディングの分布を出す。
-//   node tools/simulate.mjs [回数]
+//   node tools/simulate.mjs [回数] [国（jp・us など。既定は jp）]
 // 中央値などは破綻した回も含めて数える（破綻は一番下として扱う）
 import { readFileSync } from "node:fs";
 import { STRATEGIES, defaultSettings, endingOf, netWorth, playToEnd, rankOf } from "../js/engine.js";
 
-const data = JSON.parse(readFileSync(new URL("../data/profiles/jp.json", import.meta.url), "utf8"));
 const runs = Number(process.argv[2] ?? 1000);
+const country = process.argv[3] ?? "jp";
+const data = JSON.parse(readFileSync(new URL(`../data/profiles/${country}.json`, import.meta.url), "utf8"));
 const settings = defaultSettings(data);
 
 const fmt = (v) => (v === -Infinity ? "破綻" : Math.round(v).toLocaleString());
 const pct = (n) => `${Math.round((n / runs) * 100)}%`;
 const median = (list) => [...list].sort((x, y) => x - y)[Math.floor(list.length / 2)];
-console.log(`開始設定: ${settings.age}歳、貯金${settings.savings}万円、年収${settings.income}万円（${runs}回）`);
+console.log(`開始設定（${country}、金額は ${data.moneyUnit} ${data.currency} 単位）: ${settings.age}歳、貯金${settings.savings}、年収${settings.income}（${runs}回）`);
 for (const strategy of STRATEGIES) {
   const totals = [];
   const fulfillment = [];

@@ -109,18 +109,22 @@ for (const b of document.querySelectorAll("[data-back]")) b.addEventListener("cl
 const form = $("#setup-form");
 let incomeEdited = false;
 
+// 入力欄の金額は、エンジンの金額を inputScale で割ったもの（日本は1で万円のまま、米国は10で $1,000 単位）
+const toInput = (v) => v / data.inputScale;
+const fromInput = (v) => Number(v) * data.inputScale;
+
 function fillForm(s) {
   form.gender.value = s.gender;
   form.age.value = s.age;
-  form.savings.value = s.savings;
-  form.income.value = s.income;
+  form.savings.value = toInput(s.savings);
+  form.income.value = toInput(s.income);
   updateMoneyHints();
 }
 
 // 金額の入力欄の下に、表示用の金額（日本語以外では円の額）を出す
 function updateMoneyHints() {
   for (const out of document.querySelectorAll("[data-money-for]")) {
-    out.textContent = currentLang().code === "ja" ? "" : `= ${money(Number(form[out.dataset.moneyFor].value) || 0)}`;
+    out.textContent = currentLang().code === "ja" && data.currency === "JPY" ? "" : `= ${money(fromInput(form[out.dataset.moneyFor].value) || 0)}`;
   }
 }
 
@@ -129,8 +133,8 @@ function readForm() {
   return {
     gender: form.gender.value,
     age: clamp(form.age.value, data.startAge.min, data.startAge.max),
-    savings: clamp(form.savings.value, data.startSavings.min, data.startSavings.max),
-    income: clamp(form.income.value, 0, data.incomeMax),
+    savings: clamp(fromInput(form.savings.value), data.startSavings.min, data.startSavings.max),
+    income: clamp(fromInput(form.income.value), 0, data.incomeMax),
   };
 }
 
@@ -141,10 +145,11 @@ function applyCountry() {
   $("#setup-country").innerHTML = list.map((c) => `<option value="${c}"${c === country ? " selected" : ""}>${t(`countries.${c}`)}</option>`).join("");
   const unit = t("units.money");
   const s = data.startSavings;
-  $("#savings-label").innerHTML = t("setup.savings", { unit, min: s.min, max: s.max });
+  $("#savings-label").innerHTML = t("setup.savings", { unit, min: toInput(s.min), max: toInput(s.max) });
   $("#income-label").innerHTML = t("setup.income", { unit });
-  Object.assign(form.savings, { min: s.min, max: s.max, step: data.inputStep });
-  Object.assign(form.income, { min: 0, max: data.incomeMax, step: data.inputStep });
+  const step = toInput(data.inputStep);
+  Object.assign(form.savings, { min: toInput(s.min), max: toInput(s.max), step });
+  Object.assign(form.income, { min: 0, max: toInput(data.incomeMax), step });
 }
 
 function showSetup() {
@@ -162,7 +167,7 @@ $("#setup-country").addEventListener("change", async (e) => {
 
 // 年齢を変えたら、手で変えていない年収をその年齢の中央値にそろえる
 form.age.addEventListener("input", () => {
-  if (!incomeEdited) form.income.value = Math.round(medianIncome(data, readForm().age) / data.inputStep) * data.inputStep;
+  if (!incomeEdited) form.income.value = toInput(Math.round(medianIncome(data, readForm().age) / data.inputStep) * data.inputStep);
   updateMoneyHints();
 });
 form.income.addEventListener("input", () => (incomeEdited = true));
@@ -176,10 +181,10 @@ form.addEventListener("click", (e) => {
   if (key === "age") {
     form.age.value = r.age;
     form.age.dispatchEvent(new Event("input"));
-  } else if (key === "savings") form.savings.value = r.savings;
+  } else if (key === "savings") form.savings.value = toInput(r.savings);
   else if (key === "income") {
     const median = medianIncome(data, current.age);
-    form.income.value = Math.round((median * (0.7 + Math.random() * 0.6)) / data.inputStep) * data.inputStep;
+    form.income.value = toInput(Math.round((median * (0.7 + Math.random() * 0.6)) / data.inputStep) * data.inputStep);
     incomeEdited = true;
   }
   updateMoneyHints();

@@ -1,6 +1,7 @@
 {
   "units": {
-    "money": "万円"
+    "money": "万円",
+    "setIn": ""
   },
   "events": {
     "room": {

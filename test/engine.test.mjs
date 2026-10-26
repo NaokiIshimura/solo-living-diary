@@ -490,3 +490,29 @@ test("開始設定の既定と刻みは国の値を使う", () => {
   assert.equal(defaultSettings(data).income % data.inputStep, 0);
 });
 
+
+test("アメリカのプロファイル：日本と同じ項目を持ち、同じランクの線で釣り合う", () => {
+  const us = JSON.parse(readFileSync(new URL("../data/profiles/us.json", import.meta.url), "utf8"));
+  const shape = (v) => (Array.isArray(v) ? v.length : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v);
+  const { medianIncomeByAge: a, ...jpRest } = shape(data);
+  const { medianIncomeByAge: b, ...usRest } = shape(us);
+  assert.deepEqual(usRest, jpRest);
+  assert.equal(us.country, "us");
+  assert.equal(us.currency, "USD");
+
+  const usSettings = defaultSettings(us);
+  const median = (strategy) => {
+    const totals = [];
+    for (let seed = 1; seed <= 200; seed++) {
+      const state = playToEnd(us, usSettings, seed, strategy);
+      totals.push(state.ended === "bankrupt" ? -Infinity : netWorth(state).total);
+    }
+    return totals.sort((x, y) => x - y)[100];
+  };
+  assert.equal(rankOf(us, median("mid")).rank, "C"); // 日本と同じく「全部普通」は C
+  assert.equal(median("high"), -Infinity); // 全部高いは破綻する
+  assert.ok(median("none") > median("low") && median("low") > median("mid"));
+
+  const state = playToEnd(us, usSettings, 1, "mid");
+  assert.equal(handoffData(us, state).country, "us");
+});

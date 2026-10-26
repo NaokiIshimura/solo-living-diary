@@ -48,8 +48,10 @@ def load_locales():
     locales = {}
     for code in LANGS:
         ui = json.loads((ROOT / 'i18n' / f'{code}.json').read_text(encoding='utf-8'))
-        texts = json.loads((ROOT / 'data' / 'profiles' / default_country(code) / f'{code}.json').read_text(encoding='utf-8'))
-        locales[code] = {'ui': ui, 'texts': texts}
+        country = default_country(code)
+        texts = json.loads((ROOT / 'data' / 'profiles' / country / f'{code}.json').read_text(encoding='utf-8'))
+        profile = json.loads((ROOT / 'data' / 'profiles' / f'{country}.json').read_text(encoding='utf-8'))
+        locales[code] = {'ui': ui, 'texts': texts, 'profile': profile}
     return locales
 
 
@@ -77,8 +79,10 @@ def prerender(page, loc):
         tag, attrs = m.group(1), m.group(2)
         key = re.search(r'data-i18n="([^"]+)"', attrs).group(1)
         params = re.search(r"data-i18n-params='([^']+)'", attrs)
-        # 金額の単位（万円など）は国によって違うので、国プロファイルの文から差し込む
-        text = t(loc, key, {'unit': loc['texts']['units']['money'], **(json.loads(params.group(1)) if params else {})})
+        # 金額の単位（万円など）と貯金の範囲は国によって違うので、国プロファイルから差し込む
+        p = loc['profile']
+        money = {'unit': loc['texts']['units']['money'], 'min': p['startSavings']['min'] // p['inputScale'], 'max': p['startSavings']['max'] // p['inputScale']}
+        text = t(loc, key, {**money, **(json.loads(params.group(1)) if params else {})})
         attr = re.search(r'data-i18n-attr="([^"]+)"', attrs)
         if attr:
             return f'<{tag}{attrs} {attr.group(1)}="{html.escape(text, quote=True)}">'

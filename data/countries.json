@@ -1,6 +1,7 @@
 {
   "available": [
-    "jp"
+    "jp",
+    "us"
   ],
   "byLang": {
     "ja": [
@@ -30,6 +31,9 @@
       "zh-tw",
       "es",
       "ko"
+    ],
+    "us": [
+      "en"
     ]
   }
 }

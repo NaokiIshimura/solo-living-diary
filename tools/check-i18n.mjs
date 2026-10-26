@@ -5,6 +5,8 @@ import { readFileSync, existsSync } from "node:fs";
 
 const LANGS = ["ja", "en", "zh-tw", "es", "ko"];
 const FILES = [(l) => `i18n/${l}.json`, (l) => `data/profiles/jp/${l}.json`];
+// 日本以外の国の文は、日本の日本語版とくらべる（国ごとに用意した言語だけ）
+const COUNTRIES = JSON.parse(readFileSync("data/countries.json", "utf8"));
 const FORMATS = new Set(["money", "num", "signed", "signedMoney"]);
 
 function flatten(obj, prefix = "", out = {}) {
@@ -25,24 +27,25 @@ const fail = (msg) => {
   console.log(msg);
 };
 
-for (const file of FILES) {
-  const base = flatten(JSON.parse(readFileSync(file("ja"), "utf8")));
-  for (const lang of LANGS.slice(1)) {
-    const path = file(lang);
-    if (!existsSync(path)) {
-      fail(`${path}: ファイルがない`);
-      continue;
-    }
-    const tr = flatten(JSON.parse(readFileSync(path, "utf8")));
-    for (const key of Object.keys(base)) {
-      if (!(key in tr)) fail(`${path}: キーがない ${key}`);
-      else if (names(base[key]) !== names(tr[key])) fail(`${path}: 差し込みが違う ${key}（ja: ${names(base[key])} / ${lang}: ${names(tr[key])}）`);
-    }
-    for (const key of Object.keys(tr)) {
-      const plural = key.endsWith("_one") && key.slice(0, -4) in base;
-      if (!(key in base) && !plural) fail(`${path}: 余分なキー ${key}`);
-      for (const b of badFormats(tr[key])) fail(`${path}: 知らない書式 ${b}（${key}）`);
-    }
+const pairs = FILES.flatMap((file) => LANGS.slice(1).map((lang) => [file("ja"), file(lang), lang]));
+for (const country of COUNTRIES.available.filter((c) => c !== "jp"))
+  for (const lang of COUNTRIES.texts[country] ?? []) pairs.push(["data/profiles/jp/ja.json", `data/profiles/${country}/${lang}.json`, lang]);
+
+for (const [basePath, path, lang] of pairs) {
+  if (!existsSync(path)) {
+    fail(`${path}: ファイルがない`);
+    continue;
+  }
+  const base = flatten(JSON.parse(readFileSync(basePath, "utf8")));
+  const tr = flatten(JSON.parse(readFileSync(path, "utf8")));
+  for (const key of Object.keys(base)) {
+    if (!(key in tr)) fail(`${path}: キーがない ${key}`);
+    else if (names(base[key]) !== names(tr[key])) fail(`${path}: 差し込みが違う ${key}（ja: ${names(base[key])} / ${lang}: ${names(tr[key])}）`);
+  }
+  for (const key of Object.keys(tr)) {
+    const plural = key.endsWith("_one") && key.slice(0, -4) in base;
+    if (!(key in base) && !plural) fail(`${path}: 余分なキー ${key}`);
+    for (const b of badFormats(tr[key])) fail(`${path}: 知らない書式 ${b}（${key}）`);
   }
 }
 
