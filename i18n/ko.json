@@ -98,6 +98,7 @@
       "text": "입주한 지 {n}년. 방 계약을 갱신할까요?",
       "renew": "갱신한다",
       "renewSub": "갱신료 {cost:money}",
+      "renewSubRaise": "월세가 {pct}% 오름",
       "move": "이사한다",
       "moveSub": "집 구하기로 (초기 비용이 든다)"
     },
@@ -266,6 +267,7 @@
     "married": "결혼하기로 했다. 새로운 생활이 시작된다.",
     "single": "혼자 살아가기로 마음먹었다.",
     "renewed": "방 계약을 갱신했다. 갱신료는 {cost:money}.",
+    "renewedRaise": "방 계약을 갱신했다. 월세가 {pct}% 올랐다.",
     "moveOut": "지금 사는 방을 나가기로 했다.",
     "neighborTrouble": "옆집과의 갈등으로 잠 못 드는 날이 이어졌다.",
     "neighborEndured": "이사는 포기하고 참기로 했다.",

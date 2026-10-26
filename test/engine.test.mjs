@@ -472,3 +472,21 @@ test("国の対応表：言語ごとの既定の国は、プロファイルの�
     for (const lang of langs) assert.ok(readFileSync(new URL(`../data/profiles/${c}/${lang}.json`, import.meta.url), "utf8"), `${c}/${lang}`);
   }
 });
+
+test("更新料のない国は、部屋の更新で家賃が上がる", () => {
+  const raise = { ...data, events: { ...data.events, renewal: { every: 2, feeMonths: 0, rentIncrease: 0.04 } } };
+  const state = quiet();
+  const rent = state.room.annual;
+  state.year = 2;
+  const before = state.savings;
+  choose(raise, state, { id: "renewal" }, { renew: true });
+  assert.equal(state.savings, before); // 更新料はかからない
+  assert.ok(Math.abs(state.room.annual - rent * 1.04) < 1e-9);
+  assert.equal(state.history.at(-1).key, "h.renewedRaise");
+});
+
+test("開始設定の既定と刻みは国の値を使う", () => {
+  assert.equal(defaultSettings(data).savings, data.startSavings.default);
+  assert.equal(defaultSettings(data).income % data.inputStep, 0);
+});
+

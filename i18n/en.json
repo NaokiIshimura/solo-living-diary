@@ -98,6 +98,7 @@
       "text": "You've lived here {n} years. Renew your lease?",
       "renew": "Renew",
       "renewSub": "Renewal fee {cost:money}",
+      "renewSubRaise": "Rent goes up {pct}%",
       "move": "Move out",
       "moveSub": "Find a new place (move-in costs apply)"
     },
@@ -267,6 +268,7 @@
     "married": "We decided to get married. A new life begins.",
     "single": "I decided to keep living on my own terms, solo.",
     "renewed": "I renewed my lease. The renewal fee was {cost:money}.",
+    "renewedRaise": "Renewed the lease. The rent went up {pct}%.",
     "moveOut": "I decided to move out of this place.",
     "neighborTrouble": "Trouble with the neighbors next door kept me up night after night.",
     "neighborEndured": "I gave up on moving and decided to put up with it.",

@@ -98,6 +98,7 @@
       "text": "入居して{n}年。部屋の契約を更新しますか？",
       "renew": "更新する",
       "renewSub": "更新料 {cost:money}",
+      "renewSubRaise": "家賃が{pct}%上がる",
       "move": "引っ越す",
       "moveSub": "部屋探しへ（初期費用がかかる）"
     },
@@ -266,6 +267,7 @@
     "married": "結婚することにした。新しい暮らしが始まる。",
     "single": "ひとりで生きていくと決めた。",
     "renewed": "部屋の契約を更新した。更新料は{cost:money}。",
+    "renewedRaise": "部屋の契約を更新した。家賃が{pct}%上がった。",
     "moveOut": "今の部屋を出ることにした。",
     "neighborTrouble": "隣の部屋とのトラブルで、眠れない日が続いた。",
     "neighborEndured": "引っ越すのはあきらめて、我慢することにした。",

@@ -39,11 +39,12 @@ export function medianIncome(data, age) {
   return points[points.length - 1][1];
 }
 
-const round10 = (v) => Math.round(v / 10) * 10;
+// 入力の刻み（日本は10万円）にそろえる
+const roundStep = (data, v) => Math.round(v / data.inputStep) * data.inputStep;
 
 export function defaultSettings(data) {
   const age = data.startAge.min;
-  return { gender: "female", age, savings: 100, income: round10(medianIncome(data, age)) };
+  return { gender: "female", age, savings: data.startSavings.default, income: roundStep(data, medianIncome(data, age)) };
 }
 
 export function randomSettings(data, seed) {
@@ -52,8 +53,8 @@ export function randomSettings(data, seed) {
   return {
     gender: ["female", "male"][randInt(s, 0, 1)],
     age,
-    savings: randInt(s, data.startSavings.min / 10, data.startSavings.max / 10) * 10,
-    income: round10(medianIncome(data, age) * (0.7 + rand(s) * 0.6)),
+    savings: randInt(s, data.startSavings.min / data.inputStep, data.startSavings.max / data.inputStep) * data.inputStep,
+    income: roundStep(data, medianIncome(data, age) * (0.7 + rand(s) * 0.6)),
   };
 }
 
@@ -267,6 +268,7 @@ export function carValue(car, year) {
 }
 
 // 部屋の更新料
+// 日本は2年ごとに家賃の feeMonths か月分。更新料のない国は 0 で、かわりに家賃が rentIncrease の割合だけ上がる
 export function renewalFee(data, state) {
   return (state.room.annual / 12) * data.events.renewal.feeMonths;
 }
@@ -305,7 +307,10 @@ export function choose(data, state, event, choice) {
       state.renewalDoneYear = state.year;
       state.totals.housing += cost;
       if (choice.move) moveOut(state);
-      else addHistory(state, "h.renewed", { cost: Math.round(cost) });
+      else if (ev.rentIncrease > 0) {
+        state.room.annual *= 1 + ev.rentIncrease;
+        addHistory(state, "h.renewedRaise", { pct: Math.round(ev.rentIncrease * 100) });
+      } else addHistory(state, "h.renewed", { cost: Math.round(cost) });
       break;
 
     case "neighbor":

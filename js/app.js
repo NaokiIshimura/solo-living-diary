@@ -384,6 +384,12 @@ function predicted(ev, choice) {
   return t("event.predicted", { money: state.savings - immediateCost(data, state, ev, choice) });
 }
 
+// 部屋の更新の説明。更新料のある国（日本）は更新料、ない国は家賃の値上がり
+function renewSub() {
+  const r = data.events.renewal;
+  return r.rentIncrease > 0 ? t("event.renewal.renewSubRaise", { pct: Math.round(r.rentIncrease * 100) }) : t("event.renewal.renewSub", { cost: renewalFee(data, state) });
+}
+
 function button(label, sub, onClick, primary) {
   const b = document.createElement("button");
   b.className = "option" + (primary ? " primary" : "");
@@ -438,7 +444,7 @@ function openEvent(ev) {
         );
       case "renewal":
         return box.replaceChildren(
-          button(e("renew"), `${e("renewSub", { cost: renewalFee(data, state) })}<br>${predicted(ev, { renew: true })}`, () => decide({ renew: true })),
+          button(e("renew"), `${renewSub()}<br>${predicted(ev, { renew: true })}`, () => decide({ renew: true })),
           button(e("move"), e("moveSub"), () => decide({ move: true })),
         );
       case "neighbor":

@@ -98,6 +98,7 @@
       "text": "Llevas {n} años aquí. ¿Renuevas el contrato de renta?",
       "renew": "Renovar",
       "renewSub": "Cuota de renovación {cost:money}",
+      "renewSubRaise": "La renta sube {pct}%",
       "move": "Mudarte",
       "moveSub": "Buscar vivienda (con gastos de mudanza y contrato)"
     },
@@ -266,6 +267,7 @@
     "married": "Decidimos casarnos. Empieza una nueva vida.",
     "single": "Decidí seguir mi camino por mi cuenta.",
     "renewed": "Renové el contrato. La cuota de renovación fue de {cost:money}.",
+    "renewedRaise": "Renové el contrato. La renta subió {pct}%.",
     "moveOut": "Decidí dejar este lugar.",
     "neighborTrouble": "Por problemas con el vecino, pasé días sin poder dormir.",
     "neighborEndured": "Desistí de mudarme y decidí aguantar.",
