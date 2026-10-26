@@ -26,7 +26,6 @@ import { illustFor } from "./illust.js";
 import { canvasToBlob, drawShareCard } from "./share.js";
 import { clearAll, loadRecords, loadSave, loadSettings, recordAchievement, recordResult, writeSave, writeSettings } from "./storage.js";
 
-const PROFILE = "jp"; // v1 は日本プロファイルだけ
 const NEWLYWED_SITE = "https://newlywed-diary.nacn.app/";
 const SPEED_MS = { 1: 900, 2: 400 };
 
@@ -37,11 +36,34 @@ let state = null;
 let speed = 1;
 let timer = null;
 let settings = loadSettings();
+let countries; // data/countries.json（プロファイルのそろった国と、言語ごとに選べる国）
+let country; // いまのプロファイルの国
+
+// ---- 国 ----
+
+// この言語で選べる国（先頭が既定）。プロファイルのそろった国がなければ日本（ほかの国がそろうまでは、いまのまま）
+function countriesFor(lang) {
+  const ready = (countries.byLang[lang] ?? []).filter((c) => countries.available.includes(c));
+  return ready.length ? ready : ["jp"];
+}
+
+// 国のプロファイル（数値と、今の言語の文）を読み込む
+async function useCountry(code) {
+  country = code;
+  data = await (await fetch(new URL(`../data/profiles/${code}.json`, import.meta.url))).json();
+  await setLang(currentLang().code);
+}
 
 // ---- 言語 ----
 
+// 国の文がある言語。この言語の文がなければ、その国の最初の言語（例：アメリカの途中保存を日本語のページで続けるとき）
+function textLang(code) {
+  const langs = countries.texts[country] ?? [code];
+  return langs.includes(code) ? code : langs[0];
+}
+
 async function setLang(code) {
-  await loadLang(code, data, PROFILE);
+  await loadLang(code, data, country, textLang(code));
   applyStatic();
   $("#settings-lang").innerHTML = LANGS.map((l) => `<option value="${l.code}"${l.code === code ? " selected" : ""}>${l.name}</option>`).join("");
   updateMoneyHints();
@@ -87,18 +109,22 @@ for (const b of document.querySelectorAll("[data-back]")) b.addEventListener("cl
 const form = $("#setup-form");
 let incomeEdited = false;
 
+// 入力欄の金額は、エンジンの金額を inputScale で割ったもの（日本は1で万円のまま、米国は10で $1,000 単位）
+const toInput = (v) => v / data.inputScale;
+const fromInput = (v) => Number(v) * data.inputScale;
+
 function fillForm(s) {
   form.gender.value = s.gender;
   form.age.value = s.age;
-  form.savings.value = s.savings;
-  form.income.value = s.income;
+  form.savings.value = toInput(s.savings);
+  form.income.value = toInput(s.income);
   updateMoneyHints();
 }
 
 // 金額の入力欄の下に、表示用の金額（日本語以外では円の額）を出す
 function updateMoneyHints() {
   for (const out of document.querySelectorAll("[data-money-for]")) {
-    out.textContent = currentLang().code === "ja" ? "" : `= ${money(Number(form[out.dataset.moneyFor].value) || 0)}`;
+    out.textContent = currentLang().code === "ja" && data.currency === "JPY" ? "" : `= ${money(fromInput(form[out.dataset.moneyFor].value) || 0)}`;
   }
 }
 
@@ -107,20 +133,44 @@ function readForm() {
   return {
     gender: form.gender.value,
     age: clamp(form.age.value, data.startAge.min, data.startAge.max),
-    savings: clamp(form.savings.value, data.startSavings.min, data.startSavings.max),
-    income: clamp(form.income.value, 0, 3000),
+    savings: clamp(fromInput(form.savings.value), data.startSavings.min, data.startSavings.max),
+    income: clamp(fromInput(form.income.value), 0, data.incomeMax),
   };
 }
 
-function showSetup() {
+// 開始設定の国の欄と、金額の単位・範囲を、いまの国に合わせる
+function applyCountry() {
+  const list = countriesFor(currentLang().code);
+  $("#country-field").hidden = list.length < 2;
+  $("#setup-country").innerHTML = list.map((c) => `<option value="${c}"${c === country ? " selected" : ""}>${t(`countries.${c}`)}</option>`).join("");
+  const unit = t("units.money");
+  const s = data.startSavings;
+  $("#savings-label").innerHTML = t("setup.savings", { unit, min: toInput(s.min), max: toInput(s.max) });
+  $("#income-label").innerHTML = t("setup.income", { unit });
+  const step = toInput(data.inputStep);
+  Object.assign(form.savings, { min: toInput(s.min), max: toInput(s.max), step });
+  Object.assign(form.income, { min: 0, max: toInput(data.incomeMax), step });
+}
+
+// ほかの言語の国の続きを遊んだあとは、この言語で選べる国（先頭が既定）に戻す
+async function showSetup() {
+  const list = countriesFor(currentLang().code);
+  if (!list.includes(country)) await useCountry(list[0]);
   incomeEdited = false;
+  applyCountry();
   fillForm(defaultSettings(data));
   show("screen-setup");
 }
 
+// 国を変えたら、その国のプロファイルで開始設定をやり直す
+$("#setup-country").addEventListener("change", async (e) => {
+  await useCountry(e.target.value);
+  showSetup();
+});
+
 // 年齢を変えたら、手で変えていない年収をその年齢の中央値にそろえる
 form.age.addEventListener("input", () => {
-  if (!incomeEdited) form.income.value = Math.round(medianIncome(data, readForm().age) / 10) * 10;
+  if (!incomeEdited) form.income.value = toInput(Math.round(medianIncome(data, readForm().age) / data.inputStep) * data.inputStep);
   updateMoneyHints();
 });
 form.income.addEventListener("input", () => (incomeEdited = true));
@@ -134,10 +184,10 @@ form.addEventListener("click", (e) => {
   if (key === "age") {
     form.age.value = r.age;
     form.age.dispatchEvent(new Event("input"));
-  } else if (key === "savings") form.savings.value = r.savings;
+  } else if (key === "savings") form.savings.value = toInput(r.savings);
   else if (key === "income") {
     const median = medianIncome(data, current.age);
-    form.income.value = Math.round((median * (0.7 + Math.random() * 0.6)) / 10) * 10;
+    form.income.value = toInput(Math.round((median * (0.7 + Math.random() * 0.6)) / data.inputStep) * data.inputStep);
     incomeEdited = true;
   }
   updateMoneyHints();
@@ -164,9 +214,12 @@ function startGame(start) {
   enterMain();
 }
 
-function continueGame() {
+async function continueGame() {
   state = load();
   if (!state) return showTitle();
+  // 途中保存は、遊んでいた国のプロファイルで続ける（言語を切り替えても国は変わらない。国のない古い保存は日本）
+  const saved = state.country ?? "jp";
+  if (saved !== country) await useCountry(saved);
   $("#diary").replaceChildren();
   shown = 0;
   flushDiary();
@@ -339,6 +392,12 @@ function predicted(ev, choice) {
   return t("event.predicted", { money: state.savings - immediateCost(data, state, ev, choice) });
 }
 
+// 部屋の更新の説明。更新料のある国（日本）は更新料、ない国は家賃の値上がり
+function renewSub() {
+  const r = data.events.renewal;
+  return r.rentIncrease > 0 ? t("event.renewal.renewSubRaise", { pct: Math.round(r.rentIncrease * 100) }) : t("event.renewal.renewSub", { cost: renewalFee(data, state) });
+}
+
 function button(label, sub, onClick, primary) {
   const b = document.createElement("button");
   b.className = "option" + (primary ? " primary" : "");
@@ -393,7 +452,7 @@ function openEvent(ev) {
         );
       case "renewal":
         return box.replaceChildren(
-          button(e("renew"), `${e("renewSub", { cost: renewalFee(data, state) })}<br>${predicted(ev, { renew: true })}`, () => decide({ renew: true })),
+          button(e("renew"), `${renewSub()}<br>${predicted(ev, { renew: true })}`, () => decide({ renew: true })),
           button(e("move"), e("moveSub"), () => decide({ move: true })),
         );
       case "neighbor":
@@ -617,6 +676,8 @@ $("#btn-again").addEventListener("click", showSetup);
 $("#btn-gallery").addEventListener("click", showGallery);
 $("#btn-settings").addEventListener("click", showSettings);
 
-data = await (await fetch(new URL(`../data/profiles/${PROFILE}.json`, import.meta.url))).json();
+countries = await (await fetch(new URL("../data/countries.json", import.meta.url))).json();
+country = countriesFor(pageLang())[0];
+data = await (await fetch(new URL(`../data/profiles/${country}.json`, import.meta.url))).json();
 await setLang(pageLang());
 showTitle();

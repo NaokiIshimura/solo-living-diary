@@ -1,4 +1,8 @@
 {
+  "units": {
+    "money": "¥10.000",
+    "setIn": "El juego transcurre en Japón; los montos están en yenes japoneses (¥)."
+  },
   "events": {
     "room": {
       "high": {

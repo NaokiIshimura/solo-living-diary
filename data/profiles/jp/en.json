@@ -1,4 +1,8 @@
 {
+  "units": {
+    "money": "¥10,000",
+    "setIn": "Set in Japan. All amounts are in Japanese yen."
+  },
   "events": {
     "room": {
       "high": {

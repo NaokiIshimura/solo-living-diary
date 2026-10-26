@@ -3,8 +3,7 @@
     "title": "Diario de vida independiente",
     "description": "Un simulador de vida: desde que dejas la casa de tus padres con tu primer empleo hasta los primeros años de tus 30, solo eligiendo «comprar o no» y «caro, normal o barato».",
     "gameName": "Diario de vida independiente",
-    "hashtag": "#DiarioDeVidaIndependiente",
-    "setInJapan": "El juego transcurre en Japón; los montos están en yenes japoneses (¥)."
+    "hashtag": "#DiarioDeVidaIndependiente"
   },
   "title": {
     "lead": "De independizarte a los 30,<br>un simulador de vida a base de decisiones",
@@ -17,11 +16,12 @@
   "setup": {
     "heading": "Configuración inicial",
     "gender": "Género",
+    "country": "País o región",
     "female": "Mujer",
     "male": "Hombre",
     "age": "Edad al independizarte ({min}–{max} años)",
-    "savings": "Ahorros (en ¥10.000, {min}–{max})",
-    "income": "Ingreso anual (en ¥10.000)",
+    "savings": "Ahorros (en {unit}, {min}–{max})",
+    "income": "Ingreso anual (en {unit})",
     "incomeHint": "El ingreso inicial es la mediana para esa edad.",
     "random": "Aleatorio",
     "submit": "Empezar con esta configuración",
@@ -97,6 +97,7 @@
       "text": "Llevas {n} años aquí. ¿Renuevas el contrato de renta?",
       "renew": "Renovar",
       "renewSub": "Cuota de renovación {cost:money}",
+      "renewSubRaise": "La renta sube {pct}%",
       "move": "Mudarte",
       "moveSub": "Buscar vivienda (con gastos de mudanza y contrato)"
     },
@@ -265,6 +266,7 @@
     "married": "Decidimos casarnos. Empieza una nueva vida.",
     "single": "Decidí seguir mi camino por mi cuenta.",
     "renewed": "Renové el contrato. La cuota de renovación fue de {cost:money}.",
+    "renewedRaise": "Renové el contrato. La renta subió {pct}%.",
     "moveOut": "Decidí dejar este lugar.",
     "neighborTrouble": "Por problemas con el vecino, pasé días sin poder dormir.",
     "neighborEndured": "Desistí de mudarme y decidí aguantar.",
@@ -315,5 +317,16 @@
     "high": "😊 Feliz",
     "mid": "🙂 Normal",
     "low": "😞 Sin ánimo"
+  },
+  "countries": {
+    "jp": "Japón",
+    "us": "Estados Unidos",
+    "sg": "Singapur",
+    "ph": "Filipinas",
+    "ca": "Canadá",
+    "au": "Australia",
+    "mx": "México",
+    "tw": "Taiwán",
+    "kr": "Corea del Sur"
   }
 }

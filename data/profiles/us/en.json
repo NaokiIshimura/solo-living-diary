@@ -1,0 +1,319 @@
+{
+  "units": {
+    "money": "$1,000",
+    "setIn": "Set in the United States. All amounts are in US dollars."
+  },
+  "events": {
+    "room": {
+      "high": {
+        "label": "Newer 1-bedroom downtown",
+        "diary": "I picked a newer one-bedroom downtown. The rent is steep, but everything is close by."
+      },
+      "mid": {
+        "label": "Average 1-bedroom",
+        "diary": "I picked an average one-bedroom apartment. My new life starts here."
+      },
+      "low": {
+        "label": "Older place farther out",
+        "diary": "I picked an older place farther from downtown. To make up for the cheap rent, I leave a little earlier each morning."
+      }
+    },
+    "appliance": {
+      "high": {
+        "label": "New, top models",
+        "diary": "I got brand-new top-model appliances and furniture. The room suddenly felt like my own castle."
+      },
+      "mid": {
+        "label": "New, standard",
+        "diary": "I got new, standard appliances and furniture."
+      },
+      "low": {
+        "label": "Secondhand / hand-me-downs",
+        "diary": "I furnished the place from thrift stores and hand-me-downs from friends. If it works, it's good enough."
+      }
+    },
+    "food": {
+      "high": {
+        "label": "Mostly eating out and delivery",
+        "diary": "I mostly eat out or order delivery. I barely use the kitchen."
+      },
+      "mid": {
+        "label": "Half cooking, half eating out",
+        "diary": "I decided to cook on weekdays and eat out now and then on weekends."
+      },
+      "low": {
+        "label": "As cheap as possible (budget groceries, instant meals)",
+        "diary": "Food on the cheap, no matter what. Rice, beans and pasta became my best friends."
+      },
+      "same": "I decided to keep eating the way I do now."
+    },
+    "social": {
+      "high": {
+        "label": "Go to everything",
+        "diary": "Drinks, get-togethers — I decided to go to everything I'm invited to."
+      },
+      "mid": {
+        "label": "In moderation",
+        "diary": "I decided to socialize in moderation, only when I want to go."
+      },
+      "low": {
+        "label": "Only when needed",
+        "diary": "I decided to show up only when I really need to."
+      },
+      "skip": {
+        "diary": "I decided to turn down most invitations. More time to myself."
+      },
+      "same": "I decided to keep socializing the way I do now."
+    },
+    "hobby": {
+      "high": {
+        "label": "All in",
+        "diary": "I decided to go all in on my hobbies and supporting my favorite artists."
+      },
+      "mid": {
+        "label": "In moderation",
+        "diary": "I decided to enjoy my hobbies within reason."
+      },
+      "low": {
+        "label": "No spending",
+        "diary": "I decided to enjoy my hobbies without spending money."
+      },
+      "skip": {
+        "diary": "I decided to give up my hobbies. I spend more days off at home now."
+      },
+      "same": "I decided to keep my hobbies as they are."
+    },
+    "invest": {
+      "high": {
+        "label": "Evening classes / part-time grad school",
+        "diary": "I started taking classes after work. I'll give it my best for 2 years."
+      },
+      "mid": {
+        "label": "Online course / certification",
+        "pass": "I earned a certification through an online course. My income rose {pct}%.",
+        "fail": "I failed the certification exam."
+      },
+      "low": {
+        "label": "Self-study",
+        "pass": "I passed the certification exam by studying on my own. My income rose {pct}%.",
+        "fail": "I took the exam after studying on my own, but didn't pass."
+      },
+      "skip": {
+        "diary": "I decided not to invest in myself for now."
+      }
+    },
+    "car": {
+      "high": {
+        "label": "New car",
+        "diary": "I bought a brand-new car."
+      },
+      "mid": {
+        "label": "Used car (good condition)",
+        "diary": "I bought a used car in good condition."
+      },
+      "low": {
+        "label": "Cheap used car",
+        "diary": "I bought a cheap used car. As long as it runs."
+      },
+      "skip": "I decided not to buy a car for now.",
+      "never": "I decided not to own a car. Transit and my bike will do."
+    },
+    "travel": {
+      "high": {
+        "label": "Trip abroad",
+        "diary": "I splurged on a trip abroad."
+      },
+      "mid": {
+        "label": "Domestic trip",
+        "diary": "I traveled within the country. A nice break."
+      },
+      "low": {
+        "label": "Day trip nearby",
+        "diary": "I went on a day trip nearby."
+      },
+      "skip": {
+        "diary": "I didn't travel this year."
+      }
+    },
+    "partner": {
+      "high": {
+        "label": "Spend freely on dates",
+        "diary": "I decided not to hold back on time with my partner."
+      },
+      "mid": {
+        "label": "In moderation",
+        "diary": "I decided to go out with my partner within reason."
+      },
+      "low": {
+        "label": "Budget dates",
+        "diary": "I decided to enjoy low-cost time together with my partner."
+      }
+    },
+    "konkatsu": {
+      "high": {
+        "label": "Matchmaking agency",
+        "diary": "I signed up with a matchmaking service."
+      },
+      "mid": {
+        "label": "Paid dating app",
+        "diary": "I started using a paid dating app."
+      },
+      "low": {
+        "label": "Free apps / introductions",
+        "diary": "I decided to look for someone through free apps and introductions from friends."
+      },
+      "skip": {
+        "diary": "I decided not to look for a partner to marry."
+      }
+    },
+    "friendWedding": {
+      "high": {
+        "label": "Attend + after-party",
+        "diary": "I went to my friend's wedding and stayed for the after-party, too."
+      },
+      "mid": {
+        "label": "Attend",
+        "diary": "I went to my friend's wedding."
+      },
+      "low": {
+        "label": "Skip it, send a gift",
+        "diary": "I couldn't make my friend's wedding, so I sent a gift from the registry instead."
+      }
+    }
+  },
+  "ranks": {
+    "S": {
+      "comment": "Hardly any money worries. You can step into the next chapter traveling light."
+    },
+    "A": {
+      "comment": "You enjoyed yourself where it counted and still saved well."
+    },
+    "B": {
+      "comment": "No luxuries, but no troubles either. You run your own life just fine."
+    },
+    "C": {
+      "comment": "Not much saved, but no debt. The real story starts now."
+    },
+    "D": {
+      "comment": "A credit card balance is left over. First things first: pay it back."
+    }
+  },
+  "endings": {
+    "married_high": {
+      "name": "A New Life for Two",
+      "comment": "At the end of all those happy days was someone to walk beside."
+    },
+    "married_mid": {
+      "name": "An Ordinary Marriage",
+      "comment": "Nothing flashy, but a calm new life begins."
+    },
+    "married_low": {
+      "name": "Married on Impulse",
+      "comment": "Worn out by everyday life, you decided to get married. Time to get back on your feet."
+    },
+    "single_high": {
+      "name": "Happily Single",
+      "comment": "A life of your own, surrounded by things you love. You'll keep living light."
+    },
+    "single_mid": {
+      "name": "At My Own Pace",
+      "comment": "Not matching anyone else's rhythm — just living at your own pace."
+    },
+    "single_low": {
+      "name": "Only Money to Talk To",
+      "comment": "The numbers in your bank account went up, but there's no one to talk to."
+    },
+    "bankrupt": {
+      "name": "Bankrupt Ending",
+      "comment": "Debts piled up and life became unmanageable. Look back at where you overreached, and try again."
+    }
+  },
+  "titles": {
+    "oshi": {
+      "name": "Fandom Is Life",
+      "desc": "Chose \"All in\" every time for hobbies & fandom (2+ times)"
+    },
+    "selfInvest": {
+      "name": "Self-Improver",
+      "desc": "Did every self-investment offered (2+ times)"
+    },
+    "showoff": {
+      "name": "Show-off",
+      "desc": "Chose \"High\" in 70%+ of choices"
+    },
+    "frugal": {
+      "name": "Master of Thrift",
+      "desc": "Chose \"Low\" or skipped in 70%+ of choices"
+    },
+    "steady": {
+      "name": "Steady Type",
+      "desc": "Chose \"Mid\" in 70%+ of choices"
+    },
+    "social": {
+      "name": "Social Butterfly",
+      "desc": "Chose \"Go to everything\" every time for socializing (2+ times)"
+    },
+    "mover": {
+      "name": "Serial Mover",
+      "desc": "Moved 3 or more times"
+    },
+    "carFree": {
+      "name": "Car-Free Life",
+      "desc": "Chose never to own a car"
+    },
+    "balanced": {
+      "name": "Well-Balanced",
+      "desc": "Mixed High, Mid and Low"
+    }
+  },
+  "achievements": {
+    "rankS": {
+      "name": "Savings Machine",
+      "desc": "Finished with rank S"
+    },
+    "bankrupt": {
+      "name": "Rock Bottom",
+      "desc": "Saw the bankrupt ending"
+    },
+    "stayed": {
+      "name": "Home Sweet Home",
+      "desc": "Finished without ever moving"
+    },
+    "wanderer": {
+      "name": "Migratory Bird",
+      "desc": "Moved 5 or more times"
+    },
+    "certified": {
+      "name": "Certified",
+      "desc": "Passed a certification exam"
+    },
+    "jobUp": {
+      "name": "Good Move",
+      "desc": "Switched jobs and earned more"
+    },
+    "fate": {
+      "name": "Meant to Be",
+      "desc": "Reached a married ending without a partner search"
+    },
+    "agency": {
+      "name": "Search Pays Off",
+      "desc": "Reached a married ending through a matchmaking agency"
+    },
+    "happy": {
+      "name": "Every Day Is Fun",
+      "desc": "Finished with fulfillment of 90 or more"
+    },
+    "noCardLoan": {
+      "name": "Debt-Free",
+      "desc": "Finished without savings ever going negative"
+    },
+    "bigWindfall": {
+      "name": "Unexpected Fortune",
+      "desc": "Got a windfall of $5,000 or more"
+    },
+    "continued": {
+      "name": "The Story Continues",
+      "desc": "Pressed the button to continue in Newlywed Diary"
+    }
+  }
+}

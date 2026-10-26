@@ -7,8 +7,12 @@
   },
   "startSavings": {
     "min": 0,
-    "max": 300
+    "max": 300,
+    "default": 100
   },
+  "incomeMax": 3000,
+  "inputStep": 10,
+  "inputScale": 1,
   "takeHomeRate": 0.78,
   "medianIncomeByAge": {
     "22": 252,
@@ -66,7 +70,8 @@
     },
     "renewal": {
       "every": 2,
-      "feeMonths": 1
+      "feeMonths": 1,
+      "rentIncrease": 0
     },
     "neighbor": {
       "fulfillment": -5

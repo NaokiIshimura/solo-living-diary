@@ -1,4 +1,8 @@
 {
+  "units": {
+    "money": "萬日圓",
+    "setIn": "本遊戲以日本為背景，金額皆為日圓。"
+  },
   "events": {
     "room": {
       "high": {

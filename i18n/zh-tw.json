@@ -3,8 +3,7 @@
     "title": "獨居日記",
     "description": "從出社會、搬出老家的那天到30歲出頭，只靠「買·不買／高·普通·低」的選擇一路走完的人生模擬遊戲。",
     "gameName": "獨居日記",
-    "hashtag": "#獨居日記",
-    "setInJapan": "本遊戲以日本為背景，金額皆為日圓。"
+    "hashtag": "#獨居日記"
   },
   "title": {
     "lead": "從搬出老家到30幾歲，<br>只靠選擇一路走完的人生模擬遊戲",
@@ -17,11 +16,12 @@
   "setup": {
     "heading": "開局設定",
     "gender": "性別",
+    "country": "國家／地區",
     "female": "女性",
     "male": "男性",
     "age": "開始獨居的年齡（{min}〜{max}歲）",
-    "savings": "存款（單位：萬日圓，{min}〜{max}）",
-    "income": "年收入（單位：萬日圓）",
+    "savings": "存款（單位：{unit}，{min}〜{max}）",
+    "income": "年收入（單位：{unit}）",
     "incomeHint": "年收入的初始值是該年齡的中位數。",
     "random": "隨機",
     "submit": "用這個設定開始",
@@ -97,6 +97,7 @@
       "text": "入住{n}年了。要續租這間房子嗎？",
       "renew": "續約",
       "renewSub": "續約費 {cost:money}",
+      "renewSubRaise": "房租調漲{pct}%",
       "move": "搬家",
       "moveSub": "重新找房子（需要入住費用）"
     },
@@ -265,6 +266,7 @@
     "married": "決定結婚了。新的生活就要開始。",
     "single": "決定一個人活下去。",
     "renewed": "續租了房子。續約費{cost:money}。",
+    "renewedRaise": "續約了。房租漲了{pct}%。",
     "moveOut": "決定搬離現在的房子。",
     "neighborTrouble": "因為跟隔壁鄰居起了糾紛，好幾天都睡不好。",
     "neighborEndured": "放棄搬家，決定先忍耐。",
@@ -315,5 +317,16 @@
     "high": "😊 充實",
     "mid": "🙂 普通",
     "low": "😞 提不起勁"
+  },
+  "countries": {
+    "jp": "日本",
+    "us": "美國",
+    "sg": "新加坡",
+    "ph": "菲律賓",
+    "ca": "加拿大",
+    "au": "澳洲",
+    "mx": "墨西哥",
+    "tw": "台灣",
+    "kr": "韓國"
   }
 }

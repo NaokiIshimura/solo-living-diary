@@ -390,7 +390,8 @@ test("新婚日記へ引き継ぐデータは、今の年収と車の値をそ�
   choose(data, state, { id: "branch" }, { marry: true });
   const d = handoffData(data, state);
   assert.deepEqual(d, {
-    v: 1,
+    v: 2,
+    country: "jp",
     gender: "male",
     age: 30,
     savings: Math.round(state.savings),
@@ -447,4 +448,71 @@ test("日記に書く出来事のキーは、すべて日本語の文がある",
   for (const id of data.titles) assert.ok(profileTexts.titles[id]?.desc, id);
   for (const r of data.ranks) assert.ok(profileTexts.ranks[r.rank]?.comment, r.rank);
   for (const e of data.endings) assert.ok(profileTexts.endings[e]?.name, e);
+});
+
+test("遊んでいる国を状態に持つ（途中保存と新婚日記への引き継ぎに使う）", () => {
+  const state = createGame(data, settings, 1);
+  assert.equal(state.country, data.country);
+  assert.equal(data.country, "jp");
+});
+
+test("国の対応表：言語ごとの既定の国は、プロファイルのそろった国の中から選ぶ", () => {
+  const countries = JSON.parse(readFileSync(new URL("../data/countries.json", import.meta.url), "utf8"));
+  for (const c of countries.available) {
+    const profile = JSON.parse(readFileSync(new URL(`../data/profiles/${c}.json`, import.meta.url), "utf8"));
+    assert.equal(profile.country, c);
+  }
+  for (const [lang, list] of Object.entries(countries.byLang)) {
+    assert.ok(list.length > 0, lang);
+    // そろった国は、その国を選べる言語の文を持つ
+    for (const c of list.filter((x) => countries.available.includes(x))) assert.ok(countries.texts[c].includes(lang), `${c}/${lang}`);
+  }
+  // texts に書いた言語の文のファイルがある
+  for (const [c, langs] of Object.entries(countries.texts)) {
+    for (const lang of langs) assert.ok(readFileSync(new URL(`../data/profiles/${c}/${lang}.json`, import.meta.url), "utf8"), `${c}/${lang}`);
+  }
+});
+
+test("更新料のない国は、部屋の更新で家賃が上がる", () => {
+  const raise = { ...data, events: { ...data.events, renewal: { every: 2, feeMonths: 0, rentIncrease: 0.04 } } };
+  const state = quiet();
+  const rent = state.room.annual;
+  state.year = 2;
+  const before = state.savings;
+  choose(raise, state, { id: "renewal" }, { renew: true });
+  assert.equal(state.savings, before); // 更新料はかからない
+  assert.ok(Math.abs(state.room.annual - rent * 1.04) < 1e-9);
+  assert.equal(state.history.at(-1).key, "h.renewedRaise");
+});
+
+test("開始設定の既定と刻みは国の値を使う", () => {
+  assert.equal(defaultSettings(data).savings, data.startSavings.default);
+  assert.equal(defaultSettings(data).income % data.inputStep, 0);
+});
+
+
+test("アメリカのプロファイル：日本と同じ項目を持ち、同じランクの線で釣り合う", () => {
+  const us = JSON.parse(readFileSync(new URL("../data/profiles/us.json", import.meta.url), "utf8"));
+  const shape = (v) => (Array.isArray(v) ? v.length : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v);
+  const { medianIncomeByAge: a, ...jpRest } = shape(data);
+  const { medianIncomeByAge: b, ...usRest } = shape(us);
+  assert.deepEqual(usRest, jpRest);
+  assert.equal(us.country, "us");
+  assert.equal(us.currency, "USD");
+
+  const usSettings = defaultSettings(us);
+  const median = (strategy) => {
+    const totals = [];
+    for (let seed = 1; seed <= 200; seed++) {
+      const state = playToEnd(us, usSettings, seed, strategy);
+      totals.push(state.ended === "bankrupt" ? -Infinity : netWorth(state).total);
+    }
+    return totals.sort((x, y) => x - y)[100];
+  };
+  assert.equal(rankOf(us, median("mid")).rank, "C"); // 日本と同じく「全部普通」は C
+  assert.equal(median("high"), -Infinity); // 全部高いは破綻する
+  assert.ok(median("none") > median("low") && median("low") > median("mid"));
+
+  const state = playToEnd(us, usSettings, 1, "mid");
+  assert.equal(handoffData(us, state).country, "us");
 });
