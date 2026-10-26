@@ -13,13 +13,13 @@
   "incomeMax": 30000,
   "inputStep": 100,
   "inputScale": 1,
-  "takeHomeRate": 0.88,
+  "takeHomeRate": 0.86,
   "medianIncomeByAge": {
-    "22": 2600,
-    "25": 3000,
-    "30": 3800,
-    "35": 4500,
-    "40": 5300
+    "22": 2700,
+    "25": 3200,
+    "30": 4000,
+    "35": 4600,
+    "40": 5200
   },
   "baseLiving": 480,
   "livingGrowthPerYear": 0.0125,
@@ -201,22 +201,22 @@
       "firstAge": 25,
       "reproposeAfter": 3,
       "breakdownCost": [
-        50,
-        300
+        100,
+        400
       ],
       "options": [
         {
           "tier": "high",
-          "oneTime": 2400,
-          "annual": 450,
+          "oneTime": 2800,
+          "annual": 350,
           "years": 10,
           "resale": 600,
           "breakdownChance": 0.05
         },
         {
           "tier": "mid",
-          "oneTime": 1200,
-          "annual": 400,
+          "oneTime": 1500,
+          "annual": 330,
           "years": 6,
           "resale": 300,
           "breakdownChance": 0.1
