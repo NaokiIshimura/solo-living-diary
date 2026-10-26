@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent
 SRC = ROOT / 'src'
 SITE = 'https://solo-living-diary.nacn.app/'
 # css・js・og.png を変えたら新しくする（古いキャッシュを使わせないため）
-ASSET_VER = '20261026a'
+ASSET_VER = '20261026b'
 # hreflang・sitemap.xml の順
 LANGS = ['ja', 'en', 'zh-tw', 'ko', 'es']
 # 言語を選ぶページと言語の切り替えリンクは、話者が多い順に並べる（英語・中国語・スペイン語・日本語・韓国語）
