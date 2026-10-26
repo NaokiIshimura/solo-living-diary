@@ -319,6 +319,13 @@
   },
   "countries": {
     "jp": "Japón",
-    "us": "Estados Unidos"
+    "us": "Estados Unidos",
+    "sg": "Singapur",
+    "ph": "Filipinas",
+    "ca": "Canadá",
+    "au": "Australia",
+    "mx": "México",
+    "tw": "Taiwán",
+    "kr": "Corea del Sur"
   }
 }

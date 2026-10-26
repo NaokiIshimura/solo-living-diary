@@ -162,7 +162,7 @@ $("#setup-country").addEventListener("change", async (e) => {
 
 // 年齢を変えたら、手で変えていない年収をその年齢の中央値にそろえる
 form.age.addEventListener("input", () => {
-  if (!incomeEdited) form.income.value = Math.round(medianIncome(data, readForm().age) / 10) * 10;
+  if (!incomeEdited) form.income.value = Math.round(medianIncome(data, readForm().age) / data.inputStep) * data.inputStep;
   updateMoneyHints();
 });
 form.income.addEventListener("input", () => (incomeEdited = true));
@@ -179,7 +179,7 @@ form.addEventListener("click", (e) => {
   } else if (key === "savings") form.savings.value = r.savings;
   else if (key === "income") {
     const median = medianIncome(data, current.age);
-    form.income.value = Math.round((median * (0.7 + Math.random() * 0.6)) / 10) * 10;
+    form.income.value = Math.round((median * (0.7 + Math.random() * 0.6)) / data.inputStep) * data.inputStep;
     incomeEdited = true;
   }
   updateMoneyHints();

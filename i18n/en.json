@@ -320,6 +320,13 @@
   },
   "countries": {
     "jp": "Japan",
-    "us": "United States"
+    "us": "United States",
+    "sg": "Singapore",
+    "ph": "Philippines",
+    "ca": "Canada",
+    "au": "Australia",
+    "mx": "Mexico",
+    "tw": "Taiwan",
+    "kr": "South Korea"
   }
 }
