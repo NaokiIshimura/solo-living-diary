@@ -152,7 +152,10 @@ function applyCountry() {
   Object.assign(form.income, { min: 0, max: toInput(data.incomeMax), step });
 }
 
-function showSetup() {
+// ほかの言語の国の続きを遊んだあとは、この言語で選べる国（先頭が既定）に戻す
+async function showSetup() {
+  const list = countriesFor(currentLang().code);
+  if (!list.includes(country)) await useCountry(list[0]);
   incomeEdited = false;
   applyCountry();
   fillForm(defaultSettings(data));
