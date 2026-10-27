@@ -47,7 +47,8 @@
       "partnerYears": "Año {n} de relación",
       "listSep": ", ",
       "car": "Auto"
-    }
+    },
+    "stage": "Tu vivienda y tú ahora"
   },
   "summary": {
     "head": "Finanzas a los {age} años",

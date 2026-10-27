@@ -47,7 +47,8 @@
       "partnerYears": "Dating, year {n}",
       "listSep": ", ",
       "car": "Car"
-    }
+    },
+    "stage": "Your room and you right now"
   },
   "summary": {
     "head": "Finances at {age}",

@@ -23,6 +23,7 @@ import {
 } from "./engine.js";
 import { LANGS, applyStatic, currentLang, loadLang, money, pageLang, t } from "./i18n.js";
 import { illustFor } from "./illust.js";
+import { drawStage } from "./stage.js";
 import { canvasToBlob, drawShareCard } from "./share.js";
 import { clearAll, loadRecords, loadSave, loadSettings, recordAchievement, recordResult, writeSave, writeSettings } from "./storage.js";
 
@@ -35,6 +36,10 @@ let data;
 let state = null;
 let speed = 1;
 let timer = null;
+// ステージのドット絵の揺れ（メイン画面にいるあいだだけ動かす。動きを減らす設定なら止めたまま）
+let stageTick = 0;
+let stageTimer = null;
+const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 let settings = loadSettings();
 let countries; // data/countries.json（プロファイルのそろった国と、言語ごとに選べる国）
 let country; // いまのプロファイルの国
@@ -93,6 +98,14 @@ function load() {
 function show(id) {
   for (const el of document.querySelectorAll(".screen")) el.hidden = el.id !== id;
   window.scrollTo(0, 0);
+  clearInterval(stageTimer);
+  stageTimer = null;
+  if (id === "screen-main" && !reduceMotion) {
+    stageTimer = setInterval(() => {
+      stageTick++;
+      renderStage();
+    }, 500);
+  }
 }
 
 function showTitle() {
@@ -264,6 +277,7 @@ function renderStatus() {
     [s("partner"), partner],
     [s("car"), state.car ? t(`events.car.${state.car.tier}.label`) : s("none")],
   ];
+  renderStage();
   $("#status").replaceChildren(
     ...items.map(([label, value, cls]) => {
       const div = document.createElement("div");
@@ -272,6 +286,25 @@ function renderStatus() {
       return div;
     }),
   );
+}
+
+// いまの部屋・家電・車と、本人（恋人がいれば恋人も）をドット絵で描く
+function renderStage() {
+  const c = $("#stage");
+  if (!state) return;
+  drawStage(
+    c.getContext("2d"),
+    {
+      sex: state.gender,
+      mood: bandOf(data, state.fulfillment),
+      room: state.room?.tier ?? null,
+      appliance: state.appliance?.tier ?? null,
+      car: state.car?.tier ?? null,
+      partner: Boolean(state.partner),
+    },
+    stageTick,
+  );
+  c.setAttribute("aria-label", t("main.stage"));
 }
 
 function setSpeed(s) {

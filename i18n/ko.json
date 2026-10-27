@@ -47,7 +47,8 @@
       "partnerYears": "교제 {n}년 차",
       "listSep": " · ",
       "car": "차"
-    }
+    },
+    "stage": "지금의 방과 나"
   },
   "summary": {
     "head": "{age}세의 가계",

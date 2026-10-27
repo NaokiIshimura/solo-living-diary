@@ -47,7 +47,8 @@
       "partnerYears": "交往第{n}年",
       "listSep": "、",
       "car": "車"
-    }
+    },
+    "stage": "現在的房間和自己"
   },
   "summary": {
     "head": "{age}歲的家計",
