@@ -47,7 +47,8 @@
       "partnerYears": "交際{n}年目",
       "listSep": "・",
       "car": "車"
-    }
+    },
+    "stage": "いまの部屋と自分"
   },
   "summary": {
     "head": "{age}歳の家計",

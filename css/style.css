@@ -124,6 +124,19 @@ input, select {
 .status .value { font-weight: bold; }
 .status .savings { grid-column: span 2; font-size: 1.1rem; }
 
+/* ドット絵のステージ（128×72 をくっきり拡大する） */
+.stage {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 8px auto 0;
+  aspect-ratio: 128 / 72;
+  image-rendering: pixelated;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
 .diary {
   flex: 1;
   overflow-y: auto;
