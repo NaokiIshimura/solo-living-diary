@@ -124,12 +124,12 @@ input, select {
 .status .value { font-weight: bold; }
 .status .savings { grid-column: span 2; font-size: 1.1rem; }
 
-/* ドット絵のステージ（128×72 をくっきり拡大する） */
+/* ドット絵のステージ（128×72 をくっきり拡大する）。メイン画面の一番上に置く */
 .stage {
   display: block;
   width: 100%;
-  max-width: 480px;
-  margin: 8px auto 0;
+  max-width: calc(20dvh * 16 / 9); /* 新婚日記と同じ：画面の高さの2割まで */
+  margin: 0 auto 8px;
   aspect-ratio: 128 / 72;
   image-rendering: pixelated;
   border: 1px solid var(--line);
