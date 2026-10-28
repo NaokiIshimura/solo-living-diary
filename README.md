@@ -51,9 +51,9 @@ python3 build.py         # src・i18n を変えたら書き出して、書き出
 node tools/make_og.cjs   # OGP 画像（Playwright が必要）
 ```
 
-データを `fetch` で読むので、ファイルを直接開くのではなく、静的サーバーで配信してください。
+データを `fetch` で読むので、ファイルを直接開くのではなく、静的サーバーで配信してください。ページの間のリンクは公開先（Cloudflare Pages）の正規URLと同じく `.html` を付けない（`howto`・`privacy`）ので、`.html` を外した URL も配信する `tools/serve.py` を使います（新婚日記と同じもの）。
 
 ```bash
-python3 -m http.server 8000
+python3 tools/serve.py 8000
 # http://localhost:8000/ja/ などを開く（http://localhost:8000/ は言語を選ぶページ）
 ```
