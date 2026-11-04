@@ -57,3 +57,8 @@ node tools/make_og.cjs   # OGP 画像（Playwright が必要）
 python3 tools/serve.py 8000
 # http://localhost:8000/ja/ などを開く（http://localhost:8000/ は言語を選ぶページ）
 ```
+
+## 公開（Cloudflare Pages）
+
+- 公開先は `https://solo-living-diary.nacn.app/`
+- `solo-living-diary.pages.dev` で開かれたら、`functions/_middleware.js`（Pages Functions）が `https://solo-living-diary.nacn.app/` の同じパスへ 301 で転送する。プレビュー（`<hash>.solo-living-diary.pages.dev` やブランチの別名）は確認できるよう転送しない
