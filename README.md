@@ -62,3 +62,12 @@ python3 tools/serve.py 8000
 
 - 公開先は `https://solo-living-diary.nacn.app/`
 - `solo-living-diary.pages.dev` で開かれたら、`functions/_middleware.js`（Pages Functions）が `https://solo-living-diary.nacn.app/` の同じパスへ 301 で転送する。プレビュー（`<hash>.solo-living-diary.pages.dev` やブランチの別名）は確認できるよう転送しない
+- Google アナリティクス：測定ID `G-NH0RLHNX0K`（nacn.app のゲームで共通）。全ページの head（`src/*.html` の「<!-- Google Analytics -->」）に入り、本番（`solo-living-diary.nacn.app`）で開いたときだけ gtag.js を読み込む。プレビュー・pages.dev・手元では計測しない（`gtag()` は定義されるので、イベントの呼び出しはエラーにならない）。ゲームから送るイベントは次のとおり（`js/app.js` の `track()`）
+
+  | イベント | いつ | パラメータ |
+  |---|---|---|
+  | `game_start` | 開始設定で「はじめる」か「おまかせ」を押したとき | `lang`・`country`（`jp` など）・`mode`（`custom`・`omakase`）・`start_age`・`gender` |
+  | `game_end` | 結果が出たとき（1回のプレイで1回） | `ending`（エンディングのキー。`married`・`single_low`・`bankrupt` など）・`rank`・`title`（称号のキー）・`end_age`・`achievements`（実績の数）・`lang`・`country` |
+  | `share` | 結果のシェアのボタンを押したとき | `method`（`x`・`native`・`download`）・`content_type: 'result'` |
+  | `retry` | 結果の「もう一度」を押したとき | `lang` |
+  | `select_content` | 新婚日記・ポータルなど、ほかの nacn.app のサイトへのリンクを押したとき | `content_type: 'game'`・`item_id`（リンク先のサブドメイン。ポータルは `portal`） |

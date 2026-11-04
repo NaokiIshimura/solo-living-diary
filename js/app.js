@@ -28,6 +28,11 @@ import { canvasToBlob, drawShareCard } from "./share.js";
 import { clearAll, loadRecords, loadSave, loadSettings, recordAchievement, recordResult, writeSave, writeSettings } from "./storage.js";
 
 const NEWLYWED_SITE = "https://newlywed-diary.nacn.app/";
+
+// Google アナリティクスのイベント（nacn.app のゲームで共通の名前）。gtag は本番のホストでだけ読み込むが、関数はどこでも定義されている
+function track(name, params = {}) {
+  if (typeof window.gtag === "function") window.gtag("event", name, params);
+}
 const SPEED_MS = { 1: 900, 2: 400 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -208,15 +213,17 @@ form.addEventListener("click", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  startGame(readForm());
+  startGame(readForm(), "custom");
 });
 
-$("#btn-omakase").addEventListener("click", () => startGame(randomSettings(data, newSeed())));
+$("#btn-omakase").addEventListener("click", () => startGame(randomSettings(data, newSeed()), "omakase"));
 
 // ---- メイン ----
 
-function startGame(start) {
+function startGame(start, mode) {
   state = createGame(data, start);
+  // mode は開始設定を自分で決めたか（custom）、おまかせか（omakase）
+  track("game_start", { lang: currentLang().code, country, mode, start_age: start.age, gender: start.gender });
   $("#diary").replaceChildren();
   shown = 0;
   flushDiary();
@@ -530,6 +537,8 @@ function showResult() {
   if (!state.recorded) {
     state.fresh = recordResult({ ending: ending.key, title, achievements: achieved, netWorth: state.ended === "bankrupt" ? null : nw.total });
     state.recorded = true;
+    // 結果が出た1回だけ送る（途中保存から結果を開き直しても送らない）
+    track("game_end", { ending: ending.key, rank: ending.rank, title, end_age: state.age, achievements: achieved.length, lang: currentLang().code, country });
   }
   const fresh = state.fresh;
   const mid = compareWithMid(data, state);
@@ -589,7 +598,10 @@ function showResult() {
       <ol class="timeline">${state.history.map((h) => `<li><span class="age">${t("main.age", { n: h.age })}</span>${historyText(h)}</li>`).join("")}</ol>
     </section>`;
   const link = $("#btn-continue-newlywed");
-  if (link) link.addEventListener("click", () => recordAchievement("continued"));
+  if (link) link.addEventListener("click", () => {
+    recordAchievement("continued");
+    track("select_content", { content_type: "game", item_id: "newlywed-diary" });
+  });
   renderShare(nw, ending, title);
   show("screen-result");
   save();
@@ -645,7 +657,10 @@ async function renderShare(nw, ending, title) {
   const file = blob && new File([blob], "solo-living-diary.png", { type: "image/png" });
   const canShare = !!(file && navigator.canShare && navigator.canShare({ files: [file] }));
   $("#btn-share").hidden = !canShare;
-  $("#btn-share").onclick = () => navigator.share({ files: [file], text }).catch(() => {});
+  $("#btn-share").onclick = () => {
+    track("share", { method: "native", content_type: "result" });
+    navigator.share({ files: [file], text }).catch(() => {});
+  };
 }
 
 // ---- エンディング図鑑 ----
@@ -705,7 +720,26 @@ $("#btn-clear").addEventListener("click", () => {
 
 $("#btn-start").addEventListener("click", showSetup);
 $("#btn-continue").addEventListener("click", continueGame);
-$("#btn-again").addEventListener("click", showSetup);
+$("#btn-again").addEventListener("click", () => {
+  track("retry", { lang: currentLang().code });
+  showSetup();
+});
+// 結果の画像の保存と X への投稿（href は結果ごとに差し替わるが、ボタンは同じ）
+$("#btn-post").addEventListener("click", () => track("share", { method: "x", content_type: "result" }));
+$("#btn-download").addEventListener("click", () => track("share", { method: "download", content_type: "result" }));
+// タイトル画面などの、ほかの nacn.app のゲーム・ポータルへのリンク（結果画面の新婚日記へのボタンは上で送る）
+document.addEventListener("click", (e) => {
+  const a = e.target.closest?.("a[href]");
+  if (!a || a.id === "btn-continue-newlywed") return;
+  let host;
+  try {
+    host = new URL(a.href).hostname;
+  } catch {
+    return;
+  }
+  if (host === location.hostname || !(host === "nacn.app" || host.endsWith(".nacn.app"))) return;
+  track("select_content", { content_type: "game", item_id: host === "nacn.app" ? "portal" : host.split(".")[0] });
+});
 $("#btn-gallery").addEventListener("click", showGallery);
 $("#btn-settings").addEventListener("click", showSettings);
 

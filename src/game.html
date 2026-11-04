@@ -12,13 +12,19 @@
 {{jsonld}}
   <link rel="stylesheet" href="../css/style.css?v={{v}}">
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH0RLHNX0K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-NH0RLHNX0K');
+    // 本番（solo-living-diary.nacn.app）でだけ計測する。プレビュー（*.pages.dev）や手元では読み込まない。
+    // gtag() はどのホストでも定義するので、ゲームの gtag('event', …) はエラーにならない（送られないだけ）
+    if (location.hostname === 'solo-living-diary.nacn.app') {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-NH0RLHNX0K';
+      document.head.appendChild(ga);
+      gtag('js', new Date());
+      gtag('config', 'G-NH0RLHNX0K');
+    }
   </script>
 </head>
 <body>
