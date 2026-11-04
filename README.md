@@ -71,3 +71,4 @@ python3 tools/serve.py 8000
   | `share` | 結果のシェアのボタンを押したとき | `method`（`x`・`native`・`download`）・`content_type: 'result'` |
   | `retry` | 結果の「もう一度」を押したとき | `lang` |
   | `select_content` | 新婚日記・ポータルなど、ほかの nacn.app のサイトへのリンクを押したとき | `content_type: 'game'`・`item_id`（リンク先のサブドメイン。ポータルは `portal`） |
+- 日記シリーズは人生の順番（ノスタルジア日記 → 一人暮らし日記 → 新婚日記）でつなぐ。タイトル画面の下に、前日譚（`https://nostalgia-diary.nacn.app/<言語>/`、文言は言語データの `title.prequel`）と続編（新婚日記、`title.sequel`）へのリンクを置く。結果画面からは新婚日記へ引き継ぎデータ付きで続く。ノスタルジア日記のエンディングからは、この一人暮らし日記へリンクしている
