@@ -398,4 +398,11 @@ body:has(#langSuggest:not([hidden])) #app { padding-top: 64px; }
 /* 姉妹作（新婚日記）へのリンク（タイトル） */
 .series-link { margin: 16px 0 0; text-align: center; font-size: 0.9rem; }
 .series-link a { color: var(--accent); }
+
+/* 広告枠（タイトル画面。AD_SLOT に広告ユニットIDを入れたときだけ出す） */
+.ad-box { display: grid; gap: 4px; justify-items: center; margin: 20px 0 0; padding: 8px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
+.ad-box[hidden] { display: none; }
+.ad-label { justify-self: start; font-size: 0.75rem; color: var(--muted); }
+.ad-box .adsbygoogle { display: block; width: 100%; min-height: 90px; }
+.ads-blocked .ad-box, .ads-blocked #kit .nk-ad { display: none !important; }
 .series-link.next { margin-top: 6px; }

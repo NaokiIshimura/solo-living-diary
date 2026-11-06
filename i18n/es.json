@@ -11,6 +11,7 @@
     "continue": "Continuar",
     "gallery": "Galería de finales",
     "settings": "Ajustes",
+    "ad": "Publicidad",
     "prequel": "Juega la precuela, Diario de Nostalgia",
     "sequel": "Juega la secuela, Diario de recién casados"
   },
@@ -290,7 +291,7 @@
     },
     "consent": {
       "label": "Consentimiento de cookies",
-      "text": "Usamos cookies para estadísticas. Puedes seguir jugando aunque no aceptes.",
+      "text": "Usamos cookies para estadísticas y anuncios. Puedes seguir jugando aunque no aceptes.",
       "policy": "Aviso de privacidad",
       "accept": "Aceptar",
       "reject": "Rechazar",
@@ -312,7 +313,7 @@
     },
     "privacy": {
       "title": "Aviso de privacidad",
-      "description": "Qué información guarda Diario de vida independiente (solo en tu navegador), cómo se comparte el resultado, la analítica (Google Analytics) y el consentimiento de cookies."
+      "description": "Qué información guarda Diario de vida independiente (solo en tu navegador), cómo se comparte el resultado, la publicidad (Google AdSense), la analítica (Google Analytics) y el consentimiento de cookies."
     }
   },
   "band": {

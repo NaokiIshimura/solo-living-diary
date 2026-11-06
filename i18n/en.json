@@ -11,6 +11,7 @@
     "continue": "Continue",
     "gallery": "Endings",
     "settings": "Settings",
+    "ad": "Advertisement",
     "prequel": "Play the prequel, Nostalgia Diary",
     "sequel": "Play the sequel, Newlywed Diary"
   },
@@ -291,7 +292,7 @@
     },
     "consent": {
       "label": "Cookie consent",
-      "text": "We use cookies for analytics. You can still play even if you decline.",
+      "text": "We use cookies for analytics and ads. You can still play even if you decline.",
       "policy": "Privacy policy",
       "accept": "Accept",
       "reject": "Decline",
@@ -313,7 +314,7 @@
     },
     "privacy": {
       "title": "Privacy policy",
-      "description": "What Solo Living Diary stores (only in your browser), how sharing results works, analytics with Google Analytics, cookie consent, and a notice for U.S. residents."
+      "description": "What Solo Living Diary stores (only in your browser), how sharing results works, advertising with Google AdSense, analytics with Google Analytics, cookie consent, and a notice for U.S. residents."
     }
   },
   "band": {
