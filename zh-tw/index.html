@@ -19,7 +19,7 @@
   <meta property="og:title" content="獨居日記｜從搬出老家到30幾歲，只靠選擇一路走完的人生模擬遊戲">
   <meta property="og:description" content="從出社會、搬出老家的那天到30歲出頭，只靠「買·不買／高·普通·低」的選擇一路走完的人生模擬遊戲。">
   <meta property="og:url" content="https://solo-living-diary.nacn.app/zh-tw/">
-  <meta property="og:image" content="https://solo-living-diary.nacn.app/zh-tw/og.png?v=20261104">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/zh-tw/og.png?v=20261106b">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -46,7 +46,7 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="../css/style.css?v=20261104">
+  <link rel="stylesheet" href="../css/style.css?v=20261106b">
   <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -171,6 +171,8 @@ function gtag(){dataLayer.push(arguments);}
           <a id="btn-post" class="button" target="_blank" rel="noopener" data-i18n="result.post">發佈到 X（Twitter）</a>
         </div>
       </section>
+      <!-- 結果画面の共通部品（連続日数と「次に遊ぶ」。シェアと新婚日記への導線はゲームのものを使う） -->
+      <div id="kit"></div>
       <div class="stack">
         <button id="btn-again" class="primary" data-i18n="result.again">再玩一次</button>
         <button class="ghost" data-back data-i18n="result.toTitle">回到標題</button>
@@ -219,7 +221,9 @@ function gtag(){dataLayer.push(arguments);}
     </div>
   </div>
 
-  <script type="module" src="../js/app.js?v=20261104"></script>
+  <!-- 結果画面の共通部品（シェア・ベストと連続日数・次に遊ぶゲーム。claude-skills の series-kit の写し） -->
+  <script src="../series-kit.js?v=20261106b"></script>
+  <script type="module" src="../js/app.js?v=20261106b"></script>
 <div class="suggest" id="langSuggest" hidden>
     <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
     <button type="button" class="suggest-close" id="langSuggestClose" aria-label="關閉">×</button>

@@ -103,6 +103,8 @@
           <a id="btn-post" class="button" target="_blank" rel="noopener" data-i18n="result.post"></a>
         </div>
       </section>
+      <!-- 結果画面の共通部品（連続日数と「次に遊ぶ」。シェアと新婚日記への導線はゲームのものを使う） -->
+      <div id="kit"></div>
       <div class="stack">
         <button id="btn-again" class="primary" data-i18n="result.again"></button>
         <button class="ghost" data-back data-i18n="result.toTitle"></button>
@@ -151,6 +153,8 @@
     </div>
   </div>
 
+  <!-- 結果画面の共通部品（シェア・ベストと連続日数・次に遊ぶゲーム。claude-skills の series-kit の写し） -->
+  <script src="../series-kit.js?v={{v}}"></script>
   <script type="module" src="../js/app.js?v={{v}}"></script>
 {{suggestBanner}}
 </body>
