@@ -16,6 +16,7 @@
 - 新婚日記へ続く：結婚エンドでは大きく、ひとりエンドでは小さくリンクを出す。性別・年齢・貯金・年収・車を `https://newlywed-diary.nacn.app/<言語>/?from=solo&d=<base64url>` で渡す（新婚日記側は `parseHandoff` で読み、引き継いだ開始設定から始める）
 - 国プロファイル：`data/countries.json` に、言語ごとに選べる国（先頭が既定）と、プロファイルのそろった国を書く。数値は `data/profiles/<国>.json`、文は `data/profiles/<国>/<言語>.json`。いまそろっているのは日本・アメリカ・シンガポール・フィリピン・カナダ・オーストラリア・メキシコ・台湾・韓国。数値の出典は設計書の「国プロファイル」
 - タイトル画面から続編の新婚日記へ、新婚日記のタイトル画面から一人暮らし日記へリンクする
+- 結果画面の共通部品（series-kit）：シェアの下・「もう一度」の上に、ルートの `series-kit.js` が連続日数（2日以上のとき）と「次に遊ぶ」のカード2枚（1枚目は日記シリーズのほかの作品、2枚目はほかのゲーム。日ごとに入れ替わる）を出す。シェア（画像カード）と新婚日記への引き継ぎのリンクはゲームのものを使い（`share: false`）、ベストの純資産はエンディング図鑑に出しているので kit のベストは出さない（`best: false`、点数も渡さない）。記録は localStorage の `nacn-kit:solo-living-diary`。`series-kit.js` は claude-skills の `series-kit` スキルの写しなので**直接は編集せず**、スキルの元の版を直して `scripts/build_kit.py --copy` で写し直し、`build.py` の `ASSET_VER` を新しくして書き出し直す。呼び出しは `js/app.js` の `showResult()`
 
 `npm run simulate` の結果（22歳・貯金100万円・年収250万円、方針ごとに1,000回）です。
 
@@ -71,4 +72,5 @@ python3 tools/serve.py 8000
   | `share` | 結果のシェアのボタンを押したとき | `method`（`x`・`native`・`download`）・`content_type: 'result'` |
   | `retry` | 結果の「もう一度」を押したとき | `lang` |
   | `select_content` | 新婚日記・ポータルなど、ほかの nacn.app のサイトへのリンクを押したとき | `content_type: 'game'`・`item_id`（リンク先のサブドメイン。ポータルは `portal`） |
+  | `select_content`（結果画面） | 結果画面の「次に遊ぶ」のカードを押したとき（series-kit が送る。リンクに `utm_source=solo-living-diary&utm_medium=next_card&utm_campaign=series_kit` を付ける） | `content_type: 'game'`・`item_id`（リンク先のゲーム）・`from: 'solo-living-diary'` |
 - 日記シリーズは人生の順番（ノスタルジア日記 → 一人暮らし日記 → 新婚日記）でつなぐ。タイトル画面の下に、前日譚（`https://nostalgia-diary.nacn.app/<言語>/`、文言は言語データの `title.prequel`）と続編（新婚日記、`title.sequel`）へのリンクを置く。結果画面からは新婚日記へ引き継ぎデータ付きで続く。ノスタルジア日記のエンディングからは、この一人暮らし日記へリンクしている

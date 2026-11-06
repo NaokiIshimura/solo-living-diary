@@ -603,6 +603,9 @@ function showResult() {
     track("select_content", { content_type: "game", item_id: "newlywed-diary" });
   });
   renderShare(nw, ending, title);
+  // series-kit：連続日数と「次に遊ぶ」だけ。シェア（画像カード）と新婚日記への導線はゲームのもの。
+  // ベストの純資産はエンディング図鑑に出しているので、kit のベストは出さない
+  if (window.NacnKit) window.NacnKit.result($("#kit"), { game: "solo-living-diary", lang: currentLang().code, best: false, share: false });
   show("screen-result");
   save();
 }
@@ -731,6 +734,7 @@ $("#btn-download").addEventListener("click", () => track("share", { method: "dow
 document.addEventListener("click", (e) => {
   const a = e.target.closest?.("a[href]");
   if (!a || a.id === "btn-continue-newlywed") return;
+  if (a.closest(".nacn-kit")) return; // 結果画面の「次に遊ぶ」は series-kit が送る
   let host;
   try {
     host = new URL(a.href).hostname;

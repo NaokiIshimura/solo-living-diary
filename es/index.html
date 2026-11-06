@@ -19,7 +19,7 @@
   <meta property="og:title" content="Diario de vida independiente | De independizarte a los 30, un simulador de vida a base de decisiones">
   <meta property="og:description" content="Un simulador de vida: desde que dejas la casa de tus padres con tu primer empleo hasta los primeros años de tus 30, solo eligiendo «comprar o no» y «caro, normal o barato».">
   <meta property="og:url" content="https://solo-living-diary.nacn.app/es/">
-  <meta property="og:image" content="https://solo-living-diary.nacn.app/es/og.png?v=20261104">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/es/og.png?v=20261106">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -46,7 +46,7 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="../css/style.css?v=20261104">
+  <link rel="stylesheet" href="../css/style.css?v=20261106">
   <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -171,6 +171,8 @@ function gtag(){dataLayer.push(arguments);}
           <a id="btn-post" class="button" target="_blank" rel="noopener" data-i18n="result.post">Publicar en X (Twitter)</a>
         </div>
       </section>
+      <!-- 結果画面の共通部品（連続日数と「次に遊ぶ」。シェアと新婚日記への導線はゲームのものを使う） -->
+      <div id="kit"></div>
       <div class="stack">
         <button id="btn-again" class="primary" data-i18n="result.again">Jugar otra vez</button>
         <button class="ghost" data-back data-i18n="result.toTitle">Al inicio</button>
@@ -219,7 +221,9 @@ function gtag(){dataLayer.push(arguments);}
     </div>
   </div>
 
-  <script type="module" src="../js/app.js?v=20261104"></script>
+  <!-- 結果画面の共通部品（シェア・ベストと連続日数・次に遊ぶゲーム。claude-skills の series-kit の写し） -->
+  <script src="../series-kit.js?v=20261106"></script>
+  <script type="module" src="../js/app.js?v=20261106"></script>
 <div class="suggest" id="langSuggest" hidden>
     <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
     <button type="button" class="suggest-close" id="langSuggestClose" aria-label="Cerrar">×</button>
