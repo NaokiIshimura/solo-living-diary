@@ -605,7 +605,7 @@ function showResult() {
   renderShare(nw, ending, title);
   // series-kit：連続日数と「次に遊ぶ」だけ。シェア（画像カード）と新婚日記への導線はゲームのもの。
   // ベストの純資産はエンディング図鑑に出しているので、kit のベストは出さない
-  if (window.NacnKit) window.NacnKit.result($("#kit"), { game: "solo-living-diary", lang: currentLang().code, best: false, share: false });
+  if (window.NacnKit) window.NacnKit.result($("#kit"), { game: "solo-living-diary", lang: currentLang().code, best: false, share: false, exclude: ["newlywed-diary"] }); // 新婚日記への引き継ぎリンクと重ならないように
   show("screen-result");
   save();
 }
