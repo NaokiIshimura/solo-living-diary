@@ -34,6 +34,10 @@ function track(name, params = {}) {
   if (typeof window.gtag === "function") window.gtag("event", name, params);
 }
 const SPEED_MS = { 1: 900, 2: 400 };
+// 広告（Google AdSense）。AD_SLOT に広告ユニットIDを入れるまで、広告枠は出さない。
+// 出すのはタイトル画面（#ad-box）と結果画面（series-kit の adSlot）だけ
+const AD_CLIENT = "ca-pub-3999397576072658";
+const AD_SLOT = "";
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -118,6 +122,24 @@ function showTitle() {
   $("#btn-continue").hidden = !load();
   $("#title-illust").innerHTML = illustFor("title");
   show("screen-title");
+  setupAd();
+}
+
+// タイトル画面の広告枠。見えている枠でないと広告の幅が決まらないので、タイトル画面を出したときに1回だけ読み込む。
+// ローカルファイルで開いたときは配信されないので枠を出さない
+let adReady = false;
+function setupAd() {
+  if (adReady || !AD_CLIENT || !AD_SLOT || location.protocol === "file:") return;
+  adReady = true;
+  const slot = $("#ad-slot");
+  slot.dataset.adClient = AD_CLIENT;
+  slot.dataset.adSlot = AD_SLOT;
+  $("#ad-box").hidden = false;
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch {
+    // 広告が読めなくてもゲームは続ける
+  }
 }
 
 for (const b of document.querySelectorAll("[data-back]")) b.addEventListener("click", showTitle);
@@ -605,7 +627,7 @@ function showResult() {
   renderShare(nw, ending, title);
   // series-kit：連続日数と「次に遊ぶ」だけ。シェア（画像カード）と新婚日記への導線はゲームのもの。
   // ベストの純資産はエンディング図鑑に出しているので、kit のベストは出さない
-  if (window.NacnKit) window.NacnKit.result($("#kit"), { game: "solo-living-diary", lang: currentLang().code, best: false, share: false, exclude: ["newlywed-diary"] }); // 新婚日記への引き継ぎリンクと重ならないように
+  if (window.NacnKit) window.NacnKit.result($("#kit"), { game: "solo-living-diary", lang: currentLang().code, best: false, share: false, adSlot: AD_SLOT, exclude: ["newlywed-diary"] }); // 新婚日記への引き継ぎリンクと重ならないように
   show("screen-result");
   save();
 }

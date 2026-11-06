@@ -11,6 +11,7 @@
     "continue": "繼續",
     "gallery": "結局圖鑑",
     "settings": "設定",
+    "ad": "廣告",
     "prequel": "也來玩前傳《懷舊日記》",
     "sequel": "也來玩續作《新婚日記》"
   },
@@ -290,7 +291,7 @@
     },
     "consent": {
       "label": "Cookie 同意",
-      "text": "本網站使用 Cookie 進行流量統計。即使不同意，也能照常遊玩。",
+      "text": "本網站使用 Cookie 進行流量統計與廣告。即使不同意，也能照常遊玩。",
       "policy": "隱私權政策",
       "accept": "同意",
       "reject": "不同意",
@@ -312,7 +313,7 @@
     },
     "privacy": {
       "title": "隱私權政策",
-      "description": "說明獨居日記儲存的資訊（只存在您使用的瀏覽器中）、結果的分享、流量分析（Google Analytics）與 Cookie 同意。"
+      "description": "說明獨居日記儲存的資訊（只存在您使用的瀏覽器中）、結果的分享、廣告投放（Google AdSense）、流量分析（Google Analytics）與 Cookie 同意。"
     }
   },
   "band": {

@@ -19,7 +19,7 @@
   <meta property="og:title" content="자취일기 | 본가를 떠난 날부터 30대까지, 선택만으로 달려가는 인생 시뮬레이션">
   <meta property="og:description" content="취직해서 본가를 떠난 날부터 30대 초반까지 &#x27;산다·안 산다 / 비싸게·보통·싸게&#x27; 선택만으로 달려가는 인생 시뮬레이션.">
   <meta property="og:url" content="https://solo-living-diary.nacn.app/ko/">
-  <meta property="og:image" content="https://solo-living-diary.nacn.app/ko/og.png?v=20261106b">
+  <meta property="og:image" content="https://solo-living-diary.nacn.app/ko/og.png?v=20261106c">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -46,7 +46,7 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="../css/style.css?v=20261106b">
+  <link rel="stylesheet" href="../css/style.css?v=20261106c">
   <!-- Cookie の同意の初期値（nacn.app 共通。GA・AdSense のタグより前に置く。元の版は claude-skills の consent-mode スキル） -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -87,6 +87,9 @@ function gtag(){dataLayer.push(arguments);}
       gtag('config', 'G-NH0RLHNX0K');
     }
   </script>
+  <!-- Google AdSense（審査でこのタグの有無を確認されるので head に直接置く）。広告ブロッカーなどで読み込めなければ広告枠を隠す -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3999397576072658"
+       crossorigin="anonymous" onerror="document.documentElement.classList.add('ads-blocked')"></script>
 </head>
 <body>
   <main id="app">
@@ -105,6 +108,11 @@ function gtag(){dataLayer.push(arguments);}
       <!-- 日記シリーズを人生の順番でつなぐ：ノスタルジア日記（子どものころ）→ 一人暮らし日記 → 新婚日記 -->
       <p class="series-link"><a href="https://nostalgia-diary.nacn.app/ko/" data-i18n="title.prequel">프리퀄 「노스탤지어 일기」도 플레이하기</a></p>
       <p class="series-link next"><a href="https://newlywed-diary.nacn.app/ko/" data-i18n="title.sequel">속편 「신혼일기」도 플레이하기</a></p>
+      <!-- 広告枠（js/app.js の AD_SLOT に広告ユニットIDを入れるまで出さない。結果画面は series-kit の枠を使う） -->
+      <aside class="ad-box" id="ad-box" aria-labelledby="ad-label" hidden>
+        <span class="ad-label" id="ad-label" data-i18n="title.ad">광고</span>
+        <ins class="adsbygoogle" id="ad-slot" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </aside>
       <nav class="lang-switch langs"><a href="../en/" hreflang="en" lang="en" data-code="en">English</a><a href="../zh-tw/" hreflang="zh-TW" lang="zh-Hant-TW" data-code="zh-tw">繁體中文</a><a href="../es/" hreflang="es" lang="es-419" data-code="es">Español</a><a href="../ja/" hreflang="ja" lang="ja" data-code="ja">日本語</a><a href="../ko/" hreflang="ko" lang="ko" data-code="ko" aria-current="true">한국어</a></nav>
       <nav class="site-nav" aria-label="사이트 내 페이지">
         <ul data-consent-menu>
@@ -222,8 +230,8 @@ function gtag(){dataLayer.push(arguments);}
   </div>
 
   <!-- 結果画面の共通部品（シェア・ベストと連続日数・次に遊ぶゲーム。claude-skills の series-kit の写し） -->
-  <script src="../series-kit.js?v=20261106b"></script>
-  <script type="module" src="../js/app.js?v=20261106b"></script>
+  <script src="../series-kit.js?v=20261106c"></script>
+  <script type="module" src="../js/app.js?v=20261106c"></script>
 <div class="suggest" id="langSuggest" hidden>
     <span id="langSuggestText"></span> <a id="langSuggestLink" href="#"></a>
     <button type="button" class="suggest-close" id="langSuggestClose" aria-label="닫기">×</button>
@@ -263,7 +271,7 @@ function gtag(){dataLayer.push(arguments);}
 
 <!-- Cookie の同意のバナー（nacn.app 共通。元の版は claude-skills の consent-mode スキル） -->
 <div class="nacn-consent" id="nacnConsent" role="region" aria-label="쿠키 동의" hidden>
-  <p>이 사이트는 방문 통계를 위해 쿠키를 사용합니다. 동의하지 않아도 그대로 즐길 수 있습니다. <a href="/ko/privacy">개인정보 처리방침</a></p>
+  <p>이 사이트는 방문 통계와 광고를 위해 쿠키를 사용합니다. 동의하지 않아도 그대로 즐길 수 있습니다. <a href="/ko/privacy">개인정보 처리방침</a></p>
   <div class="nacn-consent-btns">
     <button type="button" data-consent="granted">동의</button>
     <button type="button" data-consent="denied">거부</button>

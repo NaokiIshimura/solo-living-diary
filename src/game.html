@@ -26,6 +26,9 @@
       gtag('config', 'G-NH0RLHNX0K');
     }
   </script>
+  <!-- Google AdSense（審査でこのタグの有無を確認されるので head に直接置く）。広告ブロッカーなどで読み込めなければ広告枠を隠す -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3999397576072658"
+       crossorigin="anonymous" onerror="document.documentElement.classList.add('ads-blocked')"></script>
 </head>
 <body>
   <main id="app">
@@ -44,6 +47,11 @@
       <!-- 日記シリーズを人生の順番でつなぐ：ノスタルジア日記（子どものころ）→ 一人暮らし日記 → 新婚日記 -->
       <p class="series-link"><a href="https://nostalgia-diary.nacn.app/{{code}}/" data-i18n="title.prequel"></a></p>
       <p class="series-link next"><a href="https://newlywed-diary.nacn.app/{{code}}/" data-i18n="title.sequel"></a></p>
+      <!-- 広告枠（js/app.js の AD_SLOT に広告ユニットIDを入れるまで出さない。結果画面は series-kit の枠を使う） -->
+      <aside class="ad-box" id="ad-box" aria-labelledby="ad-label" hidden>
+        <span class="ad-label" id="ad-label" data-i18n="title.ad"></span>
+        <ins class="adsbygoogle" id="ad-slot" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </aside>
 {{langNav}}
 {{siteNav}}
     </section>
